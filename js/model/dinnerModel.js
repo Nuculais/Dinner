@@ -3,6 +3,7 @@ var DinnerModel = function() {
 
 	var guestNum = 0;
 	var menuDishes = [];
+  var num = 1;
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -38,8 +39,10 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
+
 		return menuDishes;
+
+    //TODO Lab 1
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -55,7 +58,7 @@ var DinnerModel = function() {
       }
     }
     return allIngredients;
-    
+
 		//TODO Lab 1
 	}
 
@@ -90,7 +93,6 @@ var DinnerModel = function() {
 			{
 				menuDishes.push(theDish);
 			}
-
 		}
 		//TODO Lab 1
 	}
