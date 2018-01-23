@@ -4,10 +4,11 @@ background-color: white;
 
 #hlcol{
   background-color: grey;
+  text-align: center;
 }
 
 #headline{
-  
+
 }
 
 #row1 {
@@ -20,6 +21,7 @@ text-align: left;
 
 #col1 {
   background-color: green;
+  height:100%;
 }
 
 #separator {
@@ -28,6 +30,22 @@ height: 5%;
 background-color: black;
 }
 
+#dish1{
+  width:50%;
+}
+#cost1{
+  width: 50%;
+}
+
 #col2 {
 background-color: red;
+}
+
+#finddish{
+  height: 20%;
+}
+
+#dishes{
+  background-color: blue;
+  height: 80%;
 }

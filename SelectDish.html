@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div clas="container-fluid">
+    <div class="container-fluid">
       <div class="row" id="row1">
         <div class="col-md-12" id="hlcol">
             <div id="headline"><h2>Dinner Planner</h2></div>
@@ -21,31 +21,45 @@
 
 <div class="row" id="row2">
   <div class="col-md-4" id="col1">
-        <div id="peoplecost">
+      <div id="peoplecost">
           <h4>My dinner</h4>
           <p>Guests</p>
           <div id='separator'>
-            <p>Dish</p><p>Cost</p>
+            <div id='dish1'>Dish</div>
+            <div id='cost1'>Cost</div>
           </div>
           <p id='cost'>SEK 0.00</p>
           <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
         </div>
-      </div>
+
     </div>
 
   <div class="col-md-8" id="col2">
-      <div id='finddish'>
-      <p>Find a dish</hp>
-      <input type='search' id='dishsearch' placeholder='Enter keywords...'>
+    <div class="row">
+
+      <div class="col-md-6" id="finddish">
+          <p>Find a dish</hp>
+          <input type='search' id='dishsearch' placeholder='Enter keywords...'>
+        </div>
+          <div  class="col-md-6" id="dishdropdown">
+          <div class="dropdown">
+           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">All types</a></li>
+                <li><a href="#">Main course</a></li>
+                <li><a href="#">Side dish</a></li>
+                <li><a href="#">Dessert</a></li>
+                <li><a href="#">Appetizer</a></li>
+              </ul>
+           </div>
       </div>
 
-      <div class='dishes'>
+      <div id="dishes">
       </div>
   </div>
 </div>
 </div>
-</div>
 
-
-  </body>
-  </html>
+ </body>
+</html>
