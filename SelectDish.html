@@ -12,28 +12,39 @@
   </head>
 
   <body>
-      <div id='Headline'>
+    <div clas="container-fluid">
+      <div class="row" id="row1">
+        <div class="col-md-12" id="hlcol">
+            <div id="headline"><h2>Dinner Planner</h2></div>
       </div>
+    </div>
 
-      <div id='peoplecost'>
-        <h1>My dinner</h1>
-        <p>Guests</p>
+<div class="row" id="row2">
+  <div class="col-md-4" id="col1">
+        <div id="peoplecost">
+          <h4>My dinner</h4>
+          <p>Guests</p>
           <div id='separator'>
-            <p>Dish</p>
-            <p>Cost</p>
+            <p>Dish</p><p>Cost</p>
           </div>
           <p id='cost'>SEK 0.00</p>
-          <button id=dinconfirm' onclick='GoToNextpageFunctionThatDoesNotExistYet()>Confirm Dinner</button>
+          <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
+        </div>
       </div>
+    </div>
 
+  <div class="col-md-8" id="col2">
       <div id='finddish'>
-      <h1>Find a dish</h1>
-      <input id='dishsearch' type='search' placeholder='Enter keywords...'>
+      <p>Find a dish</hp>
+      <input type='search' id='dishsearch' placeholder='Enter keywords...'>
       </div>
 
-      <div id='dishes'>
+      <div class='dishes'>
       </div>
-
+  </div>
+</div>
+</div>
+</div>
 
 
   </body>
