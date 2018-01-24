@@ -20,9 +20,16 @@ text-align: left;
 }
 
 #col1 {
-  background-color: green;
+  background-color: white;
   height:100%;
 }
+
+#col1 > p {
+display: inline;
+border-style: solid;
+border-width: 5px;
+border-color: grey;
+    }
 
 #separator {
 width: 100%;
@@ -30,19 +37,31 @@ height: 5%;
 background-color: black;
 }
 
-#dish1{
-  width:50%;
-}
-#cost1{
-  width: 50%;
+#cost{
+    padding-left:40px;
 }
 
+
 #col2 {
-background-color: red;
+    background-color: white;
+    height: 100%;
+    
 }
+
+    #col2 > p {
+        display: inline;
+        border-style: solid;
+        border-width: 5px;
+        border-color: grey;
+    }
 
 #finddish{
   height: 20%;
+  padding-top: 25px;
+}
+
+.dropdown{
+    padding-top: 25px;
 }
 
 #dishes{
