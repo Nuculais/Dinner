@@ -23,25 +23,25 @@
   <div class="col-md-3" id="col1">
       <div id="peoplecost">
           <h4>My dinner</h4>
-          <p>Guests</p>
+          <span>Guests</span><span id="totalguests"># of guests goes here</span>
           <div id='separator'>
             <span id="dfloat">Dish</span>
             <span id="cost1">Cost</span>
           </div>
-          <span id='cost2'>SEK 0.00</span></br>
+          <span id="finaldish">dish goes here</span>
+          <span id='totalcost'>SEK 0.00</span></br><br/>
           <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
         </div>
 
     </div>
 
   <div class="col-md-9" id="col2">
-    <div class="row">
-
-      <div class="col-md-6" id="finddish">
-          <p>Find a dish</p>
-          <input type='search' id='dishsearch' placeholder='Enter keywords...'>
-        </div>
-          <div  class="col-md-6" id="dishdropdown">
+    <div class="row" id="finddish">
+      <div class="col-md-12" id="finddishcol">
+          <span>Find a dish</span>
+          <span id="searchen"><input type='search' id='dishsearch' placeholder='Enter keywords...'></span>
+      <!---  </div>
+          <div  class="col-md-6" id="dishdropdown"> -->
           <div class="dropdown">
            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type
               <span class="caret"></span></button>
@@ -54,9 +54,13 @@
               </ul>
            </div>
       </div>
-
+        </div>
+    <div class="row">
+        <div class="col-md-12" id="dishescol">
       <div id="dishes">
       </div>
+        </div>
+        </div>
   </div>
 </div>
 </div>
