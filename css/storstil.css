@@ -37,10 +37,21 @@ height: 5%;
 background-color: black;
 }
 
-#cost{
-    padding-left:40px;
+#dfloat{
+    padding-left:15px;
 }
-
+#cost1{
+    padding-right: 15px;
+    float: right;
+}
+#cost2{
+    padding-left: 40px;
+    float: right;
+}
+#dinconfirm{
+  text-align:center;
+  display:block;
+}
 
 #col2 {
     background-color: white;
