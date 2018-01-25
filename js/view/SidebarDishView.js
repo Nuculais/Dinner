@@ -1,12 +1,12 @@
-//Select Dish View
+//Sidebar Dish View
 
-var SelectDishView = function (container, model) {
+var SidebarDishView = function (container, model) {
 
     //Guests and cost
     var totGuests = model.getNumberOfGuests();
     var totCost = model.getTotalMenuPrice();
     var guestsspan = container.find("#totalguests");
-    guestsspan.html(totGuests);
+    guestsspan.htmlSiedebarDishView(totGuests);
     var costspan = container.find("#totalcost");
     costspan.html("SEK "+ totCost);
 
