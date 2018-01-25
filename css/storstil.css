@@ -84,7 +84,9 @@ text-align: left;
     padding-top: 25px;
     padding-left:30px;
 }
-
+#searchdishes{
+    float:right;
+}
 #dishes{
   background-color: blue;
   height: 80%;
