@@ -18,9 +18,13 @@ var SelectDishView = function (container, model) {
     var allDishes = model.getAllDishes(dishType, dishKey);
 
 
+
+
     //Generating the shown dishes
+    var wherethedishesare = container.find("#dishes");
 
-    var showdish1 = container.find("#dish1");
-    //The dishes shown. However, these would probably need to be procedurally generated somehow as there could be infinite dishes?
-
-}
+    this.showAllDishes = function(allDishes){
+      for(var i=0; i<allDishes.length;i++){
+        
+      }
+    }
