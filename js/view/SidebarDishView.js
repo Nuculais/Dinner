@@ -17,16 +17,4 @@ var SidebarDishView = function (container, model) {
 
     var allDishes = model.getAllDishes(dishType, dishKey);
 
-
-
-
-    //Generating the shown dishes
-    var wherethedishesare = container.find("#dishes");
-
-    this.showAllDishes = function(allDishes){
-      for(var i=0; i<allDishes.length;i++){
-
-        var food = $('<div id="food'+i '"><span id="dishname">'+allDishes[i].name+'</span></div>');
-        wherethedishesare.appendChild(food);
-      }
     }

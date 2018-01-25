@@ -35,7 +35,7 @@ Searching.appendChild(searching);
     </div>
       </div>
       </div>');
-      
+
       ShowDishes.appendChild(showing);
 
   var wherethedishesare = container.find("#dishes");
@@ -43,7 +43,7 @@ Searching.appendChild(searching);
   this.showAllDishes = function(allDishes){
   for(var i=0; i<allDishes.length;i++){
 
-  var food = $('<div id="food'+i '"><span id="dishname">'+allDishes[i].name+'</span></div>');
+  var food = $('<div id="food'+i '"><img src='+allDishes[i].image+'<span id="dishname">'+allDishes[i].name+'</span></div>');
   wherethedishesare.appendChild(food);
     }
   }
