@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/storstil.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row" id="row1">
+        <div class="col-md-12" id="hlcol">
+            <div id="headline"><h2>Dinner Planner</h2></div>
+      </div>
+    </div>
+
+<div class="row" id="row2">
+  <div class="col-md-3" id="col1">
+      <div id="peoplecost">
+          <h4>My dinner</h4>
+          <span>Guests</span><span id="totalguests"># of guests goes here</span>
+          <div id='separator'>
+            <span id="dfloat">Dish</span>
+            <span id="cost1">Cost</span>
+          </div>
+          <span id="finaldish">dish goes here</span>
+          <span id='totalcost'>SEK 0.00</span></br><br/>
+          <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
+        </div>
+
+    </div>
+
+  <!--<div class="col-md-9" id="col2">
+    <div class="row" id="finddish">
+      <div class="col-md-12" id="finddishcol">
+          <span>Find a dish</span>
+          <span id="searchen"><input type='search' id='dishsearch' placeholder='Enter keywords...'></span> -->
+      <!---  </div>
+          <div  class="col-md-6" id="dishdropdown"> -->
+          <!--  <div class="dropdown" id="dropdown">
+         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">All types</a></li>
+                <li><a href="#">Main course</a></li>
+                <li><a href="#">Side dish</a></li>
+                <li><a href="#">Dessert</a></li>
+                <li><a href="#">Appetizer</a></li>
+              </ul>
+           </div>
+          <input type='button' id='searchdishes' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Search'>
+      </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-12" id="dishscol">
+      <div id="dishDetails">
+      </div>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
+<script scr="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.css.js"></script>
+<script src="js/view/DishDetailsView.js"></script>
+<script scr="js/app.js"></script>
+ </body>
+</html>

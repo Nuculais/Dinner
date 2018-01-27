@@ -5,7 +5,7 @@ $(function() {
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"), model);
 	var sidebarDishView = new SidebarDishView($("#SidebarDishView"), model);
-	var dishDetailsView = new DishDetailsView($("#DishDetailsView"), model);
+	var dishDetailsView = new DishDetailsView($('#dishscol'), model);
 	var findDishView = new FindDishView($("#FindDishView"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#DinnerOverviewView"), model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#DishDetailsView"), model);
