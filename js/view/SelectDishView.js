@@ -26,7 +26,8 @@ var SelectDishView = function (container, model) {
     this.showAllDishes = function(allDishes){
       for(var i=0; i<allDishes.length;i++){
 
-        var food = $('<div id="food'+i '"><span id="dishname">'+allDishes[i].name+'</span></div>');
+        var food = $('<div id="food'+i+'"><span id="dishname">'+allDishes[i].name+'</span></div>');
         wherethedishesare.appendChild(food);
       }
     }
+}

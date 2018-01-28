@@ -7,60 +7,91 @@
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="js/common/jquery-3.3.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/storstil.css">
+	<script src="js/model/dinnerModel.js" type="text/javascript" ></script>
+	<script type="text/javascript" src="js/view/FindDishView.js"></script>
+	<script type="text/javascript" src="js/view/exampleView.js"></script>
+	<script type="text/javascript" src="js/view/DinnerPrintoutView.js"></script>
+	<script type="text/javascript" src="js/view/DinnerOverviewView.js"></script>
+	<script type="text/javascript" src="js/view/DishDetailsView.js"></script>
+	<script type="text/javascript" src="js/view/SelectDishView.js"></script>
+	<script type="text/javascript" src="js/view/SidebarDishView.js"></script>
+	<script type="text/javascript" src="js/view/SelectDishAgainView.js"></script>
+	<script type="text/javascript" src="js/app.js"  ></script>
+
+
+	<script type="text/javascript" >
+	function minusGuest(){
+		var oldVal = parseInt(document.getElementById("guests").value);
+		if(oldVal == 0 )
+			alert("Number of Guests cannot be less than 0");
+		else
+		document.getElementById("guests").value = oldVal-1;
+	}
+	function addGuest(){
+		var oldVal = parseInt(document.getElementById("guests").value);
+		document.getElementById("guests").value = oldVal+1;
+	}
+	</script>
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="row" id="row1">
         <div class="col-md-12" id="hlcol">
-            <div id="headline"><h2>Dinner Planner</h2></div>
-      </div>
+            <div class="jumbotron">
+				<div align="center">
+					<h1 >Dinner planner</h1>
+				</div>
+			</div>
+        </div>
     </div>
 
+<!-- Sidebar -->
 <div class="row" id="row2">
-  <div class="col-md-3" id="sideBarView">
-      <div id="peoplecost">
-          <h4>My dinner</h4>
-          <span>Guests</span><span id="totalguests"># of guests goes here</span>
-          <div id='separator'>
-            <span id="dfloat">Dish</span>
-            <span id="cost1">Cost</span>
-          </div>
-          <span id="finaldish">dish goes here</span>
-          <span id='totalcost'>SEK 0.00</span></br><br/>
-          <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
-        </div>
+  <div class="col-md-3 collapse in" id="SideBarDishView" >
+  <button data-toggle="collapse" data-target="#peoplecost">
+	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </button>
+    <div id="peoplecost" >
+        <h4>My dinner</h4>
+        <span>
+		  Guests
+			<input type="text" value="0" id="guests" disabled />
+			<button id="minusGuest" class="btn-xs btn-default" onclick='minusGuest()'>
+				<span class="glyphicon glyphicon-minus" />
+			</button>
+			<button id="plusGuest" class="btn-xs btn-default" onclick='addGuest()' >
+				<span class="glyphicon glyphicon-plus" />
+			</button>
+		</span>
+	<div id='separator'>
+        <span id="dfloat">Dish</span>
+        <span id="cost1">Cost</span>
     </div>
+    <span id="finaldish">dish goes here</span>
+    <span id="totalcost">SEK 0.00</span>
+	<br/>
+	<br/>
+    <input type='button' id='dinconfirm' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Confirm Dinner'>
+	</div>
+</div>
+<div class="col-md-9" id="FindDishView">
+  <div class="col-md-12" id="DishView">
+  </div>
+</div>
+ </div>
+<!-- sidebar ends -->
 
-  <div class="col-md-9" id="DishView">
-    <div class="row" id="finddish">
-      <div class="col-md-12" id="finddishcol">
-          <span>Find a dish</span>
-          <span id="searchen"><input type='search' id='dishsearch' placeholder='Enter keywords...'></span>
-      <!---  </div>
-          <div  class="col-md-6" id="dishdropdown"> -->
-          <div class="dropdown" id="dropdown">
-           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">All types</a></li>
-                <li><a href="#">Main course</a></li>
-                <li><a href="#">Side dish</a></li>
-                <li><a href="#">Dessert</a></li>
-                <li><a href="#">Appetizer</a></li>
-              </ul>
-           </div>
-          <input type='button' id='searchdishes' onclick='GoToNextPageFunctionThatDoesNotExistYet()' value='Search'>
-      </div>
-        </div>
-    <div class="row">
-        <div class="col-md-12" id="dishescol">
-      <div id="dishes">
-      </div>
-        </div>
-        </div>
+
+
+
+<div id="dishes"></div>
+<!-- dish View -->
+
   </div>
 </div>
 </div>

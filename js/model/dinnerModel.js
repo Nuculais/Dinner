@@ -3,7 +3,8 @@ var DinnerModel = function() {
 
 	var guestNum = 0;
 	var menuDishes = [];
-  var num = 1;
+    var num = 1;
+	var allIngredients = [];
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -48,8 +49,6 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 
-    var allIngredients = [];
-
     for(var i=0;i<menuDishes.length;i++)
     { //Can you really do like that?
       for(var j=0;j<(menuDishes[i].ingredients).length;j++)
@@ -70,9 +69,9 @@ var DinnerModel = function() {
     {
       totalPrice += allIngredients[i].price;
     }
-      totalPrice = (totalprice * guestNum);
+      totalPrice = (totalPrice * guestNum);
 
-      return totalprice;
+      return totalPrice;
 
 		//TODO Lab 1
 	}
@@ -392,5 +391,9 @@ var DinnerModel = function() {
 			}]
 		}
 	];
+		this.getDishes = function(){
+		return dishes;
+	}
+
 
 }
