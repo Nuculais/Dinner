@@ -6,8 +6,8 @@ var DinnerOverviewView = function (container, model) {
 
     var overview = $('<div class="row">
         <div class="col-md-12" id= "dinoverheadline" >
-            <h3>My dinner</h3>
-            <span>'+numguests+' + guests</span>
+            <h3>My dinner: </h3>
+            <span>'+numguests+' guests</span>
             <input type="button" id="dinedit" onclick="FunctionThatDoesNotExistYet()" value="Go back and edit dinner">
                 </div></div>
                 <div class="row">
