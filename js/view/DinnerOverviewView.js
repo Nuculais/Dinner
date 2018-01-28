@@ -1,7 +1,7 @@
 //Dinner Overview View
 var DinnerOverviewView = function (container, model) {
 
-    var dinnerOverview = container.find('#dishDetails');
+    var dinnerOverview = container.find('#DishView');
     var numguests = model.getNumberOfGuests();
 
     var overview = $('<div class="row">
@@ -26,10 +26,10 @@ var DinnerOverviewView = function (container, model) {
 
        dinnerOverview.appendChild(overview);
 
-        //Show the menu dishes and their totalprice
+        //Show the menu dishes and their total price
        var showingmenudishes = container.find("#dinovermain");
 
-       menu = model.getFullMenu();
+       var menu = model.getFullMenu();
 
        var dishprices = function(id, num){
            var theDish = model.getDish(id);

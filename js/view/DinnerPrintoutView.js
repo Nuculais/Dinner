@@ -2,7 +2,7 @@
 var DinnerPrintoutView = function (container, model) {
 
     //The top headline (should maybe be a separate view?)
-    var dinnerPrint = container.find('#dishDetails');
+    var dinnerPrint = container.find('#DishView');
     var numguests = model.getNumberOfGuests();
 
     var printout = $('<div class="row">
