@@ -12,7 +12,7 @@ var DishDetailsView = function (container, model) {
       this.dishDetailsFrame.hide();
 
   var Details = '<div class="row"><div class="col-md-6"><div class="card">';
-    Details += '<img class="card-img-top" src="images/' + dish.image + '" alt="Card image cap">';
+    Details += '<img class="card-img-top" src="images/' + dish.image + '" alt="Card image cap"/>';
     Details += '<div class="card-body"><h5 class="card-title">' + dish.name + '</h5>';
     Details += '<p class="card-text">' + dish.description + '</p>';
     Details += '<button class="btn btn-primary" onclick="$(this).backToMenu();">Back to search</button>';
@@ -35,7 +35,7 @@ var DishDetailsView = function (container, model) {
 }
     $.fn.backToMenu = function() {
     //  $('#dish-index-holder').show();
-      $('#dishDetails').empty().hide();
+      container.find("#dishDetails").empty().hide();
     }
 
     $.fn.addItemWithIdToMenu = function(id) {

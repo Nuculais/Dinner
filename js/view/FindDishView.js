@@ -58,12 +58,10 @@ var elem = document.createElement("div");
       data += allDishes[i].name + '</button></h5>';
       data += '</div></div></div>';
 
-  //var data = '<img src=./images/'+allDishes[i].image+'><span id="dishname">'+allDishes[i].name+'</span>';
   elem.id="food"+i;
   elem.innerHTML=data;
-  //var food = $('<div id="food'+i+'"><img src='+allDishes[i].image+'<span id="dishname">'+allDishes[i].name+'</span></div>');
+
   wherethedishesare.appendChild(elem);
     }
-  //}
 
 }
