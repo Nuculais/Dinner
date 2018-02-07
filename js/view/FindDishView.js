@@ -1,7 +1,7 @@
 //Find Dish View
 
 var FindDishView = function(container, model){
-var Searching = document.getElementById('DishView');
+var Searching = container.find('DishView');
 //var data = ' <div class="col-md-12" id="finddishcol">      <span>Find a dish</span>      <span id="searchen"><input type="search" id="dishsearch" placeholder="Enter keywords..."></span>  <!---  </div>      <div  class="col-md-6" id="dishdropdown"> -->      <div class="dropdown" id="dropdown">       <button class="btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type          <span class="caret"></span></button>          <ul class="dropdown-menu">            <li><a href="#">All types</a></li>            <li><a href="#">Main course</a></li>            <li><a href="#">Side dish</a></li>            <li><a href="#">Dessert</a></li>            <li><a href="#">Appetizer</a></li>          </ul>           </div><input type="button" id="searchdishes" onclick="GoToNextPageFunctionThatDoesNotExistYet()" value="Search">           </div>';
 
 var data = '<span>Find a dish</span>';
@@ -35,14 +35,14 @@ Searching.appendChild(searching);
 
 
   //Generating the shown dishes
-  var ShowDishes = document.getElementById('DishView');
+  var ShowDishes = container.find('DishView');
   var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
   var showing = document.createElement('div');
   data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';
   showing.class="row";
   showing.innerHTML = data;
   ShowDishes.appendChild(showing);
-  var wherethedishesare = document.getElementById("dishes");
+  var wherethedishesare = container.find("dishes");
   var allDishes = model.getDishes();
 
   //this.showAllDishes = function(allDishes){
