@@ -1,5 +1,8 @@
 //Find Dish View
 
+var Update = function(){
+  model.
+}
 var FindDishView = function(container, model){
 var Searching = container.find('DishView');
 //var data = ' <div class="col-md-12" id="finddishcol">      <span>Find a dish</span>      <span id="searchen"><input type="search" id="dishsearch" placeholder="Enter keywords..."></span>  <!---  </div>      <div  class="col-md-6" id="dishdropdown"> -->      <div class="dropdown" id="dropdown">       <button class="btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dish type          <span class="caret"></span></button>          <ul class="dropdown-menu">            <li><a href="#">All types</a></li>            <li><a href="#">Main course</a></li>            <li><a href="#">Side dish</a></li>            <li><a href="#">Dessert</a></li>            <li><a href="#">Appetizer</a></li>          </ul>           </div><input type="button" id="searchdishes" onclick="GoToNextPageFunctionThatDoesNotExistYet()" value="Search">           </div>';

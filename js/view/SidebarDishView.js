@@ -1,16 +1,22 @@
 //Sidebar Dish View
 
+    //Observer pattern
+    this.Update = function(){
+
+    }
+
+
 var SidebarDishView = function (container, model) {
 
     //Guests & cost
     var totGuests = model.getNumberOfGuests();
     var totCost = model.getTotalMenuPrice();
-	document.getElementById("guests").value = totGuests;
-	document.getElementById("totalcost").value="SEK "+ totCost;
+	container.find("#guests").value = totGuests;
+	container.find("#totalcost").value="SEK "+ totCost;
 
 
     //Searching & Filtering //Why is this here? This should be in FindDish, should it not?
-    var dishKey = document.getElementById("dishsearch").value;
+    var dishKey = container.find("#dishsearch").value;
 	var dishType = container.find("#dropdown").on("show.bs.dropdown", function(event){
 						var x = $(event.relatedTarget).text(); // Get the text of the element
 						return(x);});
@@ -20,15 +26,15 @@ var SidebarDishView = function (container, model) {
 
     //Plus & minus guest buttons
     function minusGuest(){
-        var oldVal = parseInt(document.getElementById("guests").value);
+        var oldVal = parseInt(container("#guests").value);
         if(oldVal == 0 )
             alert("Number of Guests cannot be less than 0"); //Suggestion: simply make less than zero result in 0?
         else
-            document.getElementById("guests").value = oldVal-1;
+            container.find("#guests").value = oldVal-1;
     }
     function addGuest(){
-        var oldVal = parseInt(document.getElementById("guests").value);
-        document.getElementById("guests").value = oldVal+1;
+        var oldVal = parseInt(container.find("#guests").value);
+        container.find("#guests").value = oldVal+1;
     }
 
 

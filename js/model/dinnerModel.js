@@ -1,4 +1,21 @@
 //DinnerModel Object constructor
+
+	//Observer pattern
+	var observers = [];
+
+	this.addObserver = function(observer){
+		observers.add(observer);
+	}
+
+	this.notifyObservers = function(obj){
+		//obj = state of the model
+		for(int i=0;i<observers.length;i++)
+		{
+			observers[i].Update(obj);
+		}
+	}
+
+
 var DinnerModel = function() {
 
 	var guestNum = 0;
