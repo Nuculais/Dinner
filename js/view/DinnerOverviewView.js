@@ -1,5 +1,13 @@
 //Dinner Overview View
 
+    //Observer pattern
+    model.addObserver(this);
+    this.Update = function(what){
+
+
+
+    }
+
 var DinnerOverviewView = function (container, model) {
 
     var dinnerOverview = container.find('#row2');

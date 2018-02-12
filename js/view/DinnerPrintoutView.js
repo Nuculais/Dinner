@@ -1,4 +1,12 @@
 //Dinner Printout View
+
+  //Observer pattern
+  model.addObserver(this);
+  this.Update = function(){
+    
+  }
+
+
 var DinnerPrintoutView = function (container, model) {
 
     //The top headline (should maybe be a separate view?)

@@ -1,5 +1,8 @@
 //DinnerModel Object constructor
 
+//All generated HTML and its for loops go in the update functions!
+//The controllers hold the click events and only have code in app.js, not in the views!
+
 	//Observer pattern
 	var observers = [];
 
@@ -20,7 +23,7 @@ var DinnerModel = function() {
 
 	var guestNum = 0;
 	var menuDishes = [];
-    var num = 1;
+  var num = 1;
 	var allIngredients = [];
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -30,6 +33,8 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 
 		guestNum += num;
+
+		this.notifyObservers("guestsnum");
 		//TODO Lab 1
 	}
 
@@ -110,6 +115,8 @@ var DinnerModel = function() {
 				menuDishes.push(theDish);
 			}
 		}
+
+		notifyObservers("addDish");
 		//TODO Lab 1
 	}
 
@@ -123,6 +130,8 @@ var DinnerModel = function() {
     {
       menuDishes.splice(menuDishes[i],1);
     }
+
+		notifyObservers("removeDish");
 		//TODO Lab 1
 	}
 
