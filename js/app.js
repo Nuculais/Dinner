@@ -20,19 +20,31 @@ $( document ).ready(function() {
 
 	var showSidebar = function(){
 		sidebarDishView.show();
+		dishDetailsView.hide();
+		findDishView();
+		dinnerOverviewView.hide();
 		//Also need to hide the others
 	}
 	var showDishDetails = function(){
 		dishDetailsView.show();
+		findDishView.hide();
+		dinnerOverviewView.hide();
 	}
 	var showFindDish = function(){
 		findDishView.show();
+		dishDetailsView.hide();
+		dinnerOverviewView.hide();
 	}
 	var showDinnerOverview = function(){
 		dinnerOverviewView.show();
+		dishDetailsView.hide();
+		findDishView.hide();
 	}
 	var showDinnerPrintout = function(){
 		dinnerPrintoutView();
+		dishDetailsView.hide();
+		findDishView.hide();
+		dinnerOverviewView.hide();
 	}
 
 
