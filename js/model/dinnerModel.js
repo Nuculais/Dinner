@@ -12,7 +12,7 @@
 
 	this.notifyObservers = function(obj){
 		//obj = state of the model
-		for(int i=0;i<observers.length;i++)
+		for(var i=0; i<observers.length; i++)
 		{
 			observers[i].Update(obj);
 		}

@@ -1,15 +1,26 @@
-$( document ).ready(function() {
+$(function() {
+
     //We instantiate our model
 	var model = new DinnerModel();
 
 	//model.setNumberOfGuests(document.getElementById("guests").value);
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"), model);
-  var sidebarDishView = new SidebarDishView($("#SidebarDishView"), model);
+	var dinnercost = new DinnerCost($("#dinnercost"), model);
+	var selectView = new SelectView($('#selectView'), model);
+	var dinnerdetailsView = new DetailsView($('#dinnerdetailsView'), model);
+	var dinneroverviewView = new OverviewView($('#dinneroverviewView'), model);
+
+/*  var sidebarDishView = new SidebarDishView($("#SidebarDishView"), model);
 	var findDishView = new FindDishView($("#FindDishView"), model);
 	var dishDetailsView = new DishDetailsView($("#DishDetailsView"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#DinnerOverviewView"), model);
-	var dinnerPrintoutView = new DinnerPrintoutView($("#DishDetailsView"), model);
+	var dinnerPrintoutView = new DinnerPrintoutView($("#DishDetailsView"), model);*/
+	$('#newDinner').click(function(){
+		$('#indexScreen').toggleClass('hidden');
+		$('body').toggleClass('hiddenBackgroundImage');
+		$('#selectdinnerView').toggleClass('hidden');
+	});
 
 	//controllers
 	var sidebarDishController = function(view, model)
@@ -20,7 +31,7 @@ $( document ).ready(function() {
 
 		view.minusGuest.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-		});
+	});
 
 		//Display the dish name/s as well
 	}
