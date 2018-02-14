@@ -6,7 +6,7 @@ $(function() {
 	//model.setNumberOfGuests(document.getElementById("guests").value);
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"), model);
-	var dinnercost = new DinnerCost($('#dinnercost'), model);
+	var dinnercost = new SidebarDishView($('#dinnercost'), model);
 	var selectView = new SelectView($('#selectView'), model);
 	var dinnerdetailsView = new DetailsView($('#dinnerdetailsView'), model);
 	var dinneroverviewView = new OverviewView($('#dinneroverviewView'), model);
@@ -40,7 +40,7 @@ $(function() {
 	{
 		view.dinconfirm.click(function(){
 			showFindDish();
-		)};
+		});
 	}
 
 	var dishDetailsController = function(view, model)
@@ -53,11 +53,11 @@ $(function() {
 	{
 		view.dinedit.click(function(){
 			showFindDish();
-		)};
-		
+		});
+
 		view.dinprint.click(function(){
 			showDinnerPrintout();
-		)};
+		});
 
 	var dinnerPrintoutController = function(view, model)
 	{
@@ -110,5 +110,5 @@ $(function() {
 	}
 
 
-
+}
 });
