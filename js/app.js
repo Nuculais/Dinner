@@ -6,7 +6,7 @@ $(function() {
 	//model.setNumberOfGuests(document.getElementById("guests").value);
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"), model);
-	var dinnercost = new DinnerCost($("#dinnercost"), model);
+	var dinnercost = new DinnerCost($('#dinnercost'), model);
 	var selectView = new SelectView($('#selectView'), model);
 	var dinnerdetailsView = new DetailsView($('#dinnerdetailsView'), model);
 	var dinneroverviewView = new OverviewView($('#dinneroverviewView'), model);

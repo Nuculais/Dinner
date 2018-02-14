@@ -60,6 +60,3 @@ var FindDishView = function(container, model){
   this.search = container.find('#search');
   this.container = container;
 
-
-
-}

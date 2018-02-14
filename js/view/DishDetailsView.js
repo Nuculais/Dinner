@@ -17,18 +17,16 @@ else if what == "removeDish"
 
 
 
-
 var DishDetailsView = function (container, model) {
-{
-  this.dishDetailsFrame = container.find('#dinnerdetailsView');
-  this.dishDetails = function(e){
-    var id = e.target.id.replace('dish-','');
-    var dish = model.getdish(id);
+
+{ this.container = container;
+  this.dishDetails = function(){
+    var dishid = model.getDishId();
     if(dish=== undefined || dish === null){
     return;
   }
 
-      this.dishDetailsFrame.hide();
+      this.DishDetailsView.hide();
 
   var Details = '<div class="row"><div class="col-md-6"><div class="card">';
     Details += '<img class="card-img-top" src="images/' + dish.image + '" alt="Card image cap"/>';
