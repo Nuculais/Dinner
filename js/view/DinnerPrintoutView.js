@@ -3,14 +3,14 @@
   //Observer pattern
   model.addObserver(this);
   this.Update = function(){
-    
+
   }
 
 
 var DinnerPrintoutView = function (container, model) {
 
     //The top headline (should maybe be a separate view?)
-    var dinnerPrint = container.find('#row2');
+    var dinnerPrint = container.find('#');
     var numguests = model.getNumberOfGuests();
 
     var printout = '<div class="row" id="row3">';
