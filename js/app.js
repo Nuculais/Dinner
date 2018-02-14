@@ -24,7 +24,7 @@ $(function() {
 
 	//controllers
 
-	var sidebarDishController = function(view, model)
+	var sidebarDishController = function(sidebarDishView, model)
 	{
 		view.plusGuest.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
@@ -37,7 +37,7 @@ $(function() {
 		//Display the dish name/s as well
 	}
 
-	var findDishController = function(view, model)
+	var findDishController = function(findDishview, model)
 	{
 		view.dinconfirm.click(function(){
 			showFindDish();
@@ -56,7 +56,7 @@ $(function() {
 		});
 	}
 
-	var dinnerDetailsController = function(view, model)
+	var dinnerDetailsController = function(dinnerDetailsView, model)
 	{
 		view.dinEdit.click(function(){
 		showFindDish();
@@ -70,7 +70,7 @@ $(function() {
 	}
 
 
-	var dinnerOverviewController = function(view, model)
+	var dinnerOverviewController = function(dinnerOverviewView, model)
 	{
 		view.goBackAndEditDinner.click(function(){
 			showFindDish();
@@ -80,7 +80,7 @@ $(function() {
 			showDinnerPrintout();
 		});
 
-	var dinnerPrintoutController = function(view, model)
+	var dinnerPrintoutController = function(dinnerPrintoutView, model)
 	{
 		view.dinedit.click(function(){
 			showFindDish();
@@ -105,13 +105,15 @@ $(function() {
 	}
 	var showDishDetails = function(){
 		dinnerDetailsView.show();
+		sidebarDishView.show();
 		findDishView.hide();
 		dinnerOverviewView.hide();
 		dinnerPrintoutView.hide();
 	}
 	var showFindDish = function(){
 		findDishView.show();
-		dishDetailsView.hide();
+		sidebarDishView.show();
+		dinnerDetailsView.hide();
 		dinnerOverviewView.hide();
 		dinnerPrintoutView.hide();
 	}
