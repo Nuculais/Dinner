@@ -33,16 +33,16 @@
       sidebarcon.appendChild(sidebar);
 
 
-      if what == "guestsnum"
+      if(what == "guestsnum")
       {
         container.find("#guests").value = model.getNumberOfGuests();
         container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
       }
-      else if what == "addDish"
+      else if (what == "addDish")
       {
         container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
       }
-      else if what == "removeDish"
+      else if (what == "removeDish")
       {
         container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
       }

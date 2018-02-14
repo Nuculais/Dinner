@@ -38,7 +38,9 @@ $(function() {
 
 	var findDishController = function(view, model)
 	{
-
+		view.dinconfirm.click(function(){
+			showFindDish();
+		)};
 	}
 
 	var dishDetailsController = function(view, model)
@@ -46,10 +48,16 @@ $(function() {
 
 	}
 
+
 	var dinnerOverviewController = function(view, model)
 	{
-
-	}
+		view.dinedit.click(function(){
+			showFindDish();
+		)};
+		
+		view.dinprint.click(function(){
+			showDinnerPrintout();
+		)};
 
 	var dinnerPrintoutController = function(view, model)
 	{

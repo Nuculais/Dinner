@@ -1,14 +1,13 @@
 //Dinner Overview View
 
-    //Observer pattern
-    model.addObserver(this);
-    this.Update = function(what){
-
-
-
 var DinnerOverviewView = function (container, model) {
 
-    var dinnerOverview = container.find('#DinnerOverviewView');
+  //Observer pattern
+  model.addObserver(this);
+  this.Update = function(what){
+
+
+    var dinnerOverview = container.find('#dinnerOverviewView');
     var numguests = model.getNumberOfGuests();
 
     //HTML generation
@@ -29,11 +28,12 @@ var DinnerOverviewView = function (container, model) {
         overview += ' <input type="button" id="dinprint" onclick="FunctionThatDoesNotExistYet()" value="Print Full Recipe">';
         overview += ' </div> </div>';
 
+       dinnerOverviewView.empty();
        dinnerOverview.appendChild(overview);
 
 
        //Find the menu dishes and their total price
-       var showingmenudishes = container.find("#dinovermain");
+       var showingmenudishes = container.find("#dinnerOverviewView");
        var menu = model.getFullMenu();
 
        var dishprices = function(id, num){

@@ -1,13 +1,14 @@
 //Dinner Printout View
 
-  //Observer pattern
-  model.addObserver(this);
-  this.Update = function(){
 
-  }
+
 
 
 var DinnerPrintoutView = function (container, model) {
+
+  //Observer pattern
+  model.addObserver(this);
+  this.Update = function(){
 
     //The top headline (should maybe be a separate view?)
     //fix when there is a div for it to attach to
@@ -39,5 +40,5 @@ var DinnerPrintoutView = function (container, model) {
                 food+= '</div></div>';
 
                 fullDinner.appendChild(food); } }
-
+}
         }
