@@ -53,14 +53,14 @@ $(function() {
 		});
 
 		view.searchdishes.click(function(){
-			var type= view.container.find('.dropdown').on('show-bs-dropdown', function(grej){
-				thetype = $(grej.relatedTarget).text(); //global, meant to be
+			var type= view.container.find('.dropdown').on('show.bs.dropdown', function(grej){
+				var thetype = $(grej.relatedTarget).text();
+				return thetype;
 			});
 
 			var filter = view.container.find('#searchForm').value.toLowerCase();
 
-
-			model.getAllDishes(thetype.toLowerCase(), filter);
+			model.getAllDishes(type.toLowerCase(), filter);
 
 
 		});

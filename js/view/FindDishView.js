@@ -2,6 +2,7 @@
 
 
 var FindDishView = function(container, model){
+  //Observer pattern
   model.addObserver(this);
   this.Update = function(what){
 
@@ -26,7 +27,7 @@ var FindDishView = function(container, model){
       showing.class="row";
       showing.innerHTML = data;
       ShowDishes.appendChild(showing);
-      var wherethedishesare = container.find("dishes");
+      var wherethedishesare = container.find("#dishes");
       var allDishes = model.getDishes();
 
 

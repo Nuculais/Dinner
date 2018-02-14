@@ -27,7 +27,7 @@ var SidebarDishView = function (container, model) {
         sidebar+= '<span id="finaldish">dish goes here</span>';
         sidebar+= '<span id="totalcost">SEK 0.00</span>';
         sidebar+= '<br/> <br/>';
-        sidebar+= '<input type="button" id="dinconfirm" onclick="GoToNextPageFunctionThatDoesNotExistYet()" value="Confirm Dinner">';
+        sidebar+= '<input type="button" id="dinconfirm" value="Confirm Dinner">';
         sidebar+= '</div> </div>';
 
         var sidebarcon = container.find("#dinnercost");
@@ -37,7 +37,7 @@ var SidebarDishView = function (container, model) {
 
         if(what == "guestsnum")
         {
-          container.find("#guests").value = model.getNumberOfGuests();
+          container.find("#numberOfGuests").value = model.getNumberOfGuests();
           container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
         }
         else if (what == "addDish")
@@ -54,16 +54,16 @@ var SidebarDishView = function (container, model) {
     //Guests & cost
     var totGuests = model.getNumberOfGuests();
     var totCost = model.getTotalMenuPrice();
-	   container.find("#guests").value = totGuests;
+	   container.find("#numberOfGuests").value = totGuests;
 	   container.find("#totalcost").value="SEK "+ totCost;
 
 
     //Searching & Filtering //Why is this here? This should be in FindDish, should it not?
-    var dishKey = container.find("#dishsearch").value;
+  /*  var dishKey = container.find("#dishsearch").value;
 	  var dishType = container.find("#dropdown").on("show.bs.dropdown", function(event){
 						var x = $(event.relatedTarget).text(); // Get the text of the element
 						return(x);});
-    var allDishes = model.getAllDishes(dishType, dishKey);
+    var allDishes = model.getAllDishes(dishType, dishKey); */
 
 
     //Plus & minus guest buttons. This is supposed to be done through the controller in app.js
