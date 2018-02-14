@@ -1,9 +1,5 @@
 //Dinner Printout View
 
-
-
-
-
 var DinnerPrintoutView = function (container, model) {
 
   //Observer pattern
