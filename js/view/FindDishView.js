@@ -1,6 +1,5 @@
 //Find Dish View
 
-
 var FindDishView = function(container, model){
   //Observer pattern
   model.addObserver(this);
