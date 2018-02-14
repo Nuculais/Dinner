@@ -6,11 +6,9 @@
 
 
 
-    }
-
 var DinnerOverviewView = function (container, model) {
 
-    var dinnerOverview = container.find('#row2');
+    var dinnerOverview = container.find('#DinnerOverviewView');
     var numguests = model.getNumberOfGuests();
 
     //HTML generation

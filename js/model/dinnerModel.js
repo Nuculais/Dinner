@@ -1,13 +1,5 @@
 //DinnerModel Object constructor
 
-//All generated HTML and its for loops go in the update functions!
-//The controllers hold the click events and only have code in app.js, not in the views!
-
-
-
-
-
-
 
 var DinnerModel = function() {
 	//Observer pattern

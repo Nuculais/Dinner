@@ -1,14 +1,32 @@
 //Dish Details view
-var DishDetailsView = function (container, model) {
-{ this.container = container;
 
+model.addObserver(this);
+this.Update = function(what){
+
+if what == "addDish"
+{
+  SidebarDishView.container.find('#costList').value = model.addDishToMenu(id);
+  SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+}
+else if what == "removeDish"
+{
+  SidebarDishView.container.find('#costList').value = model.removeDishFromMenu(id);
+  SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+}
+
+
+
+
+var DishDetailsView = function (container, model) {
+
+{ this.container = container;
   this.dishDetails = function(){
     var dishid = model.getDishId();
     if(dish=== undefined || dish === null){
     return;
   }
 
-      this.dishDetailsFrame.hide();
+      this.DishDetailsView.hide();
 
   var Details = '<div class="row"><div class="col-md-6"><div class="card">';
     Details += '<img class="card-img-top" src="images/' + dish.image + '" alt="Card image cap"/>';
@@ -34,7 +52,7 @@ var DishDetailsView = function (container, model) {
 }
     $.fn.backToMenu = function() {
     //  $('#dish-index-holder').show();
-      container.find("#dishDetails").empty().hide();
+      container.find("#dinnerdetailsView").empty().hide();
     }
 
     $.fn.addItemWithIdToMenu = function(id) {

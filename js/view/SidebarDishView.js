@@ -28,7 +28,8 @@
       sidebar+= '<input type="button" id="dinconfirm" onclick="GoToNextPageFunctionThatDoesNotExistYet()" value="Confirm Dinner">';
       sidebar+= '</div> </div>';
 
-      var sidebarcon = container.find("#row2");
+      var sidebarcon = container.find("#dinnercost");
+      sidebarcon.empty();
       sidebarcon.appendChild(sidebar);
 
 
@@ -45,7 +46,6 @@
       {
         container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
       }
-
     }
 
 
