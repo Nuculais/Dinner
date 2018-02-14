@@ -3,7 +3,6 @@ $(function() {
     //We instantiate our model
 	var model = new DinnerModel();
 
-	//model.setNumberOfGuests(document.getElementById("guests").value);
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"), model);
 	var sidebarDishView = new SidebarDishView($("#dinnercost"), model);
@@ -24,14 +23,6 @@ $(function() {
 	});
 
 	//controllers
-
-	/*var indexController = function(view, model)
-	{
-		view.newDinner.click(function(){
-
-		});
-
-	}:*/
 
 	var sidebarDishController = function(view, model)
 	{
@@ -62,13 +53,20 @@ $(function() {
 
 			model.getAllDishes(type.toLowerCase(), filter);
 
-
 		});
 	}
 
-	var dishDetailsController = function(view, model)
+	var dinnerDetailsController = function(view, model)
 	{
+		view.dinEdit.click(function(){
+		showFindDish();
+		});
 
+		view.addConfirm.click(function(){
+		var dishID = container.find('#dishname').value; //Assuming this is the dish's ID. Otherwise: (container.find('#dishname').value.toLowerCase()).id;
+		model.addDishToMenu(dishID);
+		showFindDish();
+		});
 	}
 
 
@@ -107,14 +105,12 @@ $(function() {
 	}
 	var showDishDetails = function(){
 		dinnerDetailsView.show();
-		sidebarDishView.hide();
 		findDishView.hide();
 		dinnerOverviewView.hide();
 		dinnerPrintoutView.hide();
 	}
 	var showFindDish = function(){
 		findDishView.show();
-		sidebarDishView.hide();
 		dishDetailsView.hide();
 		dinnerOverviewView.hide();
 		dinnerPrintoutView.hide();
