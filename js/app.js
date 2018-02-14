@@ -6,12 +6,12 @@ $(function() {
 	//model.setNumberOfGuests(document.getElementById("guests").value);
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"), model);
-	var sidebarDishView = new SidebarDishView($("#SidebarDishView"), model);
-	var dinnercost = new SidebarDishView($('#dinnercost'), model);
-	var selectDishView = new FindDishView($('#selectDishView'), model);
-	var dinnerdetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
-	var dinneroverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
-	var dinnerprintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
+	var sidebarDishView = new SidebarDishView($("#dinnercost"), model);
+	//var dinnercost = new SidebarDishView($('#dinnercost'), model);
+	var findDishView = new FindDishView($('#selectDishView'), model);
+	var dishDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
+	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
+	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
 
 
 
