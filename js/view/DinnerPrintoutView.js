@@ -10,6 +10,7 @@
 var DinnerPrintoutView = function (container, model) {
 
     //The top headline (should maybe be a separate view?)
+    //fix when there is a div for it to attach to
     var dinnerPrint = container.find('#');
     var numguests = model.getNumberOfGuests();
 

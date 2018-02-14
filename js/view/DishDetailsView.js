@@ -1,23 +1,21 @@
 //Dish Details view
 
-model.addObserver(this);
-this.Update = function(what){
-
-if what == "addDish"
-{
-  SidebarDishView.container.find('#costList').value = model.addDishToMenu(id);
-  SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
-}
-else if what == "removeDish"
-{
-  SidebarDishView.container.find('#costList').value = model.removeDishFromMenu(id);
-  SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
-}
-
-
-
 
 var DishDetailsView = function (container, model) {
+
+  model.addObserver(this);
+  this.Update = function(what){
+
+  if what == "addDish"
+  {
+    SidebarDishView.container.find('#costList').value = model.addDishToMenu(id);
+    SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+  }
+  else if what == "removeDish"
+  {
+    SidebarDishView.container.find('#costList').value = model.removeDishFromMenu(id);
+    SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+  }
 
 { this.container = container;
   this.dishDetails = function(){
