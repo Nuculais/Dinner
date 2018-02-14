@@ -18,11 +18,22 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#DishDetailsView"), model);*/
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
-		$('body').toggleClass('hiddenBackgroundImage');
 		$('#selectdinnerView').toggleClass('hidden');
+		showSidebar();
+		showFindDish();
+
 	});
 
 	//controllers
+
+	/*var indexController = function(view, model)
+	{
+		view.newDinner.click(function(){
+
+		});
+
+	}:*/
+
 	var sidebarDishController = function(view, model)
 	{
 		view.plusGuest.click(function(){
@@ -40,6 +51,19 @@ $(function() {
 	{
 		view.dinconfirm.click(function(){
 			showFindDish();
+		});
+
+		view.searchdishes.click(function(){
+			var type= view.container.find('.dropdown').on('show-bs-dropdown', function(grej){
+				thetype = $(grej.relatedTarget).text(); //global, meant to be
+			}
+
+			var filter = view.container.find('#searchForm').value;
+
+
+			model.getAllDishes(thetype.lower(), filter);
+
+
 		});
 	}
 
