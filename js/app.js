@@ -9,7 +9,7 @@ $(function() {
 	var sidebarDishView = new SidebarDishView($("#dinnercost"), model);
 	//var dinnercost = new SidebarDishView($('#dinnercost'), model);
 	var findDishView = new FindDishView($('#selectDishView'), model);
-	var dishDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
+	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
 	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
 
@@ -18,8 +18,8 @@ $(function() {
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		$('#selectdinnerView').toggleClass('hidden');
-		showSidebar();
-		showFindDish();
+		//showSidebar();
+		//showFindDish();
 
 	});
 
@@ -74,7 +74,7 @@ $(function() {
 
 	var dinnerOverviewController = function(view, model)
 	{
-		view.dinedit.click(function(){
+		view.goBackAndEditDinner.click(function(){
 			showFindDish();
 		});
 
@@ -84,7 +84,9 @@ $(function() {
 
 	var dinnerPrintoutController = function(view, model)
 	{
-
+		view.dinedit.click(function(){
+			showFindDish();
+		});
 	}
 
 
@@ -98,13 +100,13 @@ $(function() {
 
 	var showSidebar = function(){
 		sidebarDishView.show();
-		dishDetailsView.hide();
+		dinnerDetailsView.hide();
 		findDishView.hide();
 		dinnerOverviewView.hide();
 		dinnerPrintoutView.hide();
 	}
 	var showDishDetails = function(){
-		dishDetailsView.show();
+		dinnerDetailsView.show();
 		sidebarDishView.hide();
 		findDishView.hide();
 		dinnerOverviewView.hide();
@@ -120,14 +122,14 @@ $(function() {
 	var showDinnerOverview = function(){
 		dinnerOverviewView.show();
 		sidebarDishView.hide();
-		dishDetailsView.hide();
+		dinnerDetailsView.hide();
 		findDishView.hide();
 		dinnerPrintoutView.hide();
 	}
 	var showDinnerPrintout = function(){
 		dinnerPrintoutView.show();
 		sidebarDishView.hide();
-		dishDetailsView.hide();
+		dinnerDetailsView.hide();
 		findDishView.hide();
 		dinnerOverviewView.hide();
 	}
