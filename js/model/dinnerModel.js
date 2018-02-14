@@ -20,7 +20,7 @@ var DinnerModel = function() {
 		}
 	}
 	this.addObserver = function(observer){
-		observers.add(observer);
+		observers.push(observer);
 	}
 
 	this.setNumberOfGuests = function(num) {
