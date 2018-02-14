@@ -68,7 +68,7 @@ var DinnerModel = function() {
     { //Can you really do like that?
       for(var j=0;j<(menuDishes[i].ingredients).length;j++)
       {
-        allIngredients.add((menuDishes[i]).ingredients[j]);
+        allIngredients.push((menuDishes[i]).ingredients[j]);
       }
     }
     return allIngredients;
