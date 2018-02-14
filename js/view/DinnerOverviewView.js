@@ -51,4 +51,4 @@ var DinnerOverviewView = function (container, model) {
            food+= '<span id="foodcost">'+ dishprices(menu[i].id, numguests) + '</span></div>';
 
            showingmenudishes.appendChild(food);
-}}}
+}}}}}
