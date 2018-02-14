@@ -11,19 +11,23 @@
 
   </head>
   <body>
+    <div id="topPannelScreen" class="row">
+    <div class="jumbotron">
+    <div align="center">
+		<h1 >Dinner planner</h1>
+		<h4 align="center">Welcome to online dinner planner</h4>
+	</div>
+</div></div>
+	</div>
     <div class="container"> <!-- start Bootstrap container -->
     <div id="indexScreen" class="row">
     <div class="jumbotron">
     <div align="center">
-		<h1 >Dinner planner</h1>
 		<h4 align="center">Plan your dinner</h4>
+    <button id="newDinner" type="button" class="btn btn-warning">Create Dinner</button>
 	</div>
   </div>
-  <div id="row" align="center">
-	     <button id="newDinner" type="button" class="btn btn-warning">Create Dinner</button>
-  </div>
 </div> <!-- index screen end -->
-
 <div id="selectdinnerView" class="row hidden"> <!-- Select Dish Screen -->
   <div id="dinnercost" class="col-md-3"> <!-- cost -->
     <h3>My Dinner</h3>
@@ -48,7 +52,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-6"><p id="totalcost" align="right">SEK 0.00</p></div>
     </div>
-    <input type='button' id='dinconfirm' value='Confirm Dinner'>
+    <input type='button' id='dinconfirm' class= "btn btn-warning" value='Confirm Dinner'>
   </div> <!-- end cost -->
 
   <div class="col-md-9">
@@ -59,9 +63,9 @@
         <div class="col-md-6">
           <form class="form-inline">
             <input id="searchForm" class="form-control" placeholder="Enter keywords">
-
+            <input type="button" id="searchdishes" class="btn btn-warning" value="Search">
           </form>
-        </div>
+
         <div class="col-md-6">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -76,14 +80,13 @@
               <li><a id="appetizerType" href="#" onclick="return false;">Appetizer</a></li>
             </ul>
           </div>
-          <div class="col-md-1" id="searchDiv">';
-          <input type="button" id="searchdishes" value="Search">
-          </div>
-        </div>
+
+        </div></div>
         <div class="col-md-9" id="FindDishView">
           <div class="col-md-12" id="DishView">
           </div>
         </div>
+
         <br><br><br>
         <div id="dishes"></div>
       </div>
