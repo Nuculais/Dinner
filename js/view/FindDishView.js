@@ -19,13 +19,13 @@ var FindDishView = function(container, model){
   var typeview = function() {
     var dishes = container.find('#dishes');
     var dishType = container.find('#dishType');
-    var Searching = container.find('DishView');
+    var Searching = container.find('selectDishView');
     dishes.html(getDishesHTML());
     dishType.html(capitalizeFirstLetter(model.getDishType()));
   }
 
   //Generating the shown dishes
-  var ShowDishes = container.find('DishView');
+  var ShowDishes = container.find('selectDishView');
   var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
   var showing = document.createElement('div');
   data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';

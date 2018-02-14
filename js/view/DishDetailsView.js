@@ -1,10 +1,9 @@
 //Dish Details view
 var DishDetailsView = function (container, model) {
-{
-  this.dishDetailsFrame = container.find('#dishDetails');
-  this.dishDetails = function(e){
-    var id = e.target.id.replace('dish-','');
-    var dish = model.getdish(id);
+{ this.container = container;
+
+  this.dishDetails = function(){
+    var dishid = model.getDishId();
     if(dish=== undefined || dish === null){
     return;
   }
