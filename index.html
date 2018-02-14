@@ -60,33 +60,30 @@
       <h3>Find Dish</h3>
       <hr>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <form class="form-inline">
             <input id="searchForm" class="form-control" placeholder="Enter keywords">
-            <input type="button" id="searchdishes" class="btn btn-warning" value="Search">
-          </form>
 
-        <div class="col-md-6">
+          </form>
+        </div>
+        <div class="col-md-3">
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              <span id="dishType"></span>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+              <span id="dishType">All Type</span>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a id="allType" href="#" onclick="return false;">All types</a></li>
-              <li><a id="mainType" href="#" onclick="return false;">Main course</a></li>
-              <li><a id="sideType" href="#" onclick="return false;">Side dish</a></li>
-              <li><a id="dessertType" href="#" onclick="return false;">Dessert</a></li>
-              <li><a id="appetizerType" href="#" onclick="return false;">Appetizer</a></li>
+              <li><a id="allType" href="#" >All types</a></li>
+              <li><a id="mainType" href="#" >Main course</a></li>
+              <li><a id="sideType" href="#" >Side dish</a></li>
+              <li><a id="dessertType" href="#" >Dessert</a></li>
+              <li><a id="appetizerType" href="#" >Appetizer</a></li>
             </ul>
           </div>
-
-        </div></div>
-        <div class="col-md-9" id="FindDishView">
-          <div class="col-md-12" id="DishView">
-          </div>
         </div>
-
+        <div class="col-md-3">
+        <input type="button" id="searchdishes" class="btn btn-warning" value="Search">
+      </div>
         <br><br><br>
         <div id="dishes"></div>
       </div>
