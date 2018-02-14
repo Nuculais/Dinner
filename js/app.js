@@ -23,9 +23,9 @@ $(function() {
 	});
 
 	//controllers
-
 	var sidebarDishController = function(sidebarDishView, model)
 	{
+		var view = sidebarDishView;
 		view.plusGuest.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
 		});
@@ -37,8 +37,9 @@ $(function() {
 		//Display the dish name/s as well
 	}
 
-	var findDishController = function(findDishview, model)
+	var findDishController = function(findDishView, model)
 	{
+		var view = findDishView;
 		view.dinconfirm.click(function(){
 			showFindDish();
 		});
@@ -58,6 +59,7 @@ $(function() {
 
 	var dinnerDetailsController = function(dinnerDetailsView, model)
 	{
+		var view = dinnerDetailsView;
 		view.dinEdit.click(function(){
 		showFindDish();
 		});
@@ -72,6 +74,7 @@ $(function() {
 
 	var dinnerOverviewController = function(dinnerOverviewView, model)
 	{
+		var view = dinnerOverviewView;
 		view.goBackAndEditDinner.click(function(){
 			showFindDish();
 		});
@@ -82,6 +85,7 @@ $(function() {
 
 	var dinnerPrintoutController = function(dinnerPrintoutView, model)
 	{
+		var view = dinnerPrintoutView;
 		view.dinedit.click(function(){
 			showFindDish();
 		});
