@@ -3,7 +3,7 @@ $(function() {
     //We instantiate our model
 	var model = new DinnerModel();
 
-	// And create the instance of ExampleView
+	// And create the instances of the views
 	//var exampleView = new ExampleView($("#exampleView"), model);
 	var sidebarDishView = new SidebarDishView($("#dinnercost"), model);
 	//var dinnercost = new SidebarDishView($('#dinnercost'), model);
@@ -13,32 +13,35 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
 
 
-
+	//This works but not the controllers?
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		$('#selectdinnerView').toggleClass('hidden');
 		//showSidebar();
 		//showFindDish();
-
 	});
 
-	//controllers
 
+	//Controllers
 	var sidebarDishController = function(sidebarDishView, model)
 	{
-		view.plusGuest.click(function(){
+
+		var view = sidebarDishView;
+		container.find('#plusGuest').click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
 		});
 
-		view.minusGuest.click(function(){
+		container.find('#minusGuest').click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
 	});
+        container.find('#numberOfGuests').value = model.getNumberOfGuests();
 
 		//Display the dish name/s as well
 	}
 
-	var findDishController = function(findDishview, model)
+	var findDishController = function(findDishView, model)
 	{
+		var view = findDishView;
 		view.dinconfirm.click(function(){
 			showFindDish();
 		});
