@@ -17,15 +17,15 @@ $(function() {
 
 console.log(SidebarDishController);
 
-
+	//This works but not the controllers?
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		$('#selectdinnerView').toggleClass('hidden');
 		alert('Det här hände.');
 		//showSidebar();
 		//showFindDish();
-
 	});
+
 
 	//controllers
 	var SidebarDishController = function(view, model)

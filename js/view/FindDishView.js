@@ -1,6 +1,14 @@
 //Find Dish View
 
 var FindDishView = function(container, model){
+  // Variables
+  this.allType = container.find('#allTyp');
+  this.mainType = container.find('#mainType');
+  this.sideType = container.find('#sideType');
+  this.dessertType = container.find('#dessertType');
+  this.appetizerType = container.find('#appetizerType');
+  this.search = container.find('#search');
+  this.container = container;
   //Observer pattern
   model.addObserver(this);
   this.Update = function(what){
@@ -18,8 +26,9 @@ var FindDishView = function(container, model){
         dishType.html(capitalizeFirstLetter(model.getDishType()));
       }
 
+
       //Generating the shown dishes
-      var ShowDishes = container.find('#selectDishView');
+     var ShowDishes = container.find('#selectDishView');
       var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
       data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';
@@ -50,13 +59,6 @@ var FindDishView = function(container, model){
 
 
   }
-  // Variables
-  this.allType = container.find('#allTyp');
-  this.mainType = container.find('#mainType');
-  this.sideType = container.find('#sideType');
-  this.dessertType = container.find('#dessertType');
-  this.appetizerType = container.find('#appetizerType');
-  this.search = container.find('#search');
-  this.container = container;
+
 
 }
