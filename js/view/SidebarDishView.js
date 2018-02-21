@@ -3,6 +3,8 @@
 var SidebarDishView = function (container, model) {
 
       this.plusGuest = container.find('#plusGuest');
+      this.minusGuest = container.find('#minusGuest');
+      
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){

@@ -3,6 +3,9 @@
 
 var DishDetailsView = function (container, model) {
 
+  this.dinEdit = container.find('#dinEdit');
+  this.addConfirm = container.find('#addConfirm');
+
   model.addObserver(this);
   this.Update = function(what){
 

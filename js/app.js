@@ -17,10 +17,10 @@ $(function() {
 
 	//This does not work
 	$('#newDinner').click(function(){
-		//$('#indexScreen').toggleClass('hidden');
+		$('#indexScreen').toggleClass('hidden');
 		//$('#selectdinnerView').toggleClass('hidden');
 		//alert('Det här hände.');
-		$('#indexScreen').style.visibility ='hidden';
+		//$('#indexScreen').style.visibility ='hidden';
 		showFindDish();
 	});
 
@@ -48,11 +48,12 @@ $(function() {
 	  dinnerPrintoutView.hide();
 	}
 	var showFindDish = function(){
-	  findDishView.show();
-	  sidebarDishView.show();
-	  dinnerDetailsView.hide();
-	  dinnerOverviewView.hide();
-	  dinnerPrintoutView.hide();
+		$('#selectdinnerView').toggleClass('hidden');
+	  //findDishView.show();
+	  //sidebarDishView.show();
+	  //dinnerDetailsView.hide();
+	  //dinnerOverviewView.hide();
+	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerOverview = function(){
 	  dinnerOverviewView.show();

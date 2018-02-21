@@ -2,6 +2,9 @@
 
 var DinnerOverviewView = function (container, model) {
 
+  this.goBackAndEditDinner = container.find('#goBackAndEditDinner');
+  this.dinprint = container.find('#dinprint');
+  
   //Observer pattern
   model.addObserver(this);
   this.Update = function(what){

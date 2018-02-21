@@ -2,6 +2,7 @@
 
 var DinnerPrintoutView = function (container, model) {
 
+  this.dinedit = container.find('#dinedit');
   //Observer pattern
   model.addObserver(this);
   this.Update = function(){

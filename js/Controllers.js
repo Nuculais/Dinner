@@ -8,7 +8,7 @@ var SidebarDishController = function(view, model)
   model.setNumberOfGuests(model.getNumberOfGuests() + 1);
   });
 
-  $('minusGuest').click(function(){
+  view.minusGuest.click(function(){
   model.setNumberOfGuests(model.getNumberOfGuests() - 1);
 });
   //Display the dish name/s as well
@@ -21,19 +21,17 @@ var FindDishController = function(view, model)
   });
 
   view.searchdishes.click(function(){
-    var type= view.container.find('.dropdown').on('show.bs.dropdown', function(grej){
-      var thetype = $(grej.relatedTarget).text();
-      return thetype;
-    });
+    // var type= view.dropdown.val()
+    //
+    // console.log(type);
+    // var filter = view.searchForm.val().toLowerCase();
 
-    var filter = view.container.find('#searchForm').value.toLowerCase();
-
-    model.getAllDishes(type.toLowerCase(), filter);
+    view.Update();
 
   });
 };
 
-var dinnerDetailsController = function(view, model)
+var DinnerDetailsController = function(view, model)
 {
   view.dinEdit.click(function(){
   showFindDish();
@@ -49,7 +47,7 @@ var dinnerDetailsController = function(view, model)
 
 
 
-var dinnerOverviewController = function(view, model)
+var DinnerOverviewController = function(view, model)
 {
   view.goBackAndEditDinner.click(function(){
     showFindDish();
@@ -60,7 +58,7 @@ var dinnerOverviewController = function(view, model)
   });
 };
 
-var dinnerPrintoutController = function(view, model)
+var DinnerPrintoutController = function(view, model)
 {
   view.dinedit.click(function(){
     showFindDish();
