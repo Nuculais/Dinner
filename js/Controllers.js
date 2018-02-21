@@ -1,13 +1,10 @@
 
 
-//According to the comments in app.js, we are not allowed to use jquery selectors
-//here, but according to the comments on lab 2 we have to have the controllers outside app.js yet not use container.find.
-//So what is left to use?
 
 //Controllers
 var SidebarDishController = function(view, model)
 {
-  $('plusGuest').click(function(){ //works
+  view.plusGuest.click(function(){ //works
   model.setNumberOfGuests(model.getNumberOfGuests() + 1);
   });
 

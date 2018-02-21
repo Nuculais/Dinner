@@ -17,11 +17,11 @@ $(function() {
 
 	//This does not work
 	$('#newDinner').click(function(){
-		$('#indexScreen').toggleClass('hidden');
-		$('#selectdinnerView').toggleClass('hidden');
-		alert('Det här hände.');
-		//showSidebar();
-		//showFindDish();
+		//$('#indexScreen').toggleClass('hidden');
+		//$('#selectdinnerView').toggleClass('hidden');
+		//alert('Det här hände.');
+		$('#indexScreen').style.visibility ='hidden';
+		showFindDish();
 	});
 
 

@@ -2,7 +2,8 @@
 
 var FindDishView = function(container, model){
   // Variables
-  this.allType = container.find('#allTyp');
+  this.dinconfirm = container.find('#dinconfirm');
+  this.allType = container.find('#allType');
   this.mainType = container.find('#mainType');
   this.sideType = container.find('#sideType');
   this.dessertType = container.find('#dessertType');
