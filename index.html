@@ -67,10 +67,15 @@
           </form>
         </div>
         <div class="col-md-3">
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-              <span id="dishType">All Type</span>
-              <span class="caret"></span>
+          <select class="dropdown">
+            <option value="starter">appetizer</option>
+            <option value="main dish">Main course</option>
+            <option value="side dish">Side dish</option>
+            <option value="dessert">Dessert</option>
+          </select>
+          <!--<div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dish Type <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a id="allType" href="#" >All types</a></li>
@@ -79,7 +84,7 @@
               <li><a id="dessertType" href="#" >Dessert</a></li>
               <li><a id="appetizerType" href="#" >Appetizer</a></li>
             </ul>
-          </div>
+          </div>-->
         </div>
         <div class="col-md-3">
         <input type="button" id="searchdishes" class="btn btn-warning" value="Search">
@@ -128,6 +133,7 @@
   <script src="js/view/DinnerOverviewView.js"></script>
   <script src="js/view/DinnerPrintoutView.js"></script>
   <script src="js/view/DishDetailsView.js"></script>
+  <script src="js/Controllers.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

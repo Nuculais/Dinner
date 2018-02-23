@@ -3,92 +3,26 @@ $(function() {
     //We instantiate our model
 	var model = new DinnerModel();
 
-	// And create the instances of the views
-	//var exampleView = new ExampleView($("#exampleView"), model);
-	var sidebarDishView = new SidebarDishView($("#dinnercost"), model);
-	//var dinnercost = new SidebarDishView($('#dinnercost'), model);
+	// And create the instances of the views and controllers
+	var sidebarDishView = new SidebarDishView($('#dinnercost'), model);
+	var sidebarDishController = new SidebarDishController(sidebarDishView, model);
 	var findDishView = new FindDishView($('#selectDishView'), model);
+	var findDishController = new FindDishController(findDishView, model);
 	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
+	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model);
 	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
+	var dinnerOverviewController = new DinnerOverviewController(dinnerOverviewView, model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
+	var dinnerPrintoutController = new DinnerPrintoutController(dinnerPrintoutView, model);
 
-
-	//This works but not the controllers?
+	//This does not work
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
-		$('#selectdinnerView').toggleClass('hidden');
-		//showSidebar();
-		//showFindDish();
-	});
-
-
-	//Controllers
-	var sidebarDishController = function(sidebarDishView, model)
-	{
-
-		var view = sidebarDishView;
-		container.find('#plusGuest').click(function(){
-		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-		});
-
-		container.find('#minusGuest').click(function(){
-		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-	});
-        container.find('#numberOfGuests').value = model.getNumberOfGuests();
-
-		//Display the dish name/s as well
-	}
-
-	var findDishController = function(findDishView, model)
-	{
-		var view = findDishView;
-		view.dinconfirm.click(function(){
-			showFindDish();
-		});
-
-		view.searchdishes.click(function(){
-			var type= view.container.find('.dropdown').on('show.bs.dropdown', function(grej){
-				var thetype = $(grej.relatedTarget).text();
-				return thetype;
-			});
-
-			var filter = view.container.find('#searchForm').value.toLowerCase();
-
-			model.getAllDishes(type.toLowerCase(), filter);
-
-		});
-	}
-
-	var dinnerDetailsController = function(dinnerDetailsView, model)
-	{
-		view.dinEdit.click(function(){
+		//$('#selectdinnerView').toggleClass('hidden');
+		//alert('Det här hände.');
+		//$('#indexScreen').style.visibility ='hidden';
 		showFindDish();
-		});
-
-		view.addConfirm.click(function(){
-		var dishID = container.find('#dishname').value; //Assuming this is the dish's ID. Otherwise: (container.find('#dishname').value.toLowerCase()).id;
-		model.addDishToMenu(dishID);
-		showFindDish();
-		});
-	}
-
-
-	var dinnerOverviewController = function(dinnerOverviewView, model)
-	{
-		view.goBackAndEditDinner.click(function(){
-			showFindDish();
-		});
-
-		view.dinprint.click(function(){
-			showDinnerPrintout();
-		});
-
-	var dinnerPrintoutController = function(dinnerPrintoutView, model)
-	{
-		view.dinedit.click(function(){
-			showFindDish();
-		});
-	}
+	});
 
 
 
@@ -100,41 +34,42 @@ $(function() {
 	 */
 
 	var showSidebar = function(){
-		sidebarDishView.show();
-		dinnerDetailsView.hide();
-		findDishView.hide();
-		dinnerOverviewView.hide();
-		dinnerPrintoutView.hide();
+	  sidebarDishView.show();
+	  dinnerDetailsView.hide();
+	  findDishView.hide();
+	  dinnerOverviewView.hide();
+	  dinnerPrintoutView.hide();
 	}
 	var showDishDetails = function(){
-		dinnerDetailsView.show();
-		sidebarDishView.show();
-		findDishView.hide();
-		dinnerOverviewView.hide();
-		dinnerPrintoutView.hide();
+	  dinnerDetailsView.show();
+	  sidebarDishView.show();
+	  findDishView.hide();
+	  dinnerOverviewView.hide();
+	  dinnerPrintoutView.hide();
 	}
 	var showFindDish = function(){
-		findDishView.show();
-		sidebarDishView.show();
-		dinnerDetailsView.hide();
-		dinnerOverviewView.hide();
-		dinnerPrintoutView.hide();
+		$('#selectdinnerView').toggleClass('hidden');
+	  //findDishView.show();
+	  //sidebarDishView.show();
+	  //dinnerDetailsView.hide();
+	  //dinnerOverviewView.hide();
+	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerOverview = function(){
-		dinnerOverviewView.show();
-		sidebarDishView.hide();
-		dinnerDetailsView.hide();
-		findDishView.hide();
-		dinnerPrintoutView.hide();
+	  dinnerOverviewView.show();
+	  sidebarDishView.hide();
+	  dinnerDetailsView.hide();
+	  findDishView.hide();
+	  dinnerPrintoutView.hide();
 	}
 	var showDinnerPrintout = function(){
-		dinnerPrintoutView.show();
-		sidebarDishView.hide();
-		dinnerDetailsView.hide();
-		findDishView.hide();
-		dinnerOverviewView.hide();
+	  dinnerPrintoutView.show();
+	  sidebarDishView.hide();
+	  dinnerDetailsView.hide();
+	  findDishView.hide();
+	  dinnerOverviewView.hide();
 	}
 
 
-}
 });
+//});

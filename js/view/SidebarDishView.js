@@ -2,6 +2,9 @@
 
 var SidebarDishView = function (container, model) {
 
+      this.plusGuest = container.find('#plusGuest');
+      this.minusGuest = container.find('#minusGuest');
+      
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){
@@ -38,15 +41,15 @@ var SidebarDishView = function (container, model) {
         if(what == "guestsnum")
         {
           container.find("#numberOfGuests").value = model.getNumberOfGuests();
-          container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+          container.find("#totalcost").value = "SEK "+ model.getTotalMenuPrice();
         }
         else if(what == "addDish")
         {
-          container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+          container.find("#totalcost").value = "SEK "+ model.getTotalMenuPrice();
         }
         else if(what == "removeDish")
         {
-          container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
+          container.find("#totalcost").value = "SEK "+ model.getTotalMenuPrice();
         }
       }
 

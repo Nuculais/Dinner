@@ -3,19 +3,12 @@
 
 var DishDetailsView = function (container, model) {
 
+  this.dinEdit = container.find('#dinEdit');
+  this.addConfirm = container.find('#addConfirm');
+
   model.addObserver(this);
   this.Update = function(what){
 
-  if (what == "addDish")
-  {
-    SidebarDishView.container.find('#costList').value = model.addDishToMenu(id);
-    SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
-  }
-  else if (what == "removeDish")
-  {
-    SidebarDishView.container.find('#costList').value = model.removeDishFromMenu(id);
-    SidebarDishView.container.find("#totalcost").value = "SEK "+ model.getTotalmenuPrice();
-  }
 
 { this.container = container;
   this.dishDetails = function(){
@@ -42,13 +35,13 @@ var DishDetailsView = function (container, model) {
     Details += '<li class="list-group-item"><div class="row"><div class="col-6">';
     Details +='<button class="btn btn-sm btn-primary" onclick="$(this).addItemWithIdToMenu(' + dish.id + ');">Add to menu</button>';
     Details +='</div><div class="col-6 text-right">Total ';
-    Details += '<span class="badge badge-primary">' + model.getTotalDishPrice(dish.id) + ' kr</span></div></li>';
+    Details += '<span class="badge badge-primary" id="dishprice">' + model.getTotalDishPrice(dish.id) + ' kr</span></div></li>';
     Details += '</ul></div></div></div>';
 
     this.dishDetailsFrame.empty().append(Details);
     this.dishDetailsFrame.show();
 }
-    $.fn.backToMenu = function() {
+    /*$.fn.backToMenu = function() {
     //  $('#dish-index-holder').show();
       container.find("#dinnerdetailsView").empty().hide();
     }
@@ -56,6 +49,7 @@ var DishDetailsView = function (container, model) {
     $.fn.addItemWithIdToMenu = function(id) {
       model.addDishToMenu(id);
     }
-  }
+  } */
+}
 }
 }
