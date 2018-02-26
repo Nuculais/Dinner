@@ -37,6 +37,7 @@ var FindDishView = function(container, model){
 
 
       //Generating the shown dishes
+
      var ShowDishes = container.find('#selectDishView');
       var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
@@ -46,6 +47,7 @@ var FindDishView = function(container, model){
       ShowDishes.append(showing);
       var wherethedishesare = container.find("#dishes");
       var allDishes = model.getAllDishes(type, filter);
+
 
 
       for(var i=0; i<allDishes.length;i++){
@@ -59,11 +61,11 @@ var FindDishView = function(container, model){
           data += allDishes[i].name + '</button></h5>';
           data += '</div></div></div>';
 
-    //  wherethedishesare.empty(); //now it only displays one dish
+          // wherethedishesare.empty(); //now it only displays one dish
 
       elem.id="food"+i;
       elem.innerHTML=data;
-
+      // wherethedishesare.empty(); now it deletes the previously shown dishes but only loads one new dish.
       wherethedishesare.append(elem);
         }
 

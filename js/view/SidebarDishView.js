@@ -4,13 +4,14 @@ var SidebarDishView = function (container, model) {
 
       this.plusGuest = container.find('#plusGuest');
       this.minusGuest = container.find('#minusGuest');
+      this.guests = container.find('#guests');
       
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){
 
         //HTML generation
-       var sidebar = '<div class="col-md-3 collapse in" id="SideBarDishView" >';
+       /*  var sidebar = '<div class="col-md-3 collapse in" id="SideBarDishView" >';
         sidebar+= '<button data-toggle="collapse" data-target="#peoplecost">';
         sidebar+= '<span class="glyphicon glyphicon-menu-hamburger"></span></button>';
         sidebar+= '<div id="peoplecost" >';
@@ -35,13 +36,13 @@ var SidebarDishView = function (container, model) {
 
         var sidebarcon = container.find("#dinnercost");
         sidebarcon.empty();
-        sidebarcon.appendChild(sidebar);
+        sidebarcon.append(sidebar); */
 
 
         if(what == "guestsnum")
         {
-          container.find("#numberOfGuests").value = model.getNumberOfGuests();
-          container.find("#totalcost").value = "SEK "+ model.getTotalMenuPrice();
+          container.find("#numberOfGuests").innerText = model.getNumberOfGuests();
+          container.find("#totalcost").val() = "SEK "+ model.getTotalMenuPrice();
         }
         else if(what == "addDish")
         {
@@ -55,10 +56,10 @@ var SidebarDishView = function (container, model) {
 
 
     //Guests & cost
-    var totGuests = model.getNumberOfGuests();
+   /* var totGuests = model.getNumberOfGuests();
     var totCost = model.getTotalMenuPrice();
 	   container.find("#numberOfGuests").value = totGuests;
-	   container.find("#totalcost").value="SEK "+ totCost;
+	   container.find("#totalcost").value="SEK "+ totCost; */
 
 
     //Searching & Filtering //Why is this here? This should be in FindDish, should it not?

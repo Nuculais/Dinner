@@ -41,6 +41,7 @@ $(function() {
 	  dinnerPrintoutView.hide();
 	}
 	var showDishDetails = function(){
+		$('')
 	  dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();

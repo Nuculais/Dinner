@@ -22,7 +22,7 @@ var DinnerPrintoutView = function (container, model) {
         printout += '<div class="col-md-12" id="dinprintmenuitems">';
         printout += '</div></div>';
 
-        dinnerPrint.appendChild(printout);
+        dinnerPrint.append(printout);
 
 
     //Generating the menu items
@@ -36,6 +36,6 @@ var DinnerPrintoutView = function (container, model) {
                 food+= '<div class="col-md-6"><h5>Preparation</h5><span>'+menu[i].description+'</span>';
                 food+= '</div></div>';
 
-                fullDinner.appendChild(food); } }
+                fullDinner.append(food); } }
 }
         }
