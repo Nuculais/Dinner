@@ -38,7 +38,7 @@ var FindDishView = function(container, model){
 
       //Generating the shown dishes
 
-     var ShowDishes = container.find('#selectDishView');
+      var ShowDishes = container.find('#selectDishView');
       var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
       data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';
@@ -52,7 +52,7 @@ var FindDishView = function(container, model){
           wherethedishesare.empty();
         for(var i=0; i<allDishes.length;i++){
           var elem = document.createElement("div");
-          var data = '<div class="col-md-3">';
+          var data = '<div class="col-md-3" id="aDish">';
             data += '<div class="card mb-3">';
             data += '<img class="card-img-top img-fit img-dish" src="https://spoonacular.com/recipeImages/' + allDishes[i].image + '" alt="' + allDishes[i].title + '">';
             data += '<div class="card-body p-3">';
@@ -68,14 +68,8 @@ var FindDishView = function(container, model){
         // wherethedishesare.empty(); now it deletes the previously shown dishes but only loads one new dish.
         wherethedishesare.append(elem);
           }
-        console.log(data);
+      //  console.log(data);
       });
-
-
-console.log('ritar')
-
-
-
   }
 
 
