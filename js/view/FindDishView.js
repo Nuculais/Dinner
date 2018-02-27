@@ -61,11 +61,9 @@ var FindDishView = function(container, model){
             data += allDishes[i].title + '</button></h5>';
             data += '</div></div></div>';
 
-            // wherethedishesare.empty(); //now it only displays one dish
 
         elem.id="food"+i;
         elem.innerHTML=data;
-        // wherethedishesare.empty(); now it deletes the previously shown dishes but only loads one new dish.
         wherethedishesare.append(elem);
           }
       //  console.log(data);
