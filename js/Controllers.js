@@ -37,6 +37,10 @@ var FindDishController = function(view, model)
   });
 };
 
+var OneDishController = function(view, model, dish)
+{
+  view.
+}
 var DinnerDetailsController = function(view, model) //DishDetailsView
 {
   view.dinEdit.click(function(){
