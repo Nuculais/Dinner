@@ -2,17 +2,26 @@
 
 var FindDishView = function(container, model){
   // Variables
-  this.allType = container.find('#allTyp');
+  var view = this;
+  this.dinconfirm = container.find('#dinconfirm');
+  this.allType = container.find('#allType');
   this.mainType = container.find('#mainType');
   this.sideType = container.find('#sideType');
   this.dessertType = container.find('#dessertType');
   this.appetizerType = container.find('#appetizerType');
   this.search = container.find('#search');
+  this.searchdishes = container.find('#searchdishes');
+  this.searchForm = container.find('#searchForm');
+  this.dropdown = container.find('.dropdown');
   this.container = container;
+
   //Observer pattern
   model.addObserver(this);
-  this.Update = function(what){
+  this.Update = function(){
 
+
+    var type = view.dropdown.val();
+    var filter = view.searchForm.val().toLowerCase();
     //function to call images
       var Update2 = function(){
         typeview();
@@ -28,15 +37,17 @@ var FindDishView = function(container, model){
 
 
       //Generating the shown dishes
+
      var ShowDishes = container.find('#selectDishView');
       var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
       data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';
       showing.class="row";
       showing.innerHTML = data;
-      ShowDishes.appendChild(showing);
+      ShowDishes.append(showing);
       var wherethedishesare = container.find("#dishes");
-      var allDishes = model.getDishes();
+      var allDishes = model.getAllDishes(type, filter);
+
 
 
       for(var i=0; i<allDishes.length;i++){
@@ -50,11 +61,12 @@ var FindDishView = function(container, model){
           data += allDishes[i].name + '</button></h5>';
           data += '</div></div></div>';
 
+          // wherethedishesare.empty(); //now it only displays one dish
+
       elem.id="food"+i;
       elem.innerHTML=data;
-
-      wherethedishesare.empty();
-      wherethedishesare.appendChild(elem);
+      // wherethedishesare.empty(); now it deletes the previously shown dishes but only loads one new dish.
+      wherethedishesare.append(elem);
         }
 
 

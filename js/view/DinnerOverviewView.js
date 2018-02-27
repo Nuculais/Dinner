@@ -2,6 +2,9 @@
 
 var DinnerOverviewView = function (container, model) {
 
+  this.goBackAndEditDinner = container.find('#goBackAndEditDinner');
+  this.dinprint = container.find('#dinprint');
+  
   //Observer pattern
   model.addObserver(this);
   this.Update = function(what){
@@ -28,8 +31,8 @@ var DinnerOverviewView = function (container, model) {
         overview += ' <input type="button" id="dinprint" onclick="FunctionThatDoesNotExistYet()" value="Print Full Recipe">';
         overview += ' </div> </div>';
 
-       dinnerOverviewView.empty();
-       dinnerOverview.appendChild(overview);
+       dinnerOverview.empty();
+       dinnerOverview.append(overview);
 
 
        //Find the menu dishes and their total price
@@ -50,5 +53,5 @@ var DinnerOverviewView = function (container, model) {
        var food = '<div id="food'+i+'"><img src=images/'+ menu[i].image +'<span id="menuName">'+menu[i].name+'</span>';
            food+= '<span id="foodcost">'+ dishprices(menu[i].id, numguests) + '</span></div>';
 
-           showingmenudishes.appendChild(food);
+           showingmenudishes.append(food);
 }}}}
