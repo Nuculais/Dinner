@@ -130,8 +130,28 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
+	this.getAllDishes = function (type,filter, callback, errorCallback) {
+		$.ajax( {
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter.toLowerCase()+'&number=10', //returns only 10 for now, just to test
+			headers: {
+				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+			},
+			error: function(error) {
+				errorCallback(error)
+				alert("Could not find any recipes matching your search. Please try again." )
+			},
+			
+			success: function(response){
+				callback(response)
+				//var data = JSON.parse(this.response);
+				//Is this all the dishes?
+				//return data;
+
+			}
+
+		})
+
+	  /*return dishes.filter(function(dish) {
 		var found = true;
 		if(filter){
 			found = false;
@@ -146,11 +166,26 @@ var DinnerModel = function() {
 			}
 		}
 	  	return dish.type == type && found;
-	  });
+	  });*/
 	}
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
+	this.getDish = function (id, callback, errorCallback) {
+		$.ajax( {
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+id+'/information?includeNutrition=false',
+			headers: {
+				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+			},
+			success: function(data){
+				callback(data)
+				var data = JSON.parse(this.response);
+			},
+			error: function(error) {
+				errorCallback(error)
+				alert("Could not find this recipe or load its details. Please try again.")
+			}
+		})
+
 	  for(key in dishes){
 			if(dishes[key].id == id) {
 				return dishes[key];

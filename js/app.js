@@ -41,7 +41,7 @@ $(function() {
 	  dinnerPrintoutView.hide();
 	}
 	var showDishDetails = function(){
-		$('')
+		
 	  dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();
@@ -57,11 +57,13 @@ $(function() {
 	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerOverview = function(){
-	  dinnerOverviewView.show();
-	  sidebarDishView.hide();
-	  dinnerDetailsView.hide();
-	  findDishView.hide();
-	  dinnerPrintoutView.hide();
+		$('#selectdinnerView').toggleClass('hidden');
+		$('#dinnerdetailsView').toggleClass('hidden');
+	  //dinnerOverviewView.show();
+	  //sidebarDishView.hide();
+	  //dinnerDetailsView.hide();
+	  //findDishView.hide();
+	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerPrintout = function(){
 	  dinnerPrintoutView.show();
