@@ -16,27 +16,22 @@ var SidebarDishController = function(view, model)
 
 var FindDishController = function(view, model)
 {
-  view.dinconfirm.click(function(){ //undefined
+  view.dinconfirm.click(function(){
     showFindDish();
+ });
+
+  view.dishbutton.click(function(){ //Clicking this should make the Dish Details View appear
+    showDishDetails();
   });
 
-
   view.searchdishes.click(function(){
-    // var type= view.dropdown.val()
-    //
-    // console.log(type);
-    // var filter = view.searchForm.val().toLowerCase();
-
     view.Update();
-
   });
 };
 
 var OneDishController = function(view, model, dish)
 {
-  view.dishbutton.click(function(){
-    showDishDetails();
-  });
+  //  showDishDetails();
 };
 
 var DinnerDetailsController = function(view, model) //DishDetailsView

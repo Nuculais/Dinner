@@ -17,13 +17,13 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
 	var dinnerPrintoutController = new DinnerPrintoutController(dinnerPrintoutView, model);
 
-	//This does not work
+	//this works
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		//$('#selectdinnerView').toggleClass('hidden');
 		//alert('Det här hände.');
 		//$('#indexScreen').style.visibility ='hidden';
-		showFindDish();
+		showFindDish(); //Works
 	});
 
 
@@ -42,10 +42,13 @@ $(function() {
 	  dinnerOverviewView.hide();
 	  dinnerPrintoutView.hide();
 	}
+
 	var showDishDetails = function(){
-		$('#selectdinnerView').empty();
+
+		//$('#selectdinnerView').css('display','none')
+		$('#selectdinnerView').toggleClass('hidden');
 		$('#dinnerdetailsView').toggleClass('hidden');
-	  /*dinnerDetailsView.show();
+	/*  dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();
 	  dinnerOverviewView.hide();

@@ -26,6 +26,7 @@ var DinnerModel = function() {
 
 		guestNum +=1;
 
+
 		notifyObservers("guestsnum");
 		//TODO Lab 1
 	}
@@ -140,7 +141,7 @@ var DinnerModel = function() {
 				errorCallback(error)
 				alert("Could not find any recipes matching your search. Please try again." )
 			},
-			
+
 			success: function(response){
 				callback(response)
 				//var data = JSON.parse(this.response);

@@ -10,6 +10,7 @@ var FindDishView = function(container, model){
   this.dessertType = container.find('#dessertType');
   this.appetizerType = container.find('#appetizerType'); */
   this.search = container.find('#search');
+  this.dishbutton = container.find('.dishbutton');
   this.searchdishes = container.find('#searchdishes');
   this.searchForm = container.find('#searchForm');
   this.dropdown = container.find('.dropdown');
