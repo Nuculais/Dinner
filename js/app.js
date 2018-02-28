@@ -8,8 +8,8 @@ $(function() {
 	var sidebarDishController = new SidebarDishController(sidebarDishView, model);
 	var findDishView = new FindDishView($('#selectDishView'), model);
 	var findDishController = new FindDishController(findDishView, model);
-	var oneDishView = new OneDishView($('#aDish'), model, id);
-	var oneDishController = new OneDishController(oneDishView, model);
+	//var oneDishView = new OneDishView($('#aDish'), model, dish);
+	//var oneDishController = new OneDishController(oneDishView, model);
 	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
 	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model);
 	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
@@ -44,6 +44,7 @@ $(function() {
 	}
 	var showDishDetails = function(){
 		$('#selectdinnerView').empty();
+		$('#dinnerdetailsView').toggleClass('hidden');
 	  /*dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();

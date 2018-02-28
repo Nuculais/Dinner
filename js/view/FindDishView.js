@@ -37,7 +37,6 @@ var FindDishView = function(container, model){
 
 
       //Generating the shown dishes
-
       var ShowDishes = container.find('#selectDishView');
       var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
@@ -54,17 +53,19 @@ var FindDishView = function(container, model){
           var elem = document.createElement("div");
           var data = '<div class="col-md-3" id="aDish">';
             data += '<div class="card mb-3">';
-            data += '<img class="card-img-top img-fit img-dish" src="https://spoonacular.com/recipeImages/' + allDishes[i].image + '" alt="' + allDishes[i].title + '">';
+            data += '<img id="theimage" class="card-img-top img-fit img-dish>';
             data += '<div class="card-body p-3">';
             data += '<h5 class="card-title mb-0">';
-            data += '<button id="dish-' + allDishes[i].id + '" class="btn btn-primary text-truncate view-dish-info" style="max-width:100%;">';
-            data += allDishes[i].title + '</button></h5>';
+            data += '<button class="dishbutton btn btn-primary text-truncate view-dish-info" style="max-width:100%;">';
+            data += '</button></h5>';
             data += '</div></div></div>';
 
 
         elem.id="food"+i;
         elem.innerHTML=data;
         wherethedishesare.append(elem);
+        var oneDishView = new OneDishView($(elem), model, allDishes[i]);
+        new OneDishController(oneDishView, model, allDishes[i]);
           }
       //  console.log(data);
       });

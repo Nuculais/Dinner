@@ -21,11 +21,6 @@ var FindDishController = function(view, model)
   });
 
 
-  view.dish-+allDishes[i].id.click(function(){
-    showDishDetails();
-
-  });
-
   view.searchdishes.click(function(){
     // var type= view.dropdown.val()
     //
@@ -39,8 +34,11 @@ var FindDishController = function(view, model)
 
 var OneDishController = function(view, model, dish)
 {
-  view.
-}
+  view.dishbutton.click(function(){
+    showDishDetails();
+  });
+};
+
 var DinnerDetailsController = function(view, model) //DishDetailsView
 {
   view.dinEdit.click(function(){
