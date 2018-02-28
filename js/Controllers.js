@@ -20,7 +20,7 @@ var FindDishController = function(view, model)
     showFindDish();
  });
 
-  view.dishbutton.click(function(){ //Clicking this should make the Dish Details View appear
+  view.dishbutton.click(function(){ //Clicking this should make the Dish Details View appear. It does not, but it doesn't make selectdinnerView go away either.
     showDishDetails();
   });
 
