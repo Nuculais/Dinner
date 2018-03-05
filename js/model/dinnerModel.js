@@ -25,20 +25,9 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 
-<<<<<<< HEAD
 	this.setNumberOfGuests = function(val) {
 
 		guestNum =val;
-=======
-	this.setNumberOfGuests = function(sign) {
-
-if(sign == plus){
-		guestNum +=1;
-	}
-	else{
-		guestNum -=1;
-	}
->>>>>>> 1e5d405fa5b5964e5405e8793958d7941f50b145
 
 
 		notifyObservers("guestsnum");
