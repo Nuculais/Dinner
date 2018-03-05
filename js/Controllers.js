@@ -42,7 +42,8 @@ var OneDishController = function(view, model, dish, app)
 
 var DinnerDetailsController = function(view, model) //DishDetailsView
 {
-  view.Update();
+  //view.Update();
+
   view.dinEdit.click(function(){
   showFindDish();
   });

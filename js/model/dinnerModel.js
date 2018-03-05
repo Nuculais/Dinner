@@ -142,7 +142,7 @@ var DinnerModel = function() {
 			},
 			error: function(error) {
 				errorCallback(error)
-				alert("Could not find any recipes matching your search. Please try again." )
+				alert("Could not find any recipes matching your search. Please try again.");
 			},
 			success: function(response){
 				callback(response)
@@ -174,7 +174,7 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id, callback, errorCallback) {
 		$.ajax( {
-			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+id+'/information?includeNutrition=false',
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids='+id+'&includeNutrition=false',
 			headers: {
 				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 			},
@@ -183,7 +183,7 @@ var DinnerModel = function() {
 			},
 			error: function(error) {
 				errorCallback(error)
-				alert("Could not find this recipe or load its details. Please try again.")
+				alert("Could not find this recipe or load its details. Please try again.");
 			}
 
 
