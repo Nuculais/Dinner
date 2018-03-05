@@ -3,15 +3,11 @@
 var SidebarDishController = function(view, model)
 {
   view.plusGuest.click(function(){ //works
-  var plus = "plus";
-  //model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-  model.setNumberOfGuests(plus);
+  model.setNumberOfGuests(model.getNumberOfGuests() + 1);
   });
 
   view.minusGuest.click(function(){
-    var minus = "minus";
-    model.setNumberOfGuests(minus);
-  //model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+    model.setNumberOfGuests(model.getNumberOfGuests() - 1);
 });
 
 view.dinconfirm.click(function(){
