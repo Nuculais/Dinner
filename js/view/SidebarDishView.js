@@ -2,6 +2,7 @@
 
 var SidebarDishView = function (container, model) {
 
+      this.dinconfirm = container.find('#dinconfirm');
       this.plusGuest = container.find('#plusGuest');
       this.minusGuest = container.find('#minusGuest');
       this.guests = container.find('#guests');

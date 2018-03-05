@@ -8,6 +8,7 @@ var DinnerModel = function() {
 	var menuDishes = [];
 	var allIngredients = [];
 
+
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
@@ -22,9 +23,20 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 
+<<<<<<< HEAD
 	this.setNumberOfGuests = function(val) {
 
 		guestNum =val;
+=======
+	this.setNumberOfGuests = function(sign) {
+
+if(sign == plus){
+		guestNum +=1;
+	}
+	else{
+		guestNum -=1;
+	}
+>>>>>>> 1e5d405fa5b5964e5405e8793958d7941f50b145
 
 
 		notifyObservers("guestsnum");
@@ -133,7 +145,7 @@ var DinnerModel = function() {
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter, callback, errorCallback) {
 		$.ajax( {
-			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter.toLowerCase()+'&number=10', //returns only 10 for now, just to test
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter.toLowerCase()+'&number=12', //returns only 12 for now, just to test
 			headers: {
 				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 			},
@@ -141,13 +153,11 @@ var DinnerModel = function() {
 				errorCallback(error)
 				alert("Could not find any recipes matching your search. Please try again." )
 			},
-
 			success: function(response){
 				callback(response)
 				//var data = JSON.parse(this.response);
 				//Is this all the dishes?
 				//return data;
-
 			}
 
 		})
@@ -177,14 +187,15 @@ var DinnerModel = function() {
 			headers: {
 				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 			},
-			success: function(data){
-				callback(data)
-				var data = JSON.parse(this.response);
+			success: function(response){
+				callback(response)
 			},
 			error: function(error) {
 				errorCallback(error)
 				alert("Could not find this recipe or load its details. Please try again.")
 			}
+
+
 		})
 
 	  for(key in dishes){
