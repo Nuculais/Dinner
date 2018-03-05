@@ -3,6 +3,7 @@
 var OneDishView = function(container, model, dish){
 
   var view = this;
+  this.dish = dish;
   this.container = container;
   this.dishbutton = container.find('.dishbutton');
 

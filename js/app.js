@@ -6,10 +6,8 @@ $(function() {
 	// And create the instances of the views and controllers
 	var sidebarDishView = new SidebarDishView($('#dinnercost'), model);
 	var sidebarDishController = new SidebarDishController(sidebarDishView, model);
-	var findDishView = new FindDishView($('#selectDishView'), model);
-	var findDishController = new FindDishController(findDishView, model);
-	//var oneDishView = new OneDishView($('#aDish'), model, dish);
-	//var oneDishController = new OneDishController(oneDishView, model);
+	var findDishView = new FindDishView($('#selectDishView'), model, this);
+	var findDishController = new FindDishController(findDishView, model, this);
 	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
 	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model);
 	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
@@ -21,8 +19,6 @@ $(function() {
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		//$('#selectdinnerView').toggleClass('hidden');
-		//alert('Det här hände.');
-		//$('#indexScreen').style.visibility ='hidden';
 		showFindDish(); //Works
 	});
 
@@ -35,7 +31,7 @@ $(function() {
 	 * of the specific view you're working with (see exampleView.js).
 	 */
 
-	var showSidebar = function(){
+	this.showSidebar = function(){
 	  sidebarDishView.show();
 	  dinnerDetailsView.hide();
 	  findDishView.hide();
@@ -43,11 +39,11 @@ $(function() {
 	  dinnerPrintoutView.hide();
 	}
 
-	var showDishDetails = function(){
+	this.showDishDetails = function(){
+		$('#selectDishView').toggleClass('hidden'); //Now it disappears
+		$('#dinnerdetailsView').toggleClass('hidden');  //Now this view has no class at all
+		//$('#dinnerdetailsView').toggleClass('hidden'); //Now this view has class "row hidden"
 
-		//$('#selectdinnerView').css('display','none')
-		$('#selectdinnerView').toggleClass('hidden');
-		$('#dinnerdetailsView').toggleClass('hidden');
 	/*  dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();
@@ -59,7 +55,7 @@ $(function() {
 
 	}
 	var showFindDish = function(){
-		$('#selectdinnerView').toggleClass('hidden');
+	 $('#selectdinnerView').toggleClass('hidden'); //works
 	  //findDishView.show();
 	  //sidebarDishView.show();
 	  //dinnerDetailsView.hide();
@@ -67,7 +63,7 @@ $(function() {
 	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerOverview = function(){
-		$('#selectdinnerView').toggleClass('hidden');
+		$('#selectDishView').toggleClass('hidden');
 		$('#dinnerdetailsView').toggleClass('hidden');
 	  //dinnerOverviewView.show();
 	  //sidebarDishView.hide();

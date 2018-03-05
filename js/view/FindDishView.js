@@ -1,6 +1,6 @@
 //Find Dish View
 
-var FindDishView = function(container, model){
+var FindDishView = function(container, model, app){
   // Variables
   var view = this;
   this.dinconfirm = container.find('#dinconfirm');
@@ -46,6 +46,7 @@ var FindDishView = function(container, model){
 
       showing.innerHTML = data;
       ShowDishes.append(showing);
+      
       var wherethedishesare = container.find("#dishes");
        model.getAllDishes(type, filter, function (data) {
         var allDishes = data.results;
@@ -66,7 +67,7 @@ var FindDishView = function(container, model){
         elem.innerHTML=data;
         wherethedishesare.append(elem);
         var oneDishView = new OneDishView($(elem), model, allDishes[i]);
-        new OneDishController(oneDishView, model, allDishes[i]);
+        new OneDishController(oneDishView, model, allDishes[i], app);
           }
       //  console.log(data);
       });
