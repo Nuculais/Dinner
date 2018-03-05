@@ -22,9 +22,9 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 
-	this.setNumberOfGuests = function(val) {
+	this.setNumberOfGuests = function() {
 
-		guestNum =val;
+		guestNum +=1;
 
 
 		notifyObservers("guestsnum");
