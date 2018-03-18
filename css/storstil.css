@@ -115,3 +115,13 @@ text-align: left;
 #sidebarView{
 	border:1px solid black;
 }
+
+#prepwrap{
+    background-color: yellow;
+    height: 50px;
+}
+#dinnerdetailsOverview{
+    padding-left: 10px;
+    background-color: blueviolet;
+    height: 100px;
+}

@@ -1,26 +1,47 @@
 //Dish Details view
 
-
 var DishDetailsView = function (container, model) {
 
-  var dish = model.currentDish;
+  //this.dish = model.getCurrentDish();
   this.dinEdit = container.find('#dinEdit');
   this.addConfirm = container.find('#addConfirm');
-
+  this.theContainer = container.find('#dinnerdetailsOverview')
   model.addObserver(this);
+
+
+
+
+//{
+  //this.container = container;
+  /*var _this = this;
+
+  var theDivs = '<div class = "dishname-header"><h3 id="Maten"></h3></div>';
+
+  this.theContainer.append(theDivs);
+  this.woop = container.find('#Maten')*/
+
+    console.log("fff");
+
   this.Update = function(what){
 
+    console.log("ggg");
+      console.log(model.getCurrentDish);
 
-{ this.container = container;
-  this.dishDetails = function(){
-    var dishid = dish.id;
-    if(dish=== undefined || dish === null){
-    return;
-  }
+
+
+
+  //this.dishDetails = function(){
+    //var dishid = dish.id;
+    //if(dish=== undefined || dish === null){
+    //return;
+  //}
       //this.DishDetailsView.hide();
       var showingdish = container.find('#dinnerdetailsOverview')
-      model.getDish(dish.id, function(data){
-      var thedish = data.response;
+      //model.getDish(dish.id, function(data){
+       model.getDish(dish.id, function(dish){
+      //var thedish = data.response;
+
+
 
       var prep = document.createElement("div");
       var Details = '<div class="row"><div class="col-md-6"><div class="card">';
@@ -44,10 +65,11 @@ var DishDetailsView = function (container, model) {
         Details += '</ul></div></div></div>';
 
         //The ingredient prices aren't in the API, but I found the whole dish price. could we just use that instead?
-        prep.innerHtml = Details;
-        showingdish.append(prep);
-      //  this.dishDetailsFrame.empty().append(Details);
-      //  this.dishDetailsFrame.show();
+       prep.innerHtml = Details;
+       this.showingdish.append(Details);
+        //this.dishDetailsFrame.empty().append(Details);
+        //this.dishDetailsFrame.show();
+           console.log(dish.id);
       });
 
 
@@ -86,6 +108,6 @@ var DishDetailsView = function (container, model) {
       model.addDishToMenu(id);
     }
   } */
-}
-}
+//}
+//}
 }

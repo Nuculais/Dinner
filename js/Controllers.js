@@ -31,18 +31,23 @@ var FindDishController = function(view, model, app)
 
 var OneDishController = function(view, model, dish, app)
 {
-  view.dishbutton.click(function(){ //Clicking this should make the Dish Details View appear. It does not, and it doesn't make selectdinnerView go away either.
-  //console.log(view.dish); //Finds it!
+  view.dishbutton.click(function(){
+
     app.showDishDetails();
-    model.currentDish = view.dish;
-    console.log(model.currentDish);
+    //model.currentDish = view.dish;
+      model.setCurrentDish(view.dish);
+   //model.currentDishID = setDishID(view.dish.id);
+    console.log(model.currentDish)
+      //console.log(model.currentDishID);
       });
-  //  Nothing here
 };
 
 var DinnerDetailsController = function(view, model) //DishDetailsView
 {
-  //view.Update();
+    //view.Update();
+    //We cannot call this here because it will always return "dish is undefined" since it gets defined in OneDishView and OneDishController.
+    //So where do we call it?
+
 
   view.dinEdit.click(function(){
   showFindDish();
