@@ -35,6 +35,7 @@ var DishDetailsView = function (container, model) {
       //}
       //this.DishDetailsView.hide();
       var showingdish = container.find('#dinnerdetailsOverview')
+      var showinginstructions = container.find('#prepwrap')
 
       model.getDish(dish.id, function(data){
         var dishIng = data[0];
@@ -42,12 +43,13 @@ var DishDetailsView = function (container, model) {
         console.log(dishIng); //undefined
         console.log(dish.title);
 
+        console.log(dish.image);
         var prep = document.createElement("div");
         var Details = '<div class="row"><div class="col-md-6"><div class="card">';
-        Details += '<img class="card-img-top" src="images/' + dish.image + '" alt="Card image cap"/>';
+        Details += '<img class="card-img-top" src="https://spoonacular.com/recipeImages/'+dish.image + '" alt="Card image cap"/>';
         Details += '<div class="card-body"><h5 class="card-title">' + dish.title + '</h5>';
         Details += '<p class="card-text">Recipe by: '+ dish.creditText + '</p>';
-        Details += '<button class="btn btn-primary" id="dinEdit" value="Back to search</button">';
+        Details += '<button class="btn btn-primary" id="dinEdit" value="Back to search"</button>';
         Details += '</div></div></div><div class="col-md-6"><div class="card"><ul class="list-group list-group-flush">';
 
         //dish.instructions goes in another div
@@ -55,7 +57,7 @@ var DishDetailsView = function (container, model) {
           Details += '<li class="list-group-item"><div class="row"><div class="col-6">'
           Details += ingredient.originalString +'</div>';
           Details += '<div class="col-6 text-right"><span class="badge badge-primary">'
-          Details += 'kr</span></div></div></li>';
+          Details += "1"+' kr</span></div></div></li>';
         });
         Details += '<li class="list-group-item"><div class="row"><div class="col-6">';
         Details +='<button class="btn btn-sm btn-primary" if="addConfirm">Add to menu</button>';
@@ -64,12 +66,19 @@ var DishDetailsView = function (container, model) {
         Details += '</ul></div></div></div>';
 
         //The ingredient prices aren't in the API, but I found the whole dish price. could we just use that instead?
-        prep.innerHtml = Details;
-        console.log(prep.innerHtml);
+        prep.innerHTML = Details;
+        console.log(Details);
 
         showingdish.append(prep);
-        //this.dishDetailsFrame.empty().append(Details);
-        //this.dishDetailsFrame.show();
+        console.log(prep);
+
+        var prep2 = document.createElement("div");
+        var instruct = '<div id="allprep"><p>'+dishIng.instructions+'</p></div>';
+        console.log(dishIng.instructions);
+        prep2.innerHTML = instruct;
+        showinginstructions.append(prep2);
+
+
 
       });
 

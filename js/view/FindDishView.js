@@ -46,7 +46,7 @@ var FindDishView = function(container, model, app){
 
       showing.innerHTML = data;
       ShowDishes.append(showing);
-      
+
       var wherethedishesare = container.find("#dishes");
        model.getAllDishes(type, filter, function (data) {
         var allDishes = data.results;
