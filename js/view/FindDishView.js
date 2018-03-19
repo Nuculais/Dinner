@@ -36,10 +36,14 @@ var FindDishView = function(container, model, app){
         dishType.html(capitalizeFirstLetter(model.getDishType()));
       }
 
+      var loader = $("<div>"); //this is not a global selector in this case, is it?
+      loader.attr('class', 'loader');
+
 
       //Generating the shown dishes
       var ShowDishes = container.find('#selectDishView');
-      var showing = $('<div class="row">      <div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
+      ShowDishes.append(loader);
+      var showing = $('<div class="row"><div class="col-md-12" id="dishescol">    <div id="dishes">    </div>      </div>      </div>');
       var showing = document.createElement('div');
       data = '<div class="col-md-12" id="dishescol"><div id="dishes"></div>';
       showing.class="row";
@@ -69,6 +73,8 @@ var FindDishView = function(container, model, app){
         var oneDishView = new OneDishView($(elem), model, allDishes[i]);
         new OneDishController(oneDishView, model, allDishes[i], app);
           }
+
+        container.find('.loader').hide();
       //  console.log(data);
       });
   }

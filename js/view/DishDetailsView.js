@@ -10,17 +10,6 @@ var DishDetailsView = function (container, model, app) {
 
 
 
-
-  //{
-  //this.container = container;
-  /*var _this = this;
-
-  var theDivs = '<div class = "dishname-header"><h3 id="Maten"></h3></div>';
-
-  this.theContainer.append(theDivs);
-  this.woop = container.find('#Maten')*/
-
-
   this.Update = function(what){
 
     var dish = model.getCurrentDish();
@@ -28,12 +17,6 @@ var DishDetailsView = function (container, model, app) {
     if(what=="Details"){
 
 
-      //this.dishDetails = function(){
-      //var dishid = dish.id;
-      //if(dish=== undefined || dish === null){
-      //return;
-      //}
-      //this.DishDetailsView.hide();
       var showingdish = container.find('#dinnerdetailsOverview')
       var showingingredients = container.find('#dinnerdetailsIngredients')
       var showinginstructions = container.find('#prepwrap')

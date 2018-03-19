@@ -19,11 +19,6 @@ var SidebarDishController = function(view, model)
 
 var FindDishController = function(view, model, app)
 {
-  //Kan det vara att det inte anropas till app.js när funktioneraa ligger i den?
-  //  view.dishbutton.click(function(){ //Clicking this should make the Dish Details View appear. It does not, and it doesn't make selectdinnerView go away either.
-  //  showDishDetails();
-  //});
-
   view.searchdishes.click(function(){ //Works
     view.Update();
   });
@@ -34,28 +29,24 @@ var OneDishController = function(view, model, dish, app)
   view.dishbutton.click(function(){
 
     app.showDishDetails();
-    //model.currentDish = view.dish;
 
     model.setCurrentDish(view.dish);
     console.log(model.getCurrentDish())
-    //model.currentDishID = setDishID(view.dish.id);
-
-    //console.log(model.currentDishID);
   });
 };
 
 var DinnerDetailsController = function(view, model, app) //DishDetailsView
 {
-  view.dinEdit.click(function(){
+  $('#dinnerdetailsOverview').on('click', '#dinEdit', function(){
     console.log("ggg");
     app.showFindDish();
   });
 
-  view.addConfirm.on('click', function(){
-    //model.addDishToMenu(model.currentDish.id);
-    console.log("fff");
-    //app.showFindDish();
-  });
+  $('#dinnerdetailsIngredients').on('click', '#addConfirm', function(){
+    var thedish = model.getCurrentDish();
+    model.addDishToMenu();
+    app.showFindDish();
+});
 };
 
 

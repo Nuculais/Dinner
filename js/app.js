@@ -42,9 +42,7 @@ $(function() {
 	this.showDishDetails = function(){
 		$('#selectDishView').toggleClass('hidden'); //Now it disappears
 		$('#dinnerdetailsView').toggleClass('hidden');  //Now this view has no class at all
-		//$('#dinnerdetailsView').toggleClass('hidden'); //Now this view has class "row hidden"
-
-	/*  dinnerDetailsView.show();
+		/*dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();
 	  dinnerOverviewView.hide();
@@ -54,8 +52,9 @@ $(function() {
 
 
 	}
-	var showFindDish = function(){
+	var showFindDish = function(){ //should probably be this., but it results in "this.showFindDish is not a function" on line 22.
 	 $('#selectdinnerView').toggleClass('hidden'); //works
+	 $('dinnerdetailsView').toggleClass('hidden');
 	  //findDishView.show();
 	  //sidebarDishView.show();
 	  //dinnerDetailsView.hide();
