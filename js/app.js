@@ -42,6 +42,9 @@ $(function() {
 	this.showDishDetails = function(){
 		$('#selectDishView').toggleClass('hidden'); //Now it disappears
 		$('#dinnerdetailsView').toggleClass('hidden');  //Now this view has no class at all
+		//$('#dinnercost').show();
+
+
 		/*dinnerDetailsView.show();
 	  sidebarDishView.show();
 	  findDishView.hide();
