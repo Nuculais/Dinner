@@ -46,15 +46,15 @@ var DishDetailsView = function (container, model) {
         console.log(dish.image);
         var prep = document.createElement("div");
         var Details = '<div class="row"><div class="col-md-6"><div class="card">';
+        Details += '<div class="card-body"><h4 class="card-title">' + dish.title + '</h4>';
+        Details += '<p class="card-text">Recipe by: '+ dishIng.creditText + '</p>';
         Details += '<img class="card-img-top" src="https://spoonacular.com/recipeImages/'+dish.image + '" alt="Card image cap"/>';
-        Details += '<div class="card-body"><h5 class="card-title">' + dish.title + '</h5>';
-        Details += '<p class="card-text">Recipe by: '+ dish.creditText + '</p>';
         Details += '<button class="btn btn-primary" id="dinEdit" value="Back to search"</button>';
         Details += '</div></div></div><div class="col-md-6"><div class="card"><ul class="list-group list-group-flush">';
 
         //dish.instructions goes in another div
         dishIng.extendedIngredients.forEach(function(ingredient){
-          Details += '<li class="list-group-item"><div class="row"><div class="col-6">'
+          Details += '<li class="list-group-item"><div class="row"><div class="col-4">'
           Details += ingredient.originalString +'</div>';
           Details += '<div class="col-6 text-right"><span class="badge badge-primary">'
           Details += "1"+' kr</span></div></div></li>';
