@@ -35,9 +35,11 @@ var OneDishController = function(view, model, dish, app)
 
     app.showDishDetails();
     //model.currentDish = view.dish;
-      model.setCurrentDish(view.dish);
+
+    model.setCurrentDish(view.dish);
+    console.log(model.getCurrentDish())
    //model.currentDishID = setDishID(view.dish.id);
-    console.log(model.currentDish)
+
       //console.log(model.currentDishID);
       });
 };

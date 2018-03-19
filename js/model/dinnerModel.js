@@ -13,6 +13,7 @@ var DinnerModel = function() {
 
 	this.setCurrentDish = function(dish){
 		currentDish = dish;
+		notifyObservers("Details");
 	}
 
 	this.getCurrentDish = function(){
