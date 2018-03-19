@@ -8,8 +8,8 @@ $(function() {
 	var sidebarDishController = new SidebarDishController(sidebarDishView, model);
 	var findDishView = new FindDishView($('#selectDishView'), model, this);
 	var findDishController = new FindDishController(findDishView, model, this);
-	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model);
-	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model);
+	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model, this);
+	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model, this);
 	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
 	var dinnerOverviewController = new DinnerOverviewController(dinnerOverviewView, model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);

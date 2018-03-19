@@ -1,6 +1,6 @@
 //Dish Details view
 
-var DishDetailsView = function (container, model) {
+var DishDetailsView = function (container, model, app) {
 
   //this.dish = model.getCurrentDish();
   this.dinEdit = container.find('#dinEdit');
@@ -35,50 +35,50 @@ var DishDetailsView = function (container, model) {
       //}
       //this.DishDetailsView.hide();
       var showingdish = container.find('#dinnerdetailsOverview')
+      var showingingredients = container.find('#dinnerdetailsIngredients')
       var showinginstructions = container.find('#prepwrap')
 
       model.getDish(dish.id, function(data){
         var dishIng = data[0];
 
-        console.log(dishIng); //undefined
-        console.log(dish.title);
-
-        console.log(dish.image);
         var prep = document.createElement("div");
         var Details = '<div class="row"><div class="col-md-6"><div class="card">';
         Details += '<div class="card-body"><h4 class="card-title">' + dish.title + '</h4>';
         Details += '<p class="card-text">Recipe by: '+ dishIng.creditText + '</p>';
         Details += '<img class="card-img-top" src="https://spoonacular.com/recipeImages/'+dish.image + '" alt="Card image cap"/>';
-        Details += '<button class="btn btn-primary" id="dinEdit" value="Back to search"</button>';
-        Details += '</div></div></div><div class="col-md-6"><div class="card"><ul class="list-group list-group-flush">';
-
-        //dish.instructions goes in another div
-        dishIng.extendedIngredients.forEach(function(ingredient){
-          Details += '<li class="list-group-item"><div class="row"><div class="col-4">'
-          Details += ingredient.originalString +'</div>';
-          Details += '<div class="col-6 text-right"><span class="badge badge-primary">'
-          Details += "1"+' kr</span></div></div></li>';
-        });
-        Details += '<li class="list-group-item"><div class="row"><div class="col-6">';
-        Details +='<button class="btn btn-sm btn-primary" if="addConfirm">Add to menu</button>';
-        Details +='</div><div class="col-6 text-right">Total ';
-        Details += '<span class="badge badge-primary" id="dishprice">' + dishIng.pricePerServing + ' kr</span></div></li>';
-        Details += '</ul></div></div></div>';
-
-        //The ingredient prices aren't in the API, but I found the whole dish price. could we just use that instead?
-        prep.innerHTML = Details;
-        console.log(Details);
-
-        showingdish.append(prep);
-        console.log(prep);
+        Details += '<button class="btn btn-primary" id="dinEdit">Back to search</button>';
+        //Details += '</div></div></div><div class="col-md-6"><div class="card"><ul class="list-group list-group-flush">';
 
         var prep2 = document.createElement("div");
+        var ingredi = '</div></div></div><div class="col-md-8"><div class="card"><ul class="list-group list-group-flush">';
+          dishIng.extendedIngredients.forEach(function(ingredient){
+          ingredi += '<li class="list-group-item"><div class="row"><div class="col-8">'
+          ingredi += ingredient.originalString +'</div>';
+          ingredi += '<div class="col-6 text-right"><span class="badge badge-primary">'
+          ingredi += "1"+' kr</span></div></div></li>';
+        });
+        ingredi += '<li class="list-group-item"><div class="row"><div class="col-6">';
+        ingredi +='<button class="btn btn-sm btn-primary" id="addConfirm">Add to menu</button>';
+        ingredi +='</div><div class="col-6 text-right">Total ';
+        ingredi += '<span class="badge badge-primary" id="dishprice">' + dishIng.pricePerServing + ' kr</span></div></li>';
+        ingredi += '</ul></div></div></div>';
+
+
+
+
+        var prep3 = document.createElement("div");
         var instruct = '<div id="allprep"><p>'+dishIng.instructions+'</p></div>';
-        console.log(dishIng.instructions);
-        prep2.innerHTML = instruct;
-        showinginstructions.append(prep2);
 
 
+        prep.innerHTML = Details;
+        showingdish.append(prep);
+
+
+        prep2.innerHTML = ingredi;
+        showingingredients.append(prep2);
+
+        prep3.innerHTML = instruct;
+        showinginstructions.append(prep3);
 
       });
 
