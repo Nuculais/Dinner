@@ -11,20 +11,25 @@ var SidebarDishView = function (container, model, app) {
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){
-
+      var cost = model.getTotalMenuPrice();
 
         if(what == "guestsnum")
         {
           container.find("#numberOfGuests").html(model.getNumberOfGuests());
-          container.find("#totalcost").html("SEK "+ model.getTotalMenuPrice());
+          if(cost == 0){
+            container.find("#totalcost").html(0.00 + " kr");
+          }
+          else{
+          container.find("#totalcost").html(cost + " kr");
+        }
         }
         else if(what == "addDish")
         {
-          container.find("#totalcost").html("SEK "+ model.getTotalMenuPrice());
+          container.find("#totalcost").html(cost + " kr");
         }
         else if(what == "removeDish")
         {
-          container.find("#totalcost").html("SEK "+ model.getTotalMenuPrice());
+          container.find("#totalcost").html(cost + " kr");
         }
       }
 

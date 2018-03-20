@@ -91,14 +91,21 @@ var DinnerModel = function() {
 	}
 
 	this.getOneDishPrice = function(dishid){
+		console.log(dishid);
 		var price = 0;
-		var totprice = 0;
+		//var totprice = 0;
 
 		this.getDish(dishid, function(food){
-		price = food[0].pricePerServing;
-		totprice = price * guestNum; });
-
+		price += food[0].pricePerServing;
+		console.log(price);
+	//	totprice = price * guestNum;
+		});
+		var totprice = price * guestNum;
+		console.log(totprice);
+		console.log(price);
 		return totprice;
+
+
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
