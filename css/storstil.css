@@ -130,10 +130,11 @@ text-align: left;
   padding-right: 15px;
 }
 
-#prepwrap{
 
-}
 #dinnerdetailsOverview{
     padding-left: 10px;
+}
 
+#dinovermain{
+  background-color: red;
 }

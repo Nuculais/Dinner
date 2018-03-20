@@ -67,8 +67,8 @@ $(function() {
 		$('#selectDishView').show();
 		$('#dinnercost').show();
 		$('#dinnerdetailsView').hide();
-
-
+		$('#DinnerOverviewView').hide();
+		$('#dinnerprintoutView').hide();
 
 	}
 
@@ -89,9 +89,8 @@ $(function() {
 	this.showDinnerOverview = function(){
 		//$('#selectdinnerView').toggleClass('hidden');
 		//$('#dinnerdetailsView').toggleClass('hidden');
-
-		$('#dinnercost').show();
 		$('#DinnerOverviewView').show();
+		$('#dinnercost').hide();
 		$('#selectDishView').hide();
 		$('#dinnerdetailsView').hide();
 		$('#dinnerprintoutView').hide();

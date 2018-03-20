@@ -36,14 +36,12 @@ var OneDishController = function(view, model, dish, app)
     app.showDishDetails();
 
     model.setCurrentDish(view.dish);
-    console.log(model.getCurrentDish());
   });
 };
 
 var DinnerDetailsController = function(view, model, app) //DishDetailsView
 {
   $('#dinnerdetailsOverview').on('click', '#dinEdit', function(){
-    console.log("ggg");
     app.showFindDishAgain();
   });
 
@@ -59,7 +57,7 @@ var DinnerDetailsController = function(view, model, app) //DishDetailsView
 var DinnerOverviewController = function(view, model, app)
 {
   view.goBackAndEditDinner.click(function(){
-    showFindDish();
+    app.showFindDishAgain();
   });
 
   view.dinprint.click(function(){
@@ -70,6 +68,6 @@ var DinnerOverviewController = function(view, model, app)
 var DinnerPrintoutController = function(view, model, app)
 {
   view.dinedit.click(function(){
-    showFindDish();
+    showFindDishAgain();
   });
 };

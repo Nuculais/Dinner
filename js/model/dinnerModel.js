@@ -90,18 +90,29 @@ var DinnerModel = function() {
 		//TODO Lab 1
 	}
 
+	this.getOneDishPrice = function(dishid){
+		var price = 0;
+		var totprice = 0;
+
+		this.getDish(dishid, function(food){
+		price = food[0].pricePerServing;
+		totprice = price * guestNum; });
+
+		return totprice;
+	}
+
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
     var price = 0;
 
-		for(m in menuDishes){
-			this.getDish(menuDishes[m], function(food){
-			price += menuDishes[m].pricePerServing;
+		for(var m=0; m<menuDishes.length; m++){
+			this.getDish(menuDishes[m].id, function(food){
+			price += food[0].pricePerServing;
 		});
 
-		var totalprice = price * numGuests;
-
+		var totalprice = price * guestNum;
 		return totalprice;
+
     /*for(var i=0; i<allIngredients.length;i++)
     {
       totalPrice += allIngredients[i].price;
@@ -110,7 +121,7 @@ var DinnerModel = function() {
 
       return totalPrice;
 			*/
-
+}
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -129,7 +140,6 @@ var DinnerModel = function() {
 			else
 			{ */
 				menuDishes.push(theDish);
-				console.log(menuDishes[0]);
 			//}
 		//}
 
@@ -202,10 +212,14 @@ var DinnerModel = function() {
 			success: function(response){
 				callback(response)
 			},
+
 			error: function(error) {
+				if(errorCallback!=null){
 				errorCallback(error)
-				alert("Could not find this recipe or load its details. Please try again.");
 			}
+				else{
+				alert("Could not find this recipe or load its details. Please try again.");
+			}}
 
 
 		})
