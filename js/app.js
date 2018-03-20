@@ -15,12 +15,21 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
 	var dinnerPrintoutController = new DinnerPrintoutController(dinnerPrintoutView, model);
 
+	$('#selectDishView').hide();
+	$('#dinnerdetailsView').hide();
+	$('#DinnerOverviewView').hide();
+	$('#dinnerprintoutView').hide();
+	$('#dinnercost').hide();
+
+
+
+
 	//this works
 	$('#newDinner').click(function(){
 		$('#indexScreen').toggleClass('hidden');
 		//$('#selectdinnerView').toggleClass('hidden');
-		showFindDish(); //Works
-	});
+		this.showFindDish(); //Works
+	}.bind(this));
 
 
 
@@ -32,17 +41,17 @@ $(function() {
 	 */
 
 	this.showSidebar = function(){
-	  sidebarDishView.show();
-	  dinnerDetailsView.hide();
-	  findDishView.hide();
-	  dinnerOverviewView.hide();
-	  dinnerPrintoutView.hide();
+
 	}
 
 	this.showDishDetails = function(){
-		$('#selectDishView').toggleClass('hidden'); //Now it disappears
-		$('#dinnerdetailsView').toggleClass('hidden');  //Now this view has no class at all
-		//$('#dinnercost').show();
+		//$('#selectdinnerView').toggleClass('hidden'); //Now it disappears
+		//$('#dinnerdetailsView').toggleClass('hidden');  //Now this view has no class at all
+
+ 		$('#dinnercost').show();
+		$('#dinnerdetailsView').show();
+		$('#selectDishView').hide();
+
 
 
 		/*dinnerDetailsView.show();
@@ -51,21 +60,34 @@ $(function() {
 	  dinnerOverviewView.hide();
 	  dinnerPrintoutView.hide();*/
 	}
-	var showOneDish = function(){
+	this.showFindDishAgain = function(){
+		//$('#selectdinnerView').toggleClass('hidden');
+		//$('#dinnerdetailsView').toggleClass('hidden');
+
+		$('#selectDishView').show();
+		$('#dinnercost').show();
+		$('#dinnerdetailsView').hide();
+
 
 
 	}
-	var showFindDish = function(){ //should probably be this., but it results in "this.showFindDish is not a function" on line 22.
-	 $('#selectdinnerView').toggleClass('hidden'); //works
-	 $('dinnerdetailsView').toggleClass('hidden');
-	  //findDishView.show();
-	  //sidebarDishView.show();
-	  //dinnerDetailsView.hide();
-	  //dinnerOverviewView.hide();
-	  //dinnerPrintoutView.hide();
+
+	this.showFindDish = function(){
+	 //$('#selectdinnerView').toggleClass('hidden'); //works
+	 //$('#dinnerdetailsView').toggleClass('hidden');
+	 $('#selectDishView').show();
+	 $('#dinnercost').show();
+
+	/* $("#dinnercost").show();
+	 $("#selectdinnerView").show();
+	 $("#dinnerdetailsView").hide();
+	 $("#dinneroverviewView").hide();
+	 $("#dinnerprintoutView").hide();
+	 */
+
 	}
 	var showDinnerOverview = function(){
-		$('#selectDishView').toggleClass('hidden');
+		$('#selectdinnerView').toggleClass('hidden');
 		$('#dinnerdetailsView').toggleClass('hidden');
 	  //dinnerOverviewView.show();
 	  //sidebarDishView.hide();
@@ -74,11 +96,7 @@ $(function() {
 	  //dinnerPrintoutView.hide();
 	}
 	var showDinnerPrintout = function(){
-	  dinnerPrintoutView.show();
-	  sidebarDishView.hide();
-	  dinnerDetailsView.hide();
-	  findDishView.hide();
-	  dinnerOverviewView.hide();
+
 	}
 
 

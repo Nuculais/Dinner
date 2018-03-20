@@ -39,13 +39,12 @@ var DinnerDetailsController = function(view, model, app) //DishDetailsView
 {
   $('#dinnerdetailsOverview').on('click', '#dinEdit', function(){
     console.log("ggg");
-    app.showFindDish();
+    app.showFindDishAgain();
   });
 
   $('#dinnerdetailsIngredients').on('click', '#addConfirm', function(){
     var thedish = model.getCurrentDish();
     model.addDishToMenu();
-    app.showFindDish();
 });
 };
 
