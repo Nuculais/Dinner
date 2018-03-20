@@ -92,17 +92,25 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-    var totalPrice = 0;
+    var price = 0;
 
-    for(var i=0; i<allIngredients.length;i++)
+		for(m in menuDishes){
+			this.getDish(menuDishes[m], function(food){
+			price += menuDishes[m].pricePerServing;
+		});
+
+		var totalprice = price * numGuests;
+
+		return totalprice;
+    /*for(var i=0; i<allIngredients.length;i++)
     {
       totalPrice += allIngredients[i].price;
     }
       totalPrice = (totalPrice * guestNum);
 
       return totalPrice;
+			*/
 
-		//TODO Lab 1
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
