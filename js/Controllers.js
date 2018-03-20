@@ -1,13 +1,13 @@
 
 //Controllers
-var SidebarDishController = function(view, model)
+var SidebarDishController = function(view, model, app)
 {
   view.plusGuest.click(function(){ //works
     model.setNumberOfGuests(model.getNumberOfGuests() + 1);
   });
 
   view.minusGuest.click(function(){
-    if(model.getNumberOfGuests() < 1){
+    if(model.getNumberOfGuests() <= 1){
       model.setNumberOfGuests(0);
     }
     else{

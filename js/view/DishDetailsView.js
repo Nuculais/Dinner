@@ -54,13 +54,16 @@ var DishDetailsView = function (container, model, app) {
 
 
         prep.innerHTML = Details;
+        showingdish.empty();
         showingdish.append(prep);
 
 
         prep2.innerHTML = ingredi;
+        showingingredients.empty();
         showingingredients.append(prep2);
 
         prep3.innerHTML = instruct;
+        showinginstructions.empty();
         showinginstructions.append(prep3);
 
       });

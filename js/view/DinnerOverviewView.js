@@ -1,10 +1,10 @@
 //Dinner Overview View
 
-var DinnerOverviewView = function (container, model) {
+var DinnerOverviewView = function (container, model, app) {
 
   this.goBackAndEditDinner = container.find('#goBackAndEditDinner');
   this.dinprint = container.find('#dinprint');
-  
+
   //Observer pattern
   model.addObserver(this);
   this.Update = function(what){

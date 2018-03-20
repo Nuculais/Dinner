@@ -7,12 +7,14 @@ var DinnerModel = function() {
 	var menuDishes = [];
 	var allIngredients = [];
 
-	var currentDishID = 1;
 	var currentDish;
 
 
 	this.setCurrentDish = function(dish){
+		currentDish = null;
+				console.log(currentDish);
 		currentDish = dish;
+
 		notifyObservers("Details");
 	}
 

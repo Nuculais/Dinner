@@ -1,6 +1,6 @@
 //Sidebar Dish View
 
-var SidebarDishView = function (container, model) {
+var SidebarDishView = function (container, model, app) {
 
       this.dinconfirm = container.find('#dinconfirm');
       this.plusGuest = container.find('#plusGuest');

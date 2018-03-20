@@ -4,8 +4,8 @@ $(function() {
 	var model = new DinnerModel();
 
 	// And create the instances of the views and controllers
-	var sidebarDishView = new SidebarDishView($('#dinnercost'), model);
-	var sidebarDishController = new SidebarDishController(sidebarDishView, model);
+	var sidebarDishView = new SidebarDishView($('#dinnercost'), model, this);
+	var sidebarDishController = new SidebarDishController(sidebarDishView, model, this);
 	var findDishView = new FindDishView($('#selectDishView'), model, this);
 	var findDishController = new FindDishController(findDishView, model, this);
 	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model, this);
@@ -87,13 +87,15 @@ $(function() {
 
 	}
 	this.showDinnerOverview = function(){
-		$('#selectdinnerView').toggleClass('hidden');
-		$('#dinnerdetailsView').toggleClass('hidden');
-	  //dinnerOverviewView.show();
-	  //sidebarDishView.hide();
-	  //dinnerDetailsView.hide();
-	  //findDishView.hide();
-	  //dinnerPrintoutView.hide();
+		//$('#selectdinnerView').toggleClass('hidden');
+		//$('#dinnerdetailsView').toggleClass('hidden');
+
+		$('#dinnercost').show();
+		$('#DinnerOverviewView').show();
+		$('#selectDishView').hide();
+		$('#dinnerdetailsView').hide();
+		$('#dinnerprintoutView').hide();
+
 	}
 	var showDinnerPrintout = function(){
 
