@@ -16,6 +16,8 @@ const DinnerModel = function () {
     return numberOfGuests;
   };
 
+
+/*
 //Returns all the dishes on the menu.
     this.getFullMenu = function() {
 
@@ -70,7 +72,7 @@ const DinnerModel = function () {
 
         notifyObservers("removeDish");
     }
-
+ */
 
 
 
@@ -90,7 +92,7 @@ const DinnerModel = function () {
     }
     throw response;
   }
-  
+
   const handleError = function (error) {
     if (error.json) {
       error.json().then(error => {
