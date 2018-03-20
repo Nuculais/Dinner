@@ -11,7 +11,7 @@ var SidebarDishController = function(view, model)
   });
 
   view.dinconfirm.click(function(){
-    showFindDish();
+    app.showDinnerOverview();
   });
 
   //Display the dish name/s as well
