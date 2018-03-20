@@ -10,10 +10,10 @@ $(function() {
 	var findDishController = new FindDishController(findDishView, model, this);
 	var dinnerDetailsView = new DishDetailsView($('#dinnerdetailsView'), model, this);
 	var dinnerDetailsController = new DinnerDetailsController(dinnerDetailsView, model, this);
-	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model);
-	var dinnerOverviewController = new DinnerOverviewController(dinnerOverviewView, model);
-	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model);
-	var dinnerPrintoutController = new DinnerPrintoutController(dinnerPrintoutView, model);
+	var dinnerOverviewView = new DinnerOverviewView($('#dinneroverviewView'), model, this);
+	var dinnerOverviewController = new DinnerOverviewController(dinnerOverviewView, model, this);
+	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerprintoutView"), model, this);
+	var dinnerPrintoutController = new DinnerPrintoutController(dinnerPrintoutView, model, this);
 
 	$('#selectDishView').hide();
 	$('#dinnerdetailsView').hide();
@@ -86,7 +86,7 @@ $(function() {
 	 */
 
 	}
-	var showDinnerOverview = function(){
+	this.showDinnerOverview = function(){
 		$('#selectdinnerView').toggleClass('hidden');
 		$('#dinnerdetailsView').toggleClass('hidden');
 	  //dinnerOverviewView.show();

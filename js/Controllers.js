@@ -7,7 +7,12 @@ var SidebarDishController = function(view, model)
   });
 
   view.minusGuest.click(function(){
-    model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+    if(model.getNumberOfGuests() < 1){
+      model.setNumberOfGuests(0);
+    }
+    else{
+      model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+    }
   });
 
   view.dinconfirm.click(function(){
@@ -31,7 +36,7 @@ var OneDishController = function(view, model, dish, app)
     app.showDishDetails();
 
     model.setCurrentDish(view.dish);
-    console.log(model.getCurrentDish())
+    console.log(model.getCurrentDish());
   });
 };
 
@@ -51,7 +56,7 @@ var DinnerDetailsController = function(view, model, app) //DishDetailsView
 
 
 
-var DinnerOverviewController = function(view, model)
+var DinnerOverviewController = function(view, model, app)
 {
   view.goBackAndEditDinner.click(function(){
     showFindDish();
@@ -62,7 +67,7 @@ var DinnerOverviewController = function(view, model)
   });
 };
 
-var DinnerPrintoutController = function(view, model)
+var DinnerPrintoutController = function(view, model, app)
 {
   view.dinedit.click(function(){
     showFindDish();
