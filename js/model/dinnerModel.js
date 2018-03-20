@@ -121,6 +121,7 @@ var DinnerModel = function() {
 			else
 			{ */
 				menuDishes.push(theDish);
+				console.log(menuDishes[0]);
 			//}
 		//}
 
