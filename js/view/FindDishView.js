@@ -4,11 +4,6 @@ var FindDishView = function(container, model, app){
   // Variables
   var view = this;
   this.dinconfirm = container.find('#dinconfirm');
-  /*this.allType = container.find('#allType');
-  this.mainType = container.find('#mainType');
-  this.sideType = container.find('#sideType');
-  this.dessertType = container.find('#dessertType');
-  this.appetizerType = container.find('#appetizerType'); */
   this.search = container.find('#search');
   this.dishbutton = container.find('.dishbutton');
   this.searchdishes = container.find('#searchdishes');
@@ -23,7 +18,7 @@ var FindDishView = function(container, model, app){
 
     var type = view.dropdown.val();
     var filter = view.searchForm.val().toLowerCase();
-    //function to call images
+    //function to show images
       var Update2 = function(){
         typeview();
       }

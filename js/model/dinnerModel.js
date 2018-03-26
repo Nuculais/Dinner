@@ -94,57 +94,37 @@ var DinnerModel = function() {
 	this.getOneDishPrice = function(dishid){
 
 		/*console.log(dishid);
-		var hmhm = [];
-		hmhm.push(dishid);
-
 		var price = 0;
 		//var totprice = 0;
 
-		for(var n=0; n<hmhm.length; n++) {
-            this.getDish(hmhm[n], function (food) {
+            this.getDish(dishid, function (food) {
                 price += food[0].pricePerServing;
-              //  console.log(price);
+								console.log(food[0].pricePerServing)
             });
-            totprice = price * guestNum;
+						console.log(price);
+            var totprice = price * guestNum;
           //  console.log(totprice);
            // console.log(price);
             return totprice;
-        } */
 
+						Promise.all(allData.map(function(d) {
+     return $.get(apiCall, function showData(data){
+        return data.results;
+     });
+})).then(function(res) {
+    //push your movies here...the result of your apiCall is inside the res variable
+});
+*/
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
     var price = 0;
-    var totprice = 0;
 
-    for(i in menuDishes){
-    	this.getDish(menuDishes[i], function(food){
-    		price += (food[0].pricPerServing * this.getNumberofGuests());
-    		totprice += price;
-		}, function(error) {
-        });
-		console.log(totprice);
-
-
-		/*for(var m=0; m<menuDishes.length; m++){
-			this.getDish(menuDishes[m].id, function(food){
-			price += food[0].pricePerServing;
-		});
-
-		var totalprice = price * guestNum;
-		console.log(totalprice);
-		return totalprice;*/
-
-    /*for(var i=0; i<allIngredients.length;i++)
-    {
-      totalPrice += allIngredients[i].price;
-    }
-      totalPrice = (totalPrice * guestNum);
-
-      return totalPrice;
-			*/
-}
+    for(var i; i<menuDishes.length;i++){
+    		price += (this.menuDishes[i].pricePerServing * this.getNumberofGuests());
+			}
+			return price;
 	}
 
 
@@ -236,6 +216,7 @@ var DinnerModel = function() {
 				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 			},
 			success: function(response){
+				currentDish = response[0];
 				callback(response)
 			},
 
