@@ -12,7 +12,7 @@ var DinnerOverviewView = function (container, model, app) {
 
 
     var numguests = model.getNumberOfGuests(); //works
-    var totprice = model.getTotalMenuPrice();
+    var totprice = Math.floor(model.getTotalMenuPrice());
 
     container.find('#overviewPeople').html(numguests+ ' guests, total cost: '+totprice+' kr.');
 
@@ -45,14 +45,14 @@ var DinnerOverviewView = function (container, model, app) {
     //Display the full menu
     //var fullMenu = function(menu){
     var menu = model.getFullMenu();
-
-    for(var i=0; i<menu.length;i++){
+console.log(menu);
+    for(var i in menu){
 
       var allfood = document.createElement("div");
       var food = '<div id="food'+i+'"><img src="https://spoonacular.com/recipeImages/'+menu[i].image +'"<span id="menuName"><h3>'+menu[i].title+'   </h3></span>';
       food+= '<span id="foodcost">'+ menu[i].pricePerServing + ' kr</span></div>';
 
-      showingmenudishes.empty();
+      showingmenudishes.empty(); //This will make only the last dish append
       allfood.innerHTML = food;
       showingmenudishes.append(allfood);
     }}}

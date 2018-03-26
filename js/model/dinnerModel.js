@@ -11,8 +11,6 @@ var DinnerModel = function() {
 
 
 	this.setCurrentDish = function(dish){
-		currentDish = null;
-				console.log(currentDish);
 		currentDish = dish;
 
 		notifyObservers("Details");
@@ -90,28 +88,6 @@ var DinnerModel = function() {
 		//TODO Lab 1
 	}
 
-	this.getOneDishPrice = function(dishid){
-
-		/*console.log(dishid);
-		var hmhm = [];
-		hmhm.push(dishid);
-
-		var price = 0;
-		//var totprice = 0;
-
-		for(var n=0; n<hmhm.length; n++) {
-            this.getDish(hmhm[n], function (food) {
-                price += food[0].pricePerServing;
-              //  console.log(price);
-            });
-            totprice = price * guestNum;
-          //  console.log(totprice);
-           // console.log(price);
-            return totprice;
-        } */
-
-	}
-
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
     var price = 0;
@@ -129,24 +105,37 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(dishprice) {
+	this.addDishToMenu = function() {
 		var theDish = this.getCurrentDish();
+		var menu = this.getFullMenu();
 
-				menuDishes.push(theDish);
+		if(menu.length > 0){
+			for(var i=0;i<menu.length;i++){
 
-		notifyObservers("addDish");
-		//TODO Lab 1
+				if(menu[i] == theDish){
+					alert("This dish is already on the menu.");
+				}
+				else{
+					menu.push(theDish);
+					notifyObservers("addDish");
+				}
+			}
+		}
+		else{
+			menu.push(theDish);
+			notifyObservers("addDish");
+		}
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
+	this.removeDishFromMenu = function(dish) {
 
     //Is it to be assumed that this function will only be called when the dish is actually on the menu?
-
-    var theDish2 = getDish(id);
+    var theDish2 = getCurrentDish();
     for(var i=0; i<menuDishes.length;i++)
-    {
+    {if(menuDishes[i] == theDish2){
       menuDishes.splice(menuDishes[i],1);
+		}
     }
 
 		notifyObservers("removeDish");

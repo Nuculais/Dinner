@@ -26,8 +26,8 @@ var DishDetailsView = function (container, model, app) {
         theprice = dishIng.pricePerServing;
 
         var prep = document.createElement("div");
-        var Details = '<div class="row"><div class="col-md-6"><div class="card">';
-        Details += '<div class="card-body"><h4 class="card-title">' + dish.title + '</h4>';
+        var Details = '<div class="row" id="dishinfo"><div class="col-md-7"><div class="card">';
+        Details += '<div class="card-body"><h2 class="card-title">' + dish.title + '</h2>';
         Details += '<p class="card-text">Recipe by: '+ dishIng.creditText + '</p>';
         Details += '<img class="card-img-top" src="https://spoonacular.com/recipeImages/'+dish.image + '" alt="Card image cap"/>';
         Details += '<button class="btn btn-warning" id="dinEdit">Back to search</button>';

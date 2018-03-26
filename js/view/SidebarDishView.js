@@ -18,11 +18,11 @@ var SidebarDishView = function (container, model, app) {
         if(what == "guestsnum")
         {
           container.find("#numberOfGuests").html(model.getNumberOfGuests());
-          if(cost == 0){
+          if(model.getTotalMenuPrice() == 0){
             container.find("#totalcost").html(0.00 + " kr");
           }
           else{
-          container.find("#totalcost").html(model.getTotalMenuPrice() + " kr");
+          container.find("#totalcost").html(Math.floor(model.getTotalMenuPrice()) + " kr");
         }
         }
         else if(what == "addDish")
@@ -38,12 +38,23 @@ var SidebarDishView = function (container, model, app) {
             allfood.innerHTML = food;
             thedishes.append(allfood);
           }
-            container.find("#totalcost").html(model.getTotalMenuPrice() + " kr");
+            container.find("#totalcost").html(Math.floor(model.getTotalMenuPrice()) + " kr");
 
         }
         else if(what == "removeDish")
         {
-          container.find("#totalcost").html(cost + " kr");
+          var thedishes = container.find("#dishname");
+          thedishes.empty();
+
+          for(var i=0; i<model.getFullMenu().length;i++){
+
+            var allfood = document.createElement("div");
+            var food = '<div id="food'+i+'"><span id="menuName"><p>'+ menu[i].title+ '</p></span></div>';
+
+            allfood.innerHTML = food;
+            thedishes.append(allfood);
+          }
+          container.find("#totalcost").html(Math.floor(model.getTotalMenuPrice()) + " kr");
         }
       }
 
