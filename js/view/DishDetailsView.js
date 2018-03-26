@@ -23,13 +23,14 @@ var DishDetailsView = function (container, model, app) {
 
       model.getDish(dish.id, function(data){
         var dishIng = data[0];
+        theprice = dishIng.pricePerServing;
 
         var prep = document.createElement("div");
         var Details = '<div class="row"><div class="col-md-6"><div class="card">';
         Details += '<div class="card-body"><h4 class="card-title">' + dish.title + '</h4>';
         Details += '<p class="card-text">Recipe by: '+ dishIng.creditText + '</p>';
         Details += '<img class="card-img-top" src="https://spoonacular.com/recipeImages/'+dish.image + '" alt="Card image cap"/>';
-        Details += '<button class="btn btn-primary" id="dinEdit">Back to search</button>';
+        Details += '<button class="btn btn-warning" id="dinEdit">Back to search</button>';
         //Details += '</div></div></div><div class="col-md-6"><div class="card"><ul class="list-group list-group-flush">';
 
         var prep2 = document.createElement("div");
@@ -41,7 +42,7 @@ var DishDetailsView = function (container, model, app) {
           ingredi += "1"+' kr</span></div></div></li>';
         });
         ingredi += '<li class="list-group-item"><div class="row"><div class="col-6">';
-        ingredi +='<button class="btn btn-sm btn-primary" id="addConfirm">Add to menu</button>';
+        ingredi +='<button class="btn btn-sm btn-warning" id="addConfirm">Add to menu</button>';
         ingredi +='</div><div class="col-6 text-right">Total ';
         ingredi += '<span class="badge badge-primary" id="dishprice">' + dishIng.pricePerServing + ' kr</span></div></li>';
         ingredi += '</ul></div></div></div>';

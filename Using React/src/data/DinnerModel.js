@@ -4,8 +4,14 @@ const httpOptions = {
 
 const DinnerModel = function () {
 
-  let numberOfGuests = 4;
+  let numberOfGuests = 0;
   let observers = [];
+  let menuDishes = [];
+  let menuPrices = [];
+
+  let dishType = "";
+  let dishFilter = "";
+  let menutotprice = 0;
 
   this.setNumberOfGuests = function (num) {
     numberOfGuests = num;
@@ -17,64 +23,32 @@ const DinnerModel = function () {
   };
 
 
-/*
-//Returns all the dishes on the menu.
-    this.getFullMenu = function() {
 
-        return menuDishes;
-
+    //Returns the full menu
+    this.getMenu = function(){
+      return menuDishes;
     }
 
-    //Returns all ingredients for all the dishes on the menu.
-    this.getAllIngredients = function() {
+    this.getAllPrice = function(){
+        return menuPrices;
+    }
 
-        for(var i=0;i<menuDishes.length;i++)
-        { //Can you really do like that?
-            for(var j=0;j<(menuDishes[i].ingredients).length;j++)
-            {
-                allIngredients.push((menuDishes[i]).ingredients[j]);
-            }
+    this.getTotalMenuPrice = function(){
+        price=0;
+        for (var i = 0; i < menuPrices.length; i++) {
+            menutotprice = price + menuPrices[i];
         }
-        return allIngredients;
+        return price;
     }
 
-    //Adds the passed dish to the menu. If the dish of that type already exists on the menu
-    //it is removed from the menu and the new one added.
-    this.addDishToMenu = function(id) {
-        var theDish = getDish(id);
-
-        for(var i=0; i<menuDishes.length;i++)
-        {
-            if(menuDishes[i].type == theDish.type)
-            {
-                menuDishes.splice(menuDishes[i],1);
-                menuDishes.push(theDish);
-            }
-            else
-            {
-                menuDishes.push(theDish);
-            }
-        }
-      //Remember to implement the if-else structure with whats in the affected views
-        notifyObservers("addDish");
+    //Adds a dish to the menu
+    this.addDish = function(dish){
+      if(menuDishes.includes(dish)){
+        return;
+      }
+      menuDishes.push(dish);
+      notifyObservers("addDish");
     }
-
-    //Removes dish from menu
-    this.removeDishFromMenu = function(id) {
-
-        //Is it to be assumed that this function will only be called when the dish is actually on the menu?
-
-        var theDish2 = getDish(id);
-        for(var i=0; i<menuDishes.length;i++)
-        {
-            menuDishes.splice(menuDishes[i],1);
-        }
-
-        notifyObservers("removeDish");
-    }
- */
-
-
 
     // API Calls
   this.getAllDishes = function () {
@@ -84,6 +58,12 @@ const DinnerModel = function () {
       .catch(handleError)
   }
 
+    this.getDish = function (id){
+        const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids='+id+'&includeNutrition=false'
+        return fetch(url, httpOptions)
+            .then(processResponse)
+            .catch(handleError)
+    }
 
   // API Helper methods
   const processResponse = function (response) {

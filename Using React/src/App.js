@@ -24,13 +24,14 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">{this.state.title}</h1>
 
+          /*Does Sidebar needs irs own route? And should dishdetails be dishdetails/:id?*/
           {/* We render different components based on the path */}
           <Route exact path="/" component={Welcome}/>
-          <Route path="/selectdish" render={() => <SelectDish model={modelInstance}/>}/>
-          <Route path="/sidebar" render={() => <Sidebar model={modelInstance}/>}/>
-          <Route path="/dishdetails" render={() => <Details model={modelInstance}/>}/>
-          <Route path="/dinneroverview" render={() => <Overview model={modelInstance}/>}/>
-          <Route path="/dinnerprintout" render={() => <Print model={modelInstance}/>}/>
+          <Route path="/selectdish" render={(props) => <SelectDish data={props} model={modelInstance}/>}/>
+          <Route path="/sidebar" render={(props) => <Sidebar data={props} model={modelInstance}/>}/>
+          <Route path="/dishdetails" render={(props) => <Details data={props} model={modelInstance}/>}/>
+          <Route path="/dinneroverview" render={(props) => <Overview data={props} model={modelInstance}/>}/>
+          <Route path="/dinnerprintout" render={(props) => <Print data={props} model={modelInstance}/>}/>
         </header>
       </div>
     );

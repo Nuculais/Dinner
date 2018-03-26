@@ -47,7 +47,9 @@ var DinnerDetailsController = function(view, model, app) //DishDetailsView
 
   $('#dinnerdetailsIngredients').on('click', '#addConfirm', function(){
     var thedish = model.getCurrentDish();
-    model.addDishToMenu();
+    model.addDishToMenu(view.theprice);
+   // model.addPrice(view.dishIng.pricePerServing);
+    console.log(view.theprice);
 });
 };
 

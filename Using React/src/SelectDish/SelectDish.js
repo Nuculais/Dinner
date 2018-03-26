@@ -4,17 +4,73 @@ import Sidebar from '../Sidebar/Sidebar';
 import Dishes from '../Dishes/Dishes';
 
 class SelectDish extends Component {
-  render() {
-    return (
-      <div className="SelectDish">
-        <h2>This is the Select Dish screen</h2>
-        
-        {/* We pass the model as property to the Sidebar component */}
-        <Sidebar model={this.props.model}/>
-        <Dishes/>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: 'Dinner Planner',
+            status: 'INITIAL',
+            filter = this.props.model.dishFilter
+        }
+    }
+    componentDidMount = () => {
+        this.props.model.addObserver(this)
+        this.setState({
+            status: 'LOADED',
+        })
+    }
+
+    update(){
+        this.setState({
+            guestsNum: this.props.model.getNumberOfGuests(),
+            dishes: this.props.model.getMenu(),
+            dishFilter: this.props.model.dishFilter
+        })
+    }
+
+    componentWillUnmount() {
+        this.props.model.removeObserver(this)
+    }
+
+    dishChanged = (e) => {
+        this.props.model.dishFilter = (e.target.value)
+    }
+
+    typeChanged = (e) => {
+        this.props.model.dishType = (e.target.value)
+    }
+
+    render() {
+        if (this.state.status == 'INITIAL') {
+            return <em>Loading...</em>
+        }
+        else if (this.state.status == 'LOADED') {
+            return (
+                <div className="SelectDish" row>
+                    <Sidebar model={this.props.model}/>
+                    <div className="col-md-10">
+                        <h3>Find a Dish</h3>
+                        <div className="row">
+                            <input className="col-sm-2" onChange={this.dishChanged} placeholder="Search here"/>
+                            <select className="col-sm-2" onChange={this.typeChanged}>
+                                <option value="">All</option>
+                                <option value="appetizer">Appetizer</option>
+                                <option value="main course">Main Course</option>
+                                <option value="side dish">Side Dish</option>
+                                <option value="dessert">Dessert</option>
+                                <option value="salad">Salad</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="soup">Soup</option>
+                                <option value="beverage">Beverage</option>
+                                <option value="sauce">Sauce</option>
+                                <option value="drink">Drink</option>
+                            </select>
+                        </div>
+                        <Dishes model={this.props.model} />
+                    </div>
+                </div>
+            );
+        }
+    }
 }
 
 export default SelectDish;

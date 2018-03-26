@@ -6,6 +6,7 @@ var DinnerModel = function() {
 	var guestNum = 0;
 	var menuDishes = [];
 	var allIngredients = [];
+	var menuPrices = [];
 
 	var currentDish;
 
@@ -91,34 +92,49 @@ var DinnerModel = function() {
 	}
 
 	this.getOneDishPrice = function(dishid){
-		console.log(dishid);
+
+		/*console.log(dishid);
+		var hmhm = [];
+		hmhm.push(dishid);
+
 		var price = 0;
 		//var totprice = 0;
 
-		this.getDish(dishid, function(food){
-		price += food[0].pricePerServing;
-		console.log(price);
-	//	totprice = price * guestNum;
-		});
-		var totprice = price * guestNum;
-		console.log(totprice);
-		console.log(price);
-		return totprice;
-
+		for(var n=0; n<hmhm.length; n++) {
+            this.getDish(hmhm[n], function (food) {
+                price += food[0].pricePerServing;
+              //  console.log(price);
+            });
+            totprice = price * guestNum;
+          //  console.log(totprice);
+           // console.log(price);
+            return totprice;
+        } */
 
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
     var price = 0;
+    var totprice = 0;
 
-		for(var m=0; m<menuDishes.length; m++){
+    for(i in menuDishes){
+    	this.getDish(menuDishes[i], function(food){
+    		price += (food[0].pricPerServing * this.getNumberofGuests());
+    		totprice += price;
+		}, function(error) {
+        });
+		console.log(totprice);
+
+
+		/*for(var m=0; m<menuDishes.length; m++){
 			this.getDish(menuDishes[m].id, function(food){
 			price += food[0].pricePerServing;
 		});
 
 		var totalprice = price * guestNum;
-		return totalprice;
+		console.log(totalprice);
+		return totalprice;*/
 
     /*for(var i=0; i<allIngredients.length;i++)
     {
@@ -131,9 +147,11 @@ var DinnerModel = function() {
 }
 	}
 
+
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function() {
+	this.addDishToMenu = function(dishprice) {
 		var theDish = this.getCurrentDish();
 		//var theDish = getDish(id);
 
@@ -147,6 +165,7 @@ var DinnerModel = function() {
 			else
 			{ */
 				menuDishes.push(theDish);
+				menuPrices.push(dishprice);
 			//}
 		//}
 

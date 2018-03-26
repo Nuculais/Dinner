@@ -125,8 +125,17 @@ text-align: left;
     100% { transform: rotate(360deg); }
 }
 
+#addConfirm{
+    margin-left:20px;
+    margin-top: 20px;
+}
+
+#dinEdit{
+    margin-left: 20px;
+    margin-top: 30px;
+}
 #sidebarView{
-	border:1px solid black;
+    border:1px solid black;
   padding-right: 15px;
 }
 
