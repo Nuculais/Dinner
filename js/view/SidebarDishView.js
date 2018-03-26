@@ -12,6 +12,7 @@ var SidebarDishView = function (container, model, app) {
       model.addObserver(this);
       this.Update = function(what){
       var cost = model.getTotalMenuPrice();
+      console.log(cost);
 
         if(what == "guestsnum")
         {
@@ -20,7 +21,7 @@ var SidebarDishView = function (container, model, app) {
             container.find("#totalcost").html(0.00 + " kr");
           }
           else{
-          container.find("#totalcost").html(cost + " kr");
+          container.find("#totalcost").html(model.getTotalMenuPrice() + " kr");
         }
         }
         else if(what == "addDish")

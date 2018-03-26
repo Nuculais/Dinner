@@ -6,7 +6,6 @@ var DinnerModel = function() {
 	var guestNum = 0;
 	var menuDishes = [];
 	var allIngredients = [];
-	var menuPrices = [];
 
 	var currentDish;
 
@@ -116,35 +115,13 @@ var DinnerModel = function() {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
     var price = 0;
-    var totprice = 0;
 
-    for(i in menuDishes){
-    	this.getDish(menuDishes[i], function(food){
-    		price += (food[0].pricPerServing * this.getNumberofGuests());
-    		totprice += price;
-		}, function(error) {
-        });
-		console.log(totprice);
-
-
-		/*for(var m=0; m<menuDishes.length; m++){
-			this.getDish(menuDishes[m].id, function(food){
-			price += food[0].pricePerServing;
-		});
-
-		var totalprice = price * guestNum;
-		console.log(totalprice);
-		return totalprice;*/
-
-    /*for(var i=0; i<allIngredients.length;i++)
-    {
-      totalPrice += allIngredients[i].price;
-    }
-      totalPrice = (totalPrice * guestNum);
-
-      return totalPrice;
-			*/
-}
+		for(var i=0; i<menuDishes.length;i++)
+		{
+			price += menuDishes[i].pricePerServing;
+		}
+		console.log(price);
+		return price;
 	}
 
 
@@ -153,21 +130,10 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(dishprice) {
 		var theDish = this.getCurrentDish();
-		//var theDish = getDish(id);
 
-		/* for(var i=0; i<menuDishes.length;i++)
-		{
-			if(menuDishes[i].type == theDish.type)
-			{
-				menuDishes.splice(menuDishes[i],1);
-				menuDishes.push(theDish);
-			}
-			else
-			{ */
 				menuDishes.push(theDish);
 				menuPrices.push(dishprice);
-			//}
-		//}
+
 
 		notifyObservers("addDish");
 		//TODO Lab 1
@@ -203,29 +169,10 @@ var DinnerModel = function() {
 			},
 			success: function(response){
 				callback(response)
-				//var data = JSON.parse(this.response);
-				//Is this all the dishes?
-				//return data;
 			}
 
 		})
 
-	  /*return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });*/
 	}
 
 	//function that returns a dish of specific ID

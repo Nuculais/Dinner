@@ -54,15 +54,13 @@ var DinnerOverviewView = function (container, model, app) {
     //Display the full menu
     //var fullMenu = function(menu){
     var menu = model.getFullMenu();
-    console.log(menu);
 
     for(var i=0; i<menu.length;i++){
 
       var allfood = document.createElement("div");
       var food = '<div id="food'+i+'"><img src="https://spoonacular.com/recipeImages/'+menu[i].image +'"<span id="menuName"><h3>'+menu[i].title+'   </h3></span>';
-      food+= '<span id="foodcost">'+ menu[i].pricePerServing) + ' kr</span></div>';
-      var isch = menu[0].id;
-      console.log(model.getOneDishPrice(isch));
+      food+= '<span id="foodcost">'+ menu[i].pricePerServing + ' kr</span></div>';
+
       showingmenudishes.empty();
       allfood.innerHTML = food;
       showingmenudishes.append(allfood);
