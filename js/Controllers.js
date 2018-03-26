@@ -46,12 +46,9 @@ var DinnerDetailsController = function(view, model, app) //DishDetailsView
   });
 
   $('#dinnerdetailsIngredients').on('click', '#addConfirm', function(){
-    var thedish = model.getCurrentDish();
     model.addDishToMenu();
 });
 };
-
-
 
 
 var DinnerOverviewController = function(view, model, app)

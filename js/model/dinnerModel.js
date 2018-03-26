@@ -132,8 +132,6 @@ var DinnerModel = function() {
 		var theDish = this.getCurrentDish();
 
 				menuDishes.push(theDish);
-				menuPrices.push(dishprice);
-
 
 		notifyObservers("addDish");
 		//TODO Lab 1
