@@ -7,7 +7,7 @@ var SidebarDishView = function (container, model, app) {
       this.minusGuest = container.find('#minusGuest');
       this.guests = container.find('#guests');
       this.totalcost = container.find('#totalcost');
-
+      this.dishname = container.find("#dishname");
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){
@@ -25,7 +25,8 @@ var SidebarDishView = function (container, model, app) {
         }
         else if(what == "addDish")
         {
-          container.find("#totalcost").html(cost + " kr");
+          container.find("#dishname").html(model.getCurrentDish().title);
+          container.find("#totalcost").html(model.getCurrentDish().pricePerServing + " kr");
         }
         else if(what == "removeDish")
         {
