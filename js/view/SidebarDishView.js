@@ -8,11 +8,12 @@ var SidebarDishView = function (container, model, app) {
       this.guests = container.find('#guests');
       this.totalcost = container.find('#totalcost');
       this.dishname = container.find("#dishname");
+
       //Observer pattern
       model.addObserver(this);
       this.Update = function(what){
-      var cost = model.getTotalMenuPrice();
-      console.log(cost);
+      var menu = model.getFullMenu();
+
 
         if(what == "guestsnum")
         {
@@ -26,8 +27,19 @@ var SidebarDishView = function (container, model, app) {
         }
         else if(what == "addDish")
         {
-          container.find("#dishname").html(model.getCurrentDish().title);
-          container.find("#totalcost").html(model.getCurrentDish().pricePerServing + " kr");
+          var thedishes = container.find("#dishname");
+          thedishes.empty();
+
+          for(var i=0; i<model.getFullMenu().length;i++){
+
+            var allfood = document.createElement("div");
+            var food = '<div id="food'+i+'"><span id="menuName"><p>'+ menu[i].title+ '</p></span></div>';
+
+            allfood.innerHTML = food;
+            thedishes.append(allfood);
+          }
+            container.find("#totalcost").html(model.getTotalMenuPrice() + " kr");
+
         }
         else if(what == "removeDish")
         {

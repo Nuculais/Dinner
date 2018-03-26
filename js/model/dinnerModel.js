@@ -120,7 +120,8 @@ var DinnerModel = function() {
 		{
 			price += menuDishes[i].pricePerServing;
 		}
-		console.log(price);
+		price = (price * this.getNumberOfGuests());
+				console.log(price);
 		return price;
 	}
 

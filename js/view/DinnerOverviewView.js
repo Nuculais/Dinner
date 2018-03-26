@@ -42,15 +42,6 @@ var DinnerOverviewView = function (container, model, app) {
     //Find the menu dishes and their total price
     var showingmenudishes = container.find("#allofthemenu");
 
-
-    /* var dishprices = function(id, num){
-    var theDish = model.getDish(id);
-    var priset = 0;
-    for(var i=0;i<theDish.ingredients.length;i++){
-    priset += theDish.ingredients.price[i]; }
-    return (priset * num); } */
-
-
     //Display the full menu
     //var fullMenu = function(menu){
     var menu = model.getFullMenu();
