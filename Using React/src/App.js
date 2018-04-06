@@ -24,7 +24,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">{this.state.title}</h1>
 
-          /*Does Sidebar needs irs own route? And should dishdetails be dishdetails/:id?*/
+          {/*Does Sidebar needs its own route? And should dishdetails be dishdetails/:id?*/}
           {/* We render different components based on the path */}
           <Route exact path="/" component={Welcome}/>
           <Route path="/selectdish" render={(props) => <SelectDish data={props} model={modelInstance}/>}/>

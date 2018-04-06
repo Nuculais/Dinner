@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Dishes.css';
-// Alternative to passing the moderl as the component property, 
+import { Link } from 'react-router-dom';
+// Alternative to passing the model as the component property, 
 // we can import the model instance directly
 import {modelInstance} from '../data/DinnerModel';
 
@@ -19,6 +20,7 @@ class Dishes extends Component {
   // component is actually shown to the user (mounted to DOM)
   // that's a good place to call the API and get the data
   componentDidMount = () => {
+    this.props.model.addObserver(this)
     // when data is retrieved we update the state
     // this will cause the component to re-render
     modelInstance.getAllDishes().then(dishes => {
@@ -33,6 +35,10 @@ class Dishes extends Component {
     })
   }
 
+  componentWillUnmount() {
+    this.props.model.removeObserver(this)
+  } 
+
   render() {
     let dishesList = null;
     
@@ -45,20 +51,25 @@ class Dishes extends Component {
         break;
       case 'LOADED':
         dishesList = this.state.dishes.map((dish) =>
-          <li key={dish.id}>{dish.title}</li>
+          <div key={dish.id} className="dishes col-sm-2">
+          <Link to={"/dishdetails/" + dish.id}>
+              <img className="dishimg" src={"https://spoonacular.com/recipeImages/" + dish.image} />
+              <p className="dishname"> {dish.title} </p>
+          </Link>
+          </div>
         )
         break;
       default:
-        dishesList = <b>Failed to load data, please try again</b>
+        dishesList = <b>Could not load dishes, please try again.</b>
         break;
     }
 
     return (
       <div className="Dishes">
         <h3>Dishes</h3>
-        <ul>
+        <div className="row">
           {dishesList}
-        </ul>
+        </div>
       </div>
     );
   }

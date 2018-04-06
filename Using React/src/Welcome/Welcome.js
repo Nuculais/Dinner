@@ -10,7 +10,7 @@ class Welcome extends Component {
             Welcome to the dinner planner React Startup code!
         </p>
         
-        <Link to="/search">
+        <Link to="/selectdish">
             <button>Start planning</button>
         </Link>
       </div>

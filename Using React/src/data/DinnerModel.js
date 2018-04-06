@@ -34,7 +34,7 @@ const DinnerModel = function () {
     }
 
     this.getTotalMenuPrice = function(){
-        price=0;
+        var price=0;
         for (var i = 0; i < menuPrices.length; i++) {
             menutotprice = price + menuPrices[i];
         }

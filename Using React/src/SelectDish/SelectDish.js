@@ -9,7 +9,7 @@ class SelectDish extends Component {
         this.state = {
             title: 'Dinner Planner',
             status: 'INITIAL',
-            filter = this.props.model.dishFilter
+            filter: this.props.model.dishFilter
         }
     }
     componentDidMount = () => {
@@ -40,15 +40,15 @@ class SelectDish extends Component {
     }
 
     render() {
-        if (this.state.status == 'INITIAL') {
+        if (this.state.status === 'INITIAL') {
             return <em>Loading...</em>
         }
-        else if (this.state.status == 'LOADED') {
+        else if (this.state.status === 'LOADED') {
             return (
-                <div className="SelectDish" row>
+                <div className="SelectDish row">
                     <Sidebar model={this.props.model}/>
                     <div className="col-md-10">
-                        <h3>Find a Dish</h3>
+                        <h3>Browse dishes</h3>
                         <div className="row">
                             <input className="col-sm-2" onChange={this.dishChanged} placeholder="Search here"/>
                             <select className="col-sm-2" onChange={this.typeChanged}>
@@ -68,7 +68,11 @@ class SelectDish extends Component {
                         <Dishes model={this.props.model} />
                     </div>
                 </div>
-            );
+            );          
+        }
+        else
+        {
+           return ( <b>Unable to fulfill request, please reload.</b>);
         }
     }
 }
