@@ -171,6 +171,7 @@ margin-left: 25px;}
     margin-left: 90px;
 }
 
+<<<<<<< HEAD:storstil.css
 .printview {
     margin: auto;
     padding: 40px;
@@ -197,3 +198,5 @@ margin-left: 25px;}
     border-bottom-color: #ff007b;
     animation: spinner .6s linear infinite;
 }
+=======
+>>>>>>> 76fd7e8e92903956c8e0f13b10008fd508658e26:css/storstil.css

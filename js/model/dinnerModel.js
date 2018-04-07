@@ -69,8 +69,12 @@ var DinnerModel = function () {
 
     }
 
+<<<<<<< HEAD
     //Returns all ingredients for all the dishes on the menu.
     this.getAllIngredients = function () {
+=======
+	}
+>>>>>>> 76fd7e8e92903956c8e0f13b10008fd508658e26
 
         for (var i = 0; i < menuDishes.length; i++) { //Can you really do like that?
             for (var j = 0; j < (menuDishes[i].ingredients).length; j++) {
@@ -80,6 +84,7 @@ var DinnerModel = function () {
         return allIngredients;
 
     }
+<<<<<<< HEAD
 
     //Returns the total price of the menu (all the ingredients multiplied by number of guests).
     this.getTotalMenuPrice = function () {
@@ -90,6 +95,60 @@ var DinnerModel = function () {
         }
         price = (price * this.getNumberOfGuests());
         return price;
+=======
+    return allIngredients;
+
+	}
+
+	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	this.getTotalMenuPrice = function() {
+    var price = 0;
+
+		for(var i=0; i<menuDishes.length;i++)
+		{
+			price += menuDishes[i].pricePerServing;
+		}
+		price = (price * this.getNumberOfGuests());
+		return price;
+	}
+
+
+
+	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
+	//it is removed from the menu and the new one added.
+	this.addDishToMenu = function() {
+		var theDish = this.getCurrentDish();
+		//var menu = this.getFullMenu();
+
+		if(menuDishes.length > 0){
+			for(var i=0;i<menuDishes.length;i++){
+
+				if(menuDishes[i] == theDish){
+					alert("This dish is already on the menu.");
+					return;
+				}
+				else{
+					menuDishes.push(theDish);
+					notifyObservers("addDish");
+				}
+			}
+		}
+		else{
+			menuDishes.push(theDish);
+			notifyObservers("addDish");
+		}
+	}
+
+	//Removes dish from menu
+	this.removeDishFromMenu = function(dish) {
+
+    //Is it to be assumed that this function will only be called when the dish is actually on the menu?
+    var theDish2 = getCurrentDish();
+    for(var i=0; i<menuDishes.length;i++)
+    {if(menuDishes[i] == theDish2){
+      menuDishes.splice(menuDishes[i],1);
+		}
+>>>>>>> 76fd7e8e92903956c8e0f13b10008fd508658e26
     }
 
 
