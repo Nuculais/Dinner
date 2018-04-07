@@ -70,7 +70,6 @@ var DinnerModel = function() {
 
 		return menuDishes;
 
-    //TODO Lab 1
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -85,7 +84,6 @@ var DinnerModel = function() {
     }
     return allIngredients;
 
-		//TODO Lab 1
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -97,7 +95,6 @@ var DinnerModel = function() {
 			price += menuDishes[i].pricePerServing;
 		}
 		price = (price * this.getNumberOfGuests());
-				console.log(price);
 		return price;
 	}
 
@@ -107,22 +104,23 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function() {
 		var theDish = this.getCurrentDish();
-		var menu = this.getFullMenu();
+		//var menu = this.getFullMenu();
 
-		if(menu.length > 0){
-			for(var i=0;i<menu.length;i++){
+		if(menuDishes.length > 0){
+			for(var i=0;i<menuDishes.length;i++){
 
-				if(menu[i] == theDish){
+				if(menuDishes[i] == theDish){
 					alert("This dish is already on the menu.");
+					return;
 				}
 				else{
-					menu.push(theDish);
+					menuDishes.push(theDish);
 					notifyObservers("addDish");
 				}
 			}
 		}
 		else{
-			menu.push(theDish);
+			menuDishes.push(theDish);
 			notifyObservers("addDish");
 		}
 	}

@@ -16,7 +16,6 @@ var DishDetailsView = function (container, model, app) {
 
     if(what=="Details"){
 
-
       var showingdish = container.find('#dinnerdetailsOverview')
       var showingingredients = container.find('#dinnerdetailsIngredients')
       var showinginstructions = container.find('#prepwrap')

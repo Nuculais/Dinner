@@ -10,8 +10,7 @@ var DinnerOverviewView = function (container, model, app) {
   this.Update = function(what){
 
 
-
-    var numguests = model.getNumberOfGuests(); //works
+    var numguests = model.getNumberOfGuests();
     var totprice = Math.floor(model.getTotalMenuPrice());
 
     container.find('#overviewPeople').html(numguests+ ' guests, total cost: '+totprice+' kr.');
@@ -31,7 +30,7 @@ var DinnerOverviewView = function (container, model, app) {
     overview += '</div>';
     overview += '<div class="row">';
     overview += '<div class="col-md-12" id="dinoverbottom">';
-    overview += ' <input type="button" class="btn" id="dinprint" value="Print Full Recipe">';
+    overview += ' <input type="button" class="btn btn-warning" id="dinprint" value="Print Full Recipe">';
     overview += ' </div> </div>';
 
     dinnerOverview.empty();
@@ -45,15 +44,15 @@ var DinnerOverviewView = function (container, model, app) {
     //Display the full menu
     //var fullMenu = function(menu){
     var menu = model.getFullMenu();
-console.log(menu);
+    var whatisshown = [];
     for(var i in menu){
-
       var allfood = document.createElement("div");
-      var food = '<div id="food'+i+'"><img src="https://spoonacular.com/recipeImages/'+menu[i].image +'"<span id="menuName"><h3>'+menu[i].title+'   </h3></span>';
+      var food = '<div class="littledishes" id="food'+i+'"><img src="'+menu[i].image +'"<span id="menuName"><h3>'+menu[i].title+'   </h3></span>';
       food+= '<span id="foodcost">'+ menu[i].pricePerServing + ' kr</span></div>';
 
       showingmenudishes.empty(); //This will make only the last dish append
       allfood.innerHTML = food;
-      showingmenudishes.append(allfood);
+      whatisshown.push(allfood);
+      for(var j in whatisshown){
+      showingmenudishes.append(allfood);}
     }}}
-//}

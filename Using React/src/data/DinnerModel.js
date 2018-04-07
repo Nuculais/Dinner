@@ -8,6 +8,7 @@ const DinnerModel = function () {
   let observers = [];
   let menuDishes = [];
   let menuPrices = [];
+  let currentDish;
 
   let dishType = "";
   let dishFilter = "";
@@ -22,17 +23,23 @@ const DinnerModel = function () {
     return numberOfGuests;
   };
 
-
+  this.setCurrentDish = function(dish){
+      currentDish = dish;
+  };
+  
+  this.getCurrentDish = function(){
+    return currentDish;
+  };
 
     //Returns the full menu
     this.getMenu = function(){
       return menuDishes;
     }
-
+    //Returns the prices of the dishes on the menu
     this.getAllPrice = function(){
         return menuPrices;
     }
-
+    //Returns the total price of the entire menu
     this.getTotalMenuPrice = function(){
         var price=0;
         for (var i = 0; i < menuPrices.length; i++) {

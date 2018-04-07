@@ -152,7 +152,7 @@ text-align: left;
 
 #goBackAndEditDinner{
   margin-left:10px;
-  margin-bottom:25px;
+  margin-bottom:35px;
 }
 
 #DinnerOverviewViewContainer{
@@ -166,3 +166,8 @@ margin-left: 40px;
 
 #dishinfo{
 margin-left: 25px;}
+
+#littledishes{
+    margin-left: 90px;
+}
+
