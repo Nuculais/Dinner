@@ -152,7 +152,7 @@ text-align: left;
 
 #goBackAndEditDinner{
   margin-left:10px;
-  margin-bottom:25px;
+  margin-bottom:35px;
 }
 
 #DinnerOverviewViewContainer{
@@ -166,3 +166,34 @@ margin-left: 40px;
 
 #dishinfo{
 margin-left: 25px;}
+
+#littledishes{
+    margin-left: 90px;
+}
+
+.printview {
+    margin: auto;
+    padding: 40px;
+}
+
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+
+.spinner:before {
+    box-sizing: border-box;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 3px solid #f97b04;
+    border-top-color: #f93d03;
+    border-right-color: #ffe100;
+    border-bottom-color: #ff007b;
+    animation: spinner .6s linear infinite;
+}
