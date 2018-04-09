@@ -110,15 +110,15 @@ var DinnerModel = function () {
         console.log(menuDishes);
     }
 
-
 //Removes dish from menu
     this.removeDishFromMenu = function (dish) {
-
+        console.log(dish.id);
         //Is it to be assumed that this function will only be called when the dish is actually on the menu?
         var theDish2 = getCurrentDish();
         for (var i = 0; i < menuDishes.length; i++) {
-            if (menuDishes[i] == theDish2) {
-                menuDishes.splice(menuDishes[i], 1);
+            if (menuDishes[i].id == dish.id) {
+                console.log(menuDishes[i].id);
+                menuDishes.splice(i, 1);
             }
         }
 

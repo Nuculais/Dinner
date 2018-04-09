@@ -40,8 +40,9 @@ var DishDetailsView = function (container, model, app) {
           ingredi += '<div class="col-6 text-right"><span class="badge badge-primary">'
           ingredi += "1"+' kr</span></div></div></li>';
         });
-        ingredi += '<li class="list-group-item"><div class="row"><div class="col-6">';
+        ingredi += '<li class="list-group-item"><div class="row"><div class="col-12">';
         ingredi +='<button class="btn btn-sm btn-warning" id="addConfirm">Add to menu</button>';
+        ingredi +='<button class="btn btn-sm btn-warning" id="removeDish">Remove Dish</button>';
         ingredi +='</div><div class="col-6 text-right">Total ';
         ingredi += '<span class="badge badge-primary" id="dishprice">' + dishIng.pricePerServing + ' kr</span></div></li>';
         ingredi += '</ul></div></div></div>';
