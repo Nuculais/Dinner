@@ -1,41 +1,62 @@
+
+let DinnerPrintoutView = function (container, model, app) {
+
+    this.dinnerEdit = container.find('#dinnerEdit');
+
+    //Observer pattern
+    model.addObserver(this);
+    this.Update = function (what) {
+
+        console.log("printing");
+        //Find the menu dishes and their total price
+        let showingmenudishes = container.find("#dinprintmenuitems");
+
+        //Display the full menu
+        //let fullMenu = function(menu){
+        let menu = model.getFullMenu();
+        let whatisshown = [];
+        showingmenudishes.empty();
+        for (let i in menu) {
+            console.log("printing1111");
+            let allfood = document.createElement("div");
+            let food = '<div class="littledishes" id="food' + i + '"><img src="' + menu[i].image + '"<span id="menuName"><h3>' + menu[i].title + '   </h3></span>';
+            food += '<span id="foodcost">' + menu[i].instructions + '<br /><br /></span></div>';
+
+            //showingmenudishes.empty(); //This will make only the last dish append
+            allfood.innerHTML = food;
+            whatisshown.push(allfood);
+
+            for (let j in whatisshown) {
+                showingmenudishes.append(allfood);
+            }
+        }
+    }
+};
+
+
+
+/*
 //Dinner Printout View
 
-var DinnerPrintoutView = function (container, model) {
-
-  this.dinedit = container.find('#dinedit');
-  //Observer pattern
-  model.addObserver(this);
-  this.Update = function(){
-
-    //The top headline (should maybe be a separate view?)
-    //fix when there is a div for it to attach to
-    var dinnerPrint = container.find('#');
-    var numguests = model.getNumberOfGuests();
-
-    var printout = '<div class="row" id="row3">';
-        printout += '<div class="col-md-12" id="dinprintheadline">';
-        printout += '<h3>My dinner: </h3>';
-        printout += '<span>'+numguests+' guests</span>';
-        printout += '<input type="button" id="dinedit" onclick="FunctionThatDoesNotExistYet()" value="Go back and edit dinner">';
-        printout += '</div></div>';
-        printout += '<div class="row" id="row4">';
-        printout += '<div class="col-md-12" id="dinprintmenuitems">';
-        printout += '</div></div>';
-
-        dinnerPrint.append(printout);
-
-
-    //Generating the menu items
-    var fullDinner = container.find('#dinprintmenuitems');
-    var menu = model.getFullMenu();
+let DinnerPrintoutView = function (container, model) {
+    console.log("Print1");
+    this.dinedit = container.find('#dinedit');
+    model.addObserver(this);
+    console.log("Print2");
+    let fullDinner = container.find('#dinprintmenuitems');
+    let menu = model.getFullMenu();
     this.fullMenu = function (menu) {
-        for (var i = 0; i < menu.length; i++) {
-            var food = '<div class="row"><div class="col-md-6">';
-                food+= '<img src="images/'+menu[i].image+'"><span id="dinprintname"><h4>'+menu[i].name+'</h4></span>';
-                food+= '<span id="dinprintdescr">'+menu[i].type+'</span></div>';
-                food+= '<div class="col-md-6"><h5>Preparation</h5><span>'+menu[i].description+'</span>';
-                food+= '</div></div>';
+        for (let i = 0; i < menu.length; i++) {
+            let food = '<div class="row"><div class="col-md-6">';
+            food += '<img src="images/' + menu[i].image + '"><span id="dinprintname"><h4>' + menu[i].name + '</h4></span>';
+            food += '<span id="dinprintdescr">' + menu[i].type + '</span></div>';
+            food += '<div class="col-md-6"><h5>Preparation</h5><span>' + menu[i].description + '</span>';
+            food += '</div></div>';
 
-                fullDinner.append(food); } }
-}
+            fullDinner.append(food);
         }
+    }
+
+
+}
+*/

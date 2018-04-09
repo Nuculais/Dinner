@@ -1,70 +1,66 @@
-
 //Controllers
-var SidebarDishController = function(view, model, app)
-{
-  view.plusGuest.click(function(){ //works
-    model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-  });
+let SidebarDishController = function (view, model, app) {
+    view.plusGuest.click(function () { //works
+        model.setNumberOfGuests(model.getNumberOfGuests() + 1);
+    });
 
-  view.minusGuest.click(function(){
-    if(model.getNumberOfGuests() <= 1){
-      model.setNumberOfGuests(0);
-    }
-    else{
-      model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-    }
-  });
+    view.minusGuest.click(function () {
+        if (model.getNumberOfGuests() <= 1) {
+            model.setNumberOfGuests(0);
+        }
+        else {
+            model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+        }
+    });
 
-  view.dinconfirm.click(function(){
-    app.showDinnerOverview();
-  });
+    view.dinconfirm.click(function () {
+        app.showDinnerOverview();
+    });
 
-  //Display the dish name/s as well
-}
-
-var FindDishController = function(view, model, app)
-{
-  view.searchdishes.click(function(){ //Works
-    view.Update();
-  });
+    //Display the dish name/s as well
 };
 
-var OneDishController = function(view, model, dish, app)
-{
-  view.dishbutton.click(function(){
-
-    app.showDishDetails();
-
-    model.setCurrentDish(view.dish);
-  });
+let FindDishController = function (view, model, app) {
+    view.searchdishes.click(function () { //Works
+        view.Update();
+    });
 };
 
-var DinnerDetailsController = function(view, model, app) //DishDetailsView
-{
-  $('#dinnerdetailsOverview').on('click', '#dinEdit', function(){
-    app.showFindDishAgain();
-  });
+let OneDishController = function (view, model, dish, app) {
+    view.dishbutton.click(function () {
 
-  $('#dinnerdetailsIngredients').on('click', '#addConfirm', function(){
-    model.addDishToMenu();
-});
+        app.showDishDetails();
+
+        model.setCurrentDish(view.dish);
+    });
+};
+
+let DinnerDetailsController = function (view, model, app) //DishDetailsView
+{
+    $('#dinnerdetailsOverview').on('click', '#dinEdit', function () {
+        app.showFindDishAgain();
+    });
+
+    $('#dinnerdetailsIngredients').on('click', '#addConfirm', function () {
+        model.addDishToMenu();
+    });
 };
 
 
-var DinnerOverviewController = function(view, model, app)
-{
-  view.goBackAndEditDinner.click(function(){
-    app.showFindDishAgain();
-  });
+let DinnerOverviewController = function (view, model, app) {
+    view.goBackAndEditDinner.click(function () {
+        app.showFindDishAgain();
+    });
 
-  view.dinprint.click(function(){
-    showDinnerPrintout();
-  });
+
+    view.dinprint.click(function () {
+        console.log("Print Call");
+        app.showDinnerPrintout();
+    });
 };
 
-var DinnerPrintoutController = function(view, model, app)
-{
-  view.dinedit.click(function(){
-    showFindDishAgain();
-  });
+let DinnerPrintoutController = function (view, model, app) {
+    view.dinnerEdit.click(function () {
+        app.showFindDishAgain();
+    });
 };
