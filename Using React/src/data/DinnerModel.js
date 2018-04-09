@@ -5,7 +5,7 @@ const httpOptions = {
 const DinnerModel = function () {
 
   //let numberOfGuests = 0;
-  window.localStorage.setItem("numberOfGuests", 0);
+  //window.localStorage.setItem("numberOfGuests", 0);
   let observers = [];
   let menuDishes = [];
   let menuPrices = [];
@@ -18,9 +18,9 @@ const DinnerModel = function () {
 
   //let DinnerStorage = window.localStorage;
 
-  if(!localStorage.getItem('numberOfGuests')){
-    localStorage.setItem('numberOfGuests', 0);
-}
+  //if(!localStorage.getItem('numberOfGuests')){
+  //  localStorage.setItem('numberOfGuests', 0);
+//}
 
   this.setNumberOfGuests = function(num){
     //numberOfGuests = num;
@@ -29,13 +29,15 @@ const DinnerModel = function () {
   };
 
   this.getNumberOfGuests = function(){
-    let guests = localStorage.getItem("numberOfGuests");
+    let guests = parseInt(localStorage.getItem("numberOfGuests"));
+    console.log("Reading guests", guests)
     return guests;
   };
 
   this.setDishType = function(type){
     dishType = type;
     console.log(dishType);
+    this.getAllDishes();
   }
   this.getDishType = function(){
     return dishType;
@@ -44,6 +46,7 @@ const DinnerModel = function () {
   this.setDishFilter = function(filter){
     dishFilter = filter;
     console.log(dishFilter);
+    this.getAllDishes();
   }
   this.getDishFilter = function(){
     return dishType;
@@ -118,6 +121,11 @@ const DinnerModel = function () {
     this.getAllDishes = function(){
     //let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter.toLowerCase()+'&number=12'
     let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?'
+      dishFilter = this.getDishFilter();
+      dishType = this.getDishType();
+      console.log(url);
+      console.log(this.getDishFilter());
+      console.log(this.getDishType());
 
     if(dishType !== "") {
       dishType = dishType.replace(" ", "+");

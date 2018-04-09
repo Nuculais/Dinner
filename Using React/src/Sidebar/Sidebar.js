@@ -9,7 +9,7 @@ class Sidebar extends Component {
     
     // we put on state the properties we want to use and modify in the component
     this.state = {
-      numberOfGuests: this.props.model.getNumberOfGuests()
+      guestsnum: this.props.model.getNumberOfGuests()
     }
   }
 
@@ -52,6 +52,19 @@ class Sidebar extends Component {
         <br/>
         Total guests: {this.state.guestsnum}.
         </p>
+        <div className="row">
+          <div className="col">
+            {this.props.model.getMenu().map((dish, j) => {
+                return (
+                        <div className="row">
+                          <div key={j}>
+                          <p>{dish.title}</p>
+                        </div></div>
+                      )
+              })}
+              </div>
+              </div>
+
         <p>Total cost: {this.state.totcost} kr.</p>
         <Link to="/dinneroverview">
         <button className="btn btn-warning" id="dinconfirm">Confirm Dinner</button>
