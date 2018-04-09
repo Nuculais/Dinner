@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './Print.css';
-import loader from '../Loader/loader.gif';
 import {modelInstance} from '../data/DinnerModel';
 
 class Print extends Component {

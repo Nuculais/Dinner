@@ -37,8 +37,8 @@ class SelectDish extends Component {
         this.props.model.setDishFilter(e.target.value)
     }
 
-    typeChanged = (e) => {
-        this.props.model.setDishType(e.target.value)
+    typeChanged = (f) => {
+        this.props.model.setDishType(f.target.value)
     }
 
     render() {

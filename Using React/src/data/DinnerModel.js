@@ -36,8 +36,8 @@ const DinnerModel = function () {
 
   this.setDishType = function(type){
     dishType = type;
-    console.log(dishType);
     this.getAllDishes();
+    notifyObservers();
   }
   this.getDishType = function(){
     return dishType;
@@ -45,11 +45,11 @@ const DinnerModel = function () {
 
   this.setDishFilter = function(filter){
     dishFilter = filter;
-    console.log(dishFilter);
     this.getAllDishes();
+    notifyObservers();
   }
   this.getDishFilter = function(){
-    return dishType;
+    return dishFilter;
   }
   
   this.setCurrentDish = function(dish){
@@ -62,6 +62,7 @@ const DinnerModel = function () {
 
     //Returns the full menu
     this.getMenu = function(){
+      //let menuDishes = localStorage.getItem('Menu');
       return menuDishes;
     }
     //Returns the prices of the dishes on the menu
@@ -123,24 +124,26 @@ const DinnerModel = function () {
     let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?'
       dishFilter = this.getDishFilter();
       dishType = this.getDishType();
-      console.log(url);
-      console.log(this.getDishFilter());
-      console.log(this.getDishType());
+     
+      console.log(dishFilter);
+      console.log(dishType);
 
-    if(dishType !== "") {
+   /* if(dishType !== "") {
       dishType = dishType.replace(" ", "+");
       url += 'type='+ dishType + '&'
-    }
+    }*/
+    url += 'type='+ dishType + '&'
   
       if(dishFilter !== (""||undefined)) {
       dishFilter = dishFilter.replace(" ", "+");
       url += 'query='+ dishFilter
     }
     url += '&number=12';
+    console.log(url);
 
-    return fetch(url, httpOptions)
+    return (fetch(url, httpOptions)
       .then(processResponse)
-      .catch(handleError)
+      .catch(handleError))
   }
 
  /* this.getAllDishes = function () {
