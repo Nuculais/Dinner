@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 class Welcome extends Component {
   render() {
     return (
-      <div className="Welcome">
+      <div className="Welcome jumbotron">
         <p>
-            Welcome to the dinner planner React Startup code!
+            Welcome to the dinner planner!
         </p>
         
         <Link to="/selectdish">
-            <button>Start planning</button>
+            <button className="btn btn-primary">Start planning</button>
         </Link>
       </div>
     );

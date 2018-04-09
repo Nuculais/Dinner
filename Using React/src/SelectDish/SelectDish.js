@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SelectDish.css';
 import Sidebar from '../Sidebar/Sidebar';
 import Dishes from '../Dishes/Dishes';
+import loader from '../Loader/loader.gif';
 
 class SelectDish extends Component {
     constructor(props) {
@@ -23,7 +24,8 @@ class SelectDish extends Component {
         this.setState({
             guestsNum: this.props.model.getNumberOfGuests(),
             dishes: this.props.model.getMenu(),
-            dishFilter: this.props.model.dishFilter
+            dishFilter: this.props.model.getDishFilter(),
+            dishType: this.props.model.getDishType()
         })
     }
 
@@ -32,26 +34,26 @@ class SelectDish extends Component {
     }
 
     dishChanged = (e) => {
-        this.props.model.dishFilter = (e.target.value)
+        this.props.model.setDishFilter(e.target.value)
     }
 
     typeChanged = (e) => {
-        this.props.model.dishType = (e.target.value)
+        this.props.model.setDishType(e.target.value)
     }
 
     render() {
         if (this.state.status === 'INITIAL') {
-            return <em>Loading...</em>
+            return <div id="tocenter"><img className="loader" src={loader}/></div>
         }
         else if (this.state.status === 'LOADED') {
             return (
                 <div className="SelectDish row">
                     <Sidebar model={this.props.model}/>
-                    <div className="col-md-10">
+                    <div className="select col-md-8">
                         <h3>Browse dishes</h3>
                         <div className="row">
-                            <input className="col-sm-2" onChange={this.dishChanged} placeholder="Search here"/>
-                            <select className="col-sm-2" onChange={this.typeChanged}>
+                            <input className="field col-sm-2" onChange={this.dishChanged} placeholder="Search here"/>
+                            <select className="field col-sm-2" onChange={this.typeChanged}>
                                 <option value="">All</option>
                                 <option value="appetizer">Appetizer</option>
                                 <option value="main course">Main Course</option>

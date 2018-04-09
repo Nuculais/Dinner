@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './Dishes.css';
 import { Link } from 'react-router-dom';
-// Alternative to passing the model as the component property, 
-// we can import the model instance directly
 import {modelInstance} from '../data/DinnerModel';
+import loader from '../Loader/loader.gif';
 
 
 class Dishes extends Component {
@@ -16,7 +15,7 @@ class Dishes extends Component {
     }
   }
 
-  // this methods is called by React lifecycle when the 
+  // this method is called by React lifecycle when the 
   // component is actually shown to the user (mounted to DOM)
   // that's a good place to call the API and get the data
   componentDidMount = () => {
@@ -39,36 +38,44 @@ class Dishes extends Component {
     this.props.model.removeObserver(this)
   } 
 
+  update(){
+    modelInstance.getAllDishes().then(dishes =>{
+      this.setState({
+        status: 'LOADED',
+        dishes: dishes.results
+      })
+    }).catch(() =>{
+      this.setState({
+        status: 'ERROR'
+      })
+    })
+  }
+
   render() {
-    let dishesList = null;
-    
-    // depending on the state we either generate
-    // useful message to the user or show the list
-    // of returned dishes
-    switch (this.state.status) {
-      case 'INITIAL':
-        dishesList = <em>Loading...</em>
-        break;
-      case 'LOADED':
-        dishesList = this.state.dishes.map((dish) =>
+    let thedishes = null;
+
+    if(this.state.status == 'INITIAL') {
+        //thedishes = <em>Loading...</em>
+        thedishes = <div id="tocenter"><img className="loader" src={loader}/></div>
+    }
+     else if(this.state.status == 'LOADED'){
+        thedishes = this.state.dishes.map((dish) =>
           <div key={dish.id} className="dishes col-sm-2">
           <Link to={"/dishdetails/" + dish.id}>
               <img className="dishimg" src={"https://spoonacular.com/recipeImages/" + dish.image} />
               <p className="dishname"> {dish.title} </p>
           </Link>
           </div>
-        )
-        break;
-      default:
-        dishesList = <b>Could not load dishes, please try again.</b>
-        break;
+        )}
+ 
+      else{
+        thedishes = <b>Could not load dishes, please try again.</b>
     }
 
     return (
-      <div className="Dishes">
-        <h3>Dishes</h3>
+      <div className="Dishes row">
         <div className="row">
-          {dishesList}
+          {thedishes}
         </div>
       </div>
     );

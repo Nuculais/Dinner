@@ -9,6 +9,7 @@ import Details from "./Details/Details";
 import Overview from "./Overview/Overview";
 import Print from "./Print/Print";
 import Dishes from "./Dishes/Dishes";
+import '../node_modules/react-bootstrap/dist/react-bootstrap.min.js';
 
 class App extends Component {
   constructor(props) {
@@ -27,11 +28,11 @@ class App extends Component {
           {/*Does Sidebar needs its own route? And should dishdetails be dishdetails/:id?*/}
           {/* We render different components based on the path */}
           <Route exact path="/" component={Welcome}/>
-          <Route path="/selectdish" render={(props) => <SelectDish data={props} model={modelInstance}/>}/>
-          <Route path="/sidebar" render={(props) => <Sidebar data={props} model={modelInstance}/>}/>
-          <Route path="/dishdetails" render={(props) => <Details data={props} model={modelInstance}/>}/>
-          <Route path="/dinneroverview" render={(props) => <Overview data={props} model={modelInstance}/>}/>
-          <Route path="/dinnerprintout" render={(props) => <Print data={props} model={modelInstance}/>}/>
+          <Route path="/selectdish" render={(props) => <SelectDish info={props} model={modelInstance}/>}/>
+          <Route path="/sidebar" render={(props) => <Sidebar info={props} model={modelInstance}/>}/>
+          <Route path="/dishdetails/:id" render={(props) => <Details info={props} model={modelInstance}/>}/>
+          <Route path="/dinneroverview" render={(props) => <Overview info={props} model={modelInstance}/>}/>
+          <Route path="/dinnerprintout" render={(props) => <Print info={props} model={modelInstance}/>}/>
         </header>
       </div>
     );

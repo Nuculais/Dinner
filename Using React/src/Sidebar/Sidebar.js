@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
+import { Link } from 'react-router-dom';
+
 class Sidebar extends Component {
 
   constructor(props) {
@@ -24,28 +26,36 @@ class Sidebar extends Component {
     this.props.model.removeObserver(this)
   }
 
-  // in our update function we modify the state which will
-  // cause the component to re-render
   update() {
     this.setState({
-      numberOfGuests: this.props.model.getNumberOfGuests()
+      guestsnum: this.props.model.getNumberOfGuests(),
+      totcost: this.props.model.getTotalMenuPrice()
     })
   }
 
-  // our handler for the input's on change event
-  onNumberOfGuestsChanged = (e) => {
+  onGuestsnumChanged = (e) => {
     this.props.model.setNumberOfGuests(+e.target.value)
   }
 
+  /*<button id="plusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests+1)}></button>
+  <button id="minusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests-1)}></button>*/
+
+
   render() {
     return (
-      <div className="Sidebar">
-        <h3>This is the sidebar</h3>
-        <p>
-        People: <input value={this.state.numberOfGuests} onChange={this.onNumberOfGuestsChanged}/>
+      <div className="Sidebar col-md-3">
+   
+        <h3>My Dinner</h3>
         <br/>
-        Total number of guests: {this.state.numberOfGuests}
+        <p>Guests: 
+        <input id="theguests" value={this.state.guestsnum} onChange={this.onGuestsnumChanged}/>
+        <br/>
+        Total guests: {this.state.guestsnum}.
         </p>
+        <p>Total cost: {this.state.totcost} kr.</p>
+        <Link to="/dinneroverview">
+        <button className="btn btn-warning" id="dinconfirm">Confirm Dinner</button>
+        </Link>
       </div>
     );
   }
