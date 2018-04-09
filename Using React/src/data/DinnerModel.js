@@ -7,30 +7,24 @@ const DinnerModel = function () {
   //let numberOfGuests = 0;
   //window.localStorage.setItem("numberOfGuests", 0);
   let observers = [];
-  let menuDishes = [];
-  let menuPrices = [];
   let currentDish = "";
-
+  let meny = [];
+  localStorage.setItem('Menu', JSON.stringify(meny));
+  localStorage.setItem('numberOfGuests', 0);
+  localStorage.setItem('totprice', 0);
   let dishType = "";
   let dishFilter = "";
   let menutotprice = 0;
 
 
-  //let DinnerStorage = window.localStorage;
-
-  //if(!localStorage.getItem('numberOfGuests')){
-  //  localStorage.setItem('numberOfGuests', 0);
-//}
-
   this.setNumberOfGuests = function(num){
-    //numberOfGuests = num;
     localStorage.setItem("numberOfGuests", num);
     notifyObservers();
   };
 
   this.getNumberOfGuests = function(){
     let guests = parseInt(localStorage.getItem("numberOfGuests"));
-    console.log("Reading guests", guests)
+
     return guests;
   };
 
@@ -62,57 +56,56 @@ const DinnerModel = function () {
 
     //Returns the full menu
     this.getMenu = function(){
-      //let menuDishes = localStorage.getItem('Menu');
-      return menuDishes;
+      //let menuDishes = JSON.parse(localStorage.getItem('Menu'));
+      return JSON.parse(localStorage.getItem('Menu'));
+     // return localStorage.getItem(JSON.parse('Menu'));
     }
-    //Returns the prices of the dishes on the menu
-    this.getAllPrice = function(){
-        return menuPrices;
-    }
+
 
     //Returns the total price of the entire menu
     this.getTotalMenuPrice = function(){
       var price = 0;
+      let menuDishes = JSON.parse(localStorage.getItem('Menu'));
       
           for(var i=0; i<menuDishes.length;i++)
           {
             price += menuDishes[i].pricePerServing;
           }
           price = (price * this.getNumberOfGuests());
-          return Math.floor(price);  
-      
-      /*var price=0;
-        for (var i = 0; i < menuPrices.length; i++) {
-            menutotprice = price + menuPrices[i];
-        }
 
-        if(price === (0||undefined)){
-          return 0;
-        }
-        else{
-        return price;
-    }*/
+          let tot = Math.floor(price);  
+          return tot;
+          //localStorage.setItem('totprice', JSON.stringify(tot));
     }
+
+  /*  this.getTotalMenuPrice = function(){
+      return parseInt(localStorage.getItem('totprice'));
+    }*/
 
     //Adds a dish to the menu
     this.addDish = function(){
-      let inmenu = menuDishes.some(e => e.id === currentDish.id);
+      let menu = JSON.parse(localStorage.getItem('Menu'));
+      let inmenu = menu.some(e => e.id === currentDish.id);
      // if(menuDishes.includes(dish)){
       //  return;}
       if(!inmenu){
-      menuDishes.push(currentDish);
-      console.log(menuDishes[0]);
+      menu.push(currentDish);
+      let stuff = JSON.stringify(menu);
+      localStorage.setItem('Menu', stuff);
+      //console.log(menuDishes[0]);
       notifyObservers();
       }
     }
 
     //Removes a dish from the menu
     this.removeDishFromMenu = function(dish) {
-      
-          for(var i=0; i<menuDishes.length;i++)
-          {if(menuDishes[i] == dish){
-            menuDishes.splice(menuDishes[i],1);
+      console.log(dish);
+      let menuDishes = JSON.parse(localStorage.getItem('Menu'));
+          for(var i=0; i<menuDishes.length;i++){
+            if(menuDishes[i].id === dish.id){
+               menuDishes.splice(i,1);
           }
+          localStorage.setItem('Menu', JSON.stringify(menuDishes));
           }     
           notifyObservers();
         }
@@ -120,18 +113,10 @@ const DinnerModel = function () {
     // API Calls
   
     this.getAllDishes = function(){
-    //let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter.toLowerCase()+'&number=12'
     let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?'
       dishFilter = this.getDishFilter();
       dishType = this.getDishType();
      
-      console.log(dishFilter);
-      console.log(dishType);
-
-   /* if(dishType !== "") {
-      dishType = dishType.replace(" ", "+");
-      url += 'type='+ dishType + '&'
-    }*/
     url += 'type='+ dishType + '&'
   
       if(dishFilter !== (""||undefined)) {
@@ -139,7 +124,6 @@ const DinnerModel = function () {
       url += 'query='+ dishFilter
     }
     url += '&number=12';
-    console.log(url);
 
     return (fetch(url, httpOptions)
       .then(processResponse)

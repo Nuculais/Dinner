@@ -92,7 +92,7 @@ handleClick(dishes){
                       <button className="btn btn-warning" onClick={(dish) => this.handleClick(dish)}>Add to Menu</button>
                   </div>
                   <div className="col-sm-6">
-                    <p>Total Price: {dish.pricePerServing * this.state.guestsnum}</p>
+                    <p>Total Price: {Math.floor(dish.pricePerServing * this.state.guestsnum)}</p>
                   </div>
                 </div>
             </div>

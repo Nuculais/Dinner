@@ -36,7 +36,7 @@ class Overview extends Component {
       return (
         <div className="col">
           <div className="row">
-            <h1 className="col" id="header">My dinner: {this.state.guestsnum} guests</h1>
+            <h3 className="col" id="header">My dinner: {this.state.guestsnum} guests</h3>
             <div className="col">
               <Link to="/selectdish">
                 <button className="btn btn-warning">Back to search</button>

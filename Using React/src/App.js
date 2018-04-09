@@ -9,7 +9,6 @@ import Details from "./Details/Details";
 import Overview from "./Overview/Overview";
 import Print from "./Print/Print";
 import Dishes from "./Dishes/Dishes";
-import '../node_modules/react-bootstrap/dist/react-bootstrap.min.js';
 
 class App extends Component {
   constructor(props) {

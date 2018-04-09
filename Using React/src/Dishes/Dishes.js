@@ -55,12 +55,11 @@ class Dishes extends Component {
     let thedishes = null;
 
     if(this.state.status == 'INITIAL') {
-        //thedishes = <em>Loading...</em>
         thedishes = <div id="tocenter"><img className="loader" src={loader}/></div>
     }
      else if(this.state.status == 'LOADED'){
         thedishes = this.state.dishes.map((dish) =>
-          <div key={dish.id} className="dishes col-sm-2">
+          <div key={dish.id} className="dishes col-sm-3">
           <Link to={"/dishdetails/" + dish.id}>
               <img className="dishimg" src={"https://spoonacular.com/recipeImages/" + dish.image} />
               <p className="dishname"> {dish.title} </p>

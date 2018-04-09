@@ -39,7 +39,9 @@ class Sidebar extends Component {
 
   /*<button id="plusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests+1)}></button>
   <button id="minusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests-1)}></button>*/
-
+  handleClick(dish){
+    this.props.model.removeDishFromMenu(dish);
+  }
 
   render() {
     return (
@@ -57,9 +59,15 @@ class Sidebar extends Component {
             {this.props.model.getMenu().map((dish, j) => {
                 return (
                         <div className="row">
-                          <div key={j}>
-                          <p>{dish.title}</p>
-                        </div></div>
+                          <div className="col-sm-7">
+                            <div key={j}>
+                              <p>{dish.title}</p>
+                            </div>
+                            </div>
+                          <div className="col-sm-2">
+                            <button className="btn" onClick={() => this.handleClick(dish)}>X</button>
+                          </div>
+                          </div>
                       )
               })}
               </div>

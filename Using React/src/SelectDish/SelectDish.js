@@ -53,7 +53,7 @@ class SelectDish extends Component {
                         <h3>Browse dishes</h3>
                         <div className="row">
                             <input className="field col-sm-2" onChange={this.dishChanged} placeholder="Search here"/>
-                            <select className="field col-sm-2" onChange={this.typeChanged}>
+                            <select id="field2" className="col-sm-2" onChange={this.typeChanged}>
                                 <option value="">All</option>
                                 <option value="appetizer">Appetizer</option>
                                 <option value="main course">Main Course</option>

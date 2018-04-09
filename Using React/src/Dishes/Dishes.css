@@ -3,8 +3,12 @@
     height:200px;
 }
 
-.Dishes{
-padding-left:10px;
+.dishes{
+margin-left:2px;
+margin-right:2px;
+}
+.dishname{
+    color: rgb(235, 95, 14)
 }
 #tocenter{
     margin: 0 0 auto;

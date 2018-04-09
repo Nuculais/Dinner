@@ -3,5 +3,11 @@
 }
 
 .field{
-    padding-left:10px;
+    margin-left:10px;
+    margin-bottom:5px;
+}
+
+#field2{
+    margin-left:15px;
+    margin-bottom:5px;
 }
