@@ -136,11 +136,12 @@ var DinnerModel = function () {
                 'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
             },
             error: function (error) {
-                errorCallback(error)
+                errorCallback(error);
                 alert("Could not find any recipes matching your search. Please try again.");
             },
             success: function (response) {
-                callback(response)
+                callback(response);
+
             }
 
         })
