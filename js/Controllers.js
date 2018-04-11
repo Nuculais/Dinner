@@ -44,6 +44,15 @@ let DinnerDetailsController = function (view, model, app) //DishDetailsView
     $('#dinnerdetailsIngredients').on('click', '#addConfirm', function () {
         model.addDishToMenu();
     });
+
+    $('#dinnerdetailsIngredients').on('click', '#removeDish', function () {
+        console.log("Removing");
+        model.removeDishFromMenu();
+    });
+    /*view.dishRemove.click(function () {
+        console.log("Print Call");
+        app.showDinnerPrintout();
+    });*/
 };
 
 
