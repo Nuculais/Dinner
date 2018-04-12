@@ -41,6 +41,11 @@ class SelectDish extends Component {
         this.props.model.setDishType(f.target.value)
     }
 
+    handleClick = (g) => {
+        this.props.model.getAllDishes()
+        this.update()
+    } 
+
     render() {
         if (this.state.status === 'INITIAL') {
             return <div id="tocenter"><img className="loader" src={loader}/></div>
@@ -66,6 +71,7 @@ class SelectDish extends Component {
                                 <option value="sauce">Sauce</option>
                                 <option value="drink">Drink</option>
                             </select>
+                            <button id="moredishes" className="btn btn-warning" onClick={this.handleClick}>More dishes</button>
                         </div>
                         <Dishes model={this.props.model} />
                     </div>

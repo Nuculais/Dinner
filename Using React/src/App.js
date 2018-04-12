@@ -8,7 +8,6 @@ import SelectDish from "./SelectDish/SelectDish";
 import Details from "./Details/Details";
 import Overview from "./Overview/Overview";
 import Print from "./Print/Print";
-import Dishes from "./Dishes/Dishes";
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +23,6 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">{this.state.title}</h1>
 
-          {/*Does Sidebar needs its own route? And should dishdetails be dishdetails/:id?*/}
           {/* We render different components based on the path */}
           <Route exact path="/" component={Welcome}/>
           <Route path="/selectdish" render={(props) => <SelectDish info={props} model={modelInstance}/>}/>

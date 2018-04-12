@@ -8,20 +8,14 @@ import loader from '../Loader/loader.gif';
 class Dishes extends Component {
   constructor(props) {
     super(props);
-    // We create the state to store the various statuses
-    // e.g. API data loading or error 
     this.state = {
       status: 'INITIAL'
     }
   }
 
-  // this method is called by React lifecycle when the 
-  // component is actually shown to the user (mounted to DOM)
-  // that's a good place to call the API and get the data
+
   componentDidMount = () => {
     this.props.model.addObserver(this)
-    // when data is retrieved we update the state
-    // this will cause the component to re-render
     modelInstance.getAllDishes().then(dishes => {
       this.setState({
         status: 'LOADED',

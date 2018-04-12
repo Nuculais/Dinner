@@ -11,5 +11,6 @@ margin-right:2px;
     color: rgb(235, 95, 14)
 }
 #tocenter{
-    margin: 0 0 auto;
+    margin-left:50px;
+    margin-top:10px;
 }

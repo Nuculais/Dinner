@@ -17,8 +17,6 @@ class Details extends Component {
 
 componentDidMount=()=> {
   this.props.model.addObserver(this)
- // dish = this.props.model.getCurrentDish()
-  //console.log(dish);
   this.props.model.getDish(this.props.info.match.params.id).then(dishes =>{
   
       this.setState({
@@ -45,7 +43,6 @@ update(){
 
 handleClick(dishes){
   this.props.model.setCurrentDish(this.state.dish);
-  //this.props.model.addDish(this.state.dish);
   this.props.model.addDish();
 }
 
@@ -58,7 +55,7 @@ handleClick(dishes){
      <div className="currdishrow row" id="loaderdiv">
        <Sidebar model={this.props.model}/>
        <img className="loader" src={loader}/>
-     </div> //ev class
+     </div>
       );
     }
     else if(this.state.status === 'LOADED'){

@@ -1,0 +1,14 @@
+.btn {
+    background: #ffb108;
+    background-image: -webkit-linear-gradient(top, #ffb108, #c77700);
+    background-image: -moz-linear-gradient(top, #ffb108, #e4a126);
+    background-image: -ms-linear-gradient(top, #ffb108, #c77700);
+    background-image: -o-linear-gradient(top, #ffb108, #c77700);
+    background-image: linear-gradient(to bottom, #ffb108, #c77700);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    -webkit-box-shadow: 6px 4px 9px #666666;
+    -moz-box-shadow: 6px 4px 9px #666666;
+    box-shadow: 6px 4px 9px #666666;
+  }
