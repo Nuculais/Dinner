@@ -7,9 +7,9 @@ const DinnerModel = function () {
   let observers = [];
   let currentDish = "";
   let meny = [];
-  localStorage.setItem('Menu', JSON.stringify(meny));
+ /* localStorage.setItem('Menu', JSON.stringify(meny));
   localStorage.setItem('numberOfGuests', 0);
-  localStorage.setItem('totprice', 0);
+  localStorage.setItem('totprice', 0);*/
   let dishType = "";
   let dishFilter = "";
   let menutotprice = 0;
@@ -55,7 +55,8 @@ const DinnerModel = function () {
     //Returns the full menu
     this.getMenu = function(){
       //let menuDishes = JSON.parse(localStorage.getItem('Menu'));
-      return JSON.parse(localStorage.getItem('Menu'));
+      //   if localstorage is empty, add item, else return empty if()
+      // return JSON.parse(localStorage.getItem('Menu'));
      // return localStorage.getItem(JSON.parse('Menu'));
     }
 
