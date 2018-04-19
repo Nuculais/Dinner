@@ -7,7 +7,7 @@ const DinnerModel = function () {
   let observers = [];
   let currentDish = "";
   let meny = [];
- /* localStorage.setItem('Menu', JSON.stringify(meny));
+  /*localStorage.setItem('Menu', );
   localStorage.setItem('numberOfGuests', 0);
   localStorage.setItem('totprice', 0);*/
   let dishType = "";
@@ -21,9 +21,14 @@ const DinnerModel = function () {
   };
 
   this.getNumberOfGuests = function(){
-    let guests = parseInt(localStorage.getItem("numberOfGuests"));
-
-    return guests;
+    let guests = parseInt(localStorage.getItem("numberOfGuests"))
+    let noguests = 0;
+    if(guests != (null || 0)){
+      return guests;
+    }
+    else{
+      return noguests;
+    }
   };
 
   this.setDishType = function(type){
@@ -55,7 +60,14 @@ const DinnerModel = function () {
     //Returns the full menu
     this.getMenu = function(){
       //let menuDishes = JSON.parse(localStorage.getItem('Menu'));
-      //   if localstorage is empty, add item, else return empty if()
+      //   if localstorage is empty, add item, else return empty 
+      let ny = 0;
+      if(JSON.parse(localStorage.getItem('Menu')).length != 0){
+        return localStorage.getItem('Menu');
+      }
+      else{
+        return ny;
+      }
       // return JSON.parse(localStorage.getItem('Menu'));
      // return localStorage.getItem(JSON.parse('Menu'));
     }
@@ -66,6 +78,7 @@ const DinnerModel = function () {
       var price = 0;
       let menuDishes = JSON.parse(localStorage.getItem('Menu'));
       
+      if(menuDishes.length != 0){
           for(var i=0; i<menuDishes.length;i++)
           {
             price += menuDishes[i].pricePerServing;
@@ -74,7 +87,10 @@ const DinnerModel = function () {
 
           let tot = Math.floor(price);  
           return tot;
-          //localStorage.setItem('totprice', JSON.stringify(tot));
+        }
+        else{
+          return 0;
+        }
     }
 
 
