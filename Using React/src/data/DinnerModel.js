@@ -7,12 +7,19 @@ const DinnerModel = function () {
   let observers = [];
   let currentDish = "";
   let meny = [];
- /* localStorage.setItem('Menu', JSON.stringify(meny));
-  localStorage.setItem('numberOfGuests', 0);
-  localStorage.setItem('totprice', 0);*/
   let dishType = "";
   let dishFilter = "";
   let menutotprice = 0;
+
+  
+  if(!localStorage.getItem('Menu')){
+    localStorage.setItem('Menu', JSON.stringify([]));}
+
+  if(!localStorage.getItem('numberOfGuests')){
+    localStorage.setItem('numberOfGuests', 1);}
+
+  if(!localStorage.getItem('totprice')){
+    localStorage.setItem('totprice', 0);}
 
 
   this.setNumberOfGuests = function(num){
@@ -21,9 +28,14 @@ const DinnerModel = function () {
   };
 
   this.getNumberOfGuests = function(){
-    let guests = parseInt(localStorage.getItem("numberOfGuests"));
-
-    return guests;
+    let guests = parseInt(localStorage.getItem("numberOfGuests"))
+    let noguests = 0;
+    if(guests != (null || 0)){
+      return guests;
+    }
+    else{
+      return noguests;
+    }
   };
 
   this.setDishType = function(type){
@@ -54,10 +66,7 @@ const DinnerModel = function () {
 
     //Returns the full menu
     this.getMenu = function(){
-      //let menuDishes = JSON.parse(localStorage.getItem('Menu'));
-      //   if localstorage is empty, add item, else return empty if()
-      // return JSON.parse(localStorage.getItem('Menu'));
-     // return localStorage.getItem(JSON.parse('Menu'));
+      return JSON.parse(localStorage.getItem('Menu'));
     }
 
 
@@ -65,7 +74,8 @@ const DinnerModel = function () {
     this.getTotalMenuPrice = function(){
       var price = 0;
       let menuDishes = JSON.parse(localStorage.getItem('Menu'));
-      
+      console.log(menuDishes.length);
+      if(menuDishes.length != 0){
           for(var i=0; i<menuDishes.length;i++)
           {
             price += menuDishes[i].pricePerServing;
@@ -73,27 +83,37 @@ const DinnerModel = function () {
           price = (price * this.getNumberOfGuests());
 
           let tot = Math.floor(price);  
-          return tot;
-          //localStorage.setItem('totprice', JSON.stringify(tot));
+          localStorage.setItem('totprice', tot);
+          console.log('bu');}
+        else{
+          localStorage.setItem('totprice', 0);
+          console.log('bä');
+        }
+        return JSON.parse(localStorage.getItem('totprice'));
+        notifyObservers();
     }
 
 
     //Adds a dish to the menu
     this.addDish = function(){
       let menu = JSON.parse(localStorage.getItem('Menu'));
-      let inmenu = menu.some(e => e.id === currentDish.id);
-      if(!inmenu){
-      menu.push(currentDish);
-      let stuff = JSON.stringify(menu);
-      localStorage.setItem('Menu', stuff);
 
-      notifyObservers();
+      if(menu != null){
+        let inmenu = menu.some(e => e.id == currentDish.id);
+      if(!inmenu){
+        menu.push(currentDish);
+        let stuff = JSON.stringify(menu);
+        localStorage.setItem('Menu', stuff);}}
+      else{
+        let nymeny = []
+        nymeny.push(currentDish);
+        localStorage.setItem('Menu', JSON.stringify(nymeny));
       }
+      notifyObservers();
     }
 
     //Removes a dish from the menu
     this.removeDishFromMenu = function(dish) {
-      console.log(dish);
       let menuDishes = JSON.parse(localStorage.getItem('Menu'));
           for(var i=0; i<menuDishes.length;i++){
             if(menuDishes[i].id === dish.id){
@@ -104,8 +124,8 @@ const DinnerModel = function () {
           notifyObservers();
         }
 
+
     // API Calls
-  
     this.getAllDishes = function(){
     let url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?'
       dishFilter = this.getDishFilter();
@@ -133,12 +153,6 @@ const DinnerModel = function () {
       .catch(handleError)
   }
 
-   /* this.getDish = function (id){
-        const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/informationBulk?ids='+id+'&includeNutrition=false'
-        return fetch(url, httpOptions)
-            .then(processResponse)
-            .catch(handleError)
-   }*/
 
   // API Helper methods
   const processResponse = function (response) {
