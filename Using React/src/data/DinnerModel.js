@@ -73,6 +73,7 @@ const DinnerModel = function () {
     //Returns the total price of the entire menu
     this.getTotalMenuPrice = function(){
       var price = 0;
+      var tot = 0;
       let menuDishes = JSON.parse(localStorage.getItem('Menu'));
       console.log(menuDishes.length);
       if(menuDishes.length != 0){
@@ -82,15 +83,22 @@ const DinnerModel = function () {
           }
           price = (price * this.getNumberOfGuests());
 
-          let tot = Math.floor(price);  
-          localStorage.setItem('totprice', tot);
-          console.log('bu');}
+          tot = Math.floor(price);  
+         // localStorage.setItem('totprice', tot);
+          console.log('bu');
+          //Infinite recursion problem happening here. The function gets called infinitely (by update() in Sidebar.js).
+        }
+
         else{
           localStorage.setItem('totprice', 0);
           console.log('bä');
         }
-        return JSON.parse(localStorage.getItem('totprice'));
+
+        localStorage.setItem('totprice', tot);
         notifyObservers();
+        return tot;
+        //JSON.parse(localStorage.getItem('totprice'));
+
     }
 
 
@@ -109,7 +117,7 @@ const DinnerModel = function () {
         nymeny.push(currentDish);
         localStorage.setItem('Menu', JSON.stringify(nymeny));
       }
-      notifyObservers();
+      //notifyObservers();
     }
 
     //Removes a dish from the menu
