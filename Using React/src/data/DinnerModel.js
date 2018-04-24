@@ -28,9 +28,9 @@ const DinnerModel = function () {
   };
 
   this.getNumberOfGuests = function(){
-    let guests = parseInt(localStorage.getItem("numberOfGuests"))
+    let guests = parseInt(localStorage.getItem("numberOfGuests"));
     let noguests = 0;
-    if(guests != (null || 0)){
+    if(guests !== (null || 0)){
       return guests;
     }
     else{
@@ -72,11 +72,21 @@ const DinnerModel = function () {
 
     //Returns the total price of the entire menu
     this.getTotalMenuPrice = function(){
-      var price = 0;
+
+      var totprice = 0;
+      var meny = this.getMenu();
+      var guests = this.getNumberOfGuests();
+
+      for(var i in meny){
+        totprice += meny[i].pricePerServing*guests;
+      }
+      return totprice;
+
+     /* var price = 0;
       var tot = 0;
       let menuDishes = JSON.parse(localStorage.getItem('Menu'));
       console.log(menuDishes.length);
-      if(menuDishes.length != 0){
+      if(menuDishes.length !== 0){
           for(var i=0; i<menuDishes.length;i++)
           {
             price += menuDishes[i].pricePerServing;
@@ -84,22 +94,25 @@ const DinnerModel = function () {
           price = (price * this.getNumberOfGuests());
 
           tot = Math.floor(price);  
-         // localStorage.setItem('totprice', tot);
+          localStorage.setItem('totprice', tot);
           console.log('bu');
           //Infinite recursion problem happening here. The function gets called infinitely (by update() in Sidebar.js).
         }
-
         else{
           localStorage.setItem('totprice', 0);
           console.log('bä');
         }
 
-        localStorage.setItem('totprice', tot);
-        notifyObservers();
-        return tot;
-        //JSON.parse(localStorage.getItem('totprice'));
-
+        //localStorage.setItem('totprice', tot);
+        //notifyObservers();
+       // return tot;
+        //JSON.parse(localStorage.getItem('totprice')); */
     }
+
+  /*  this.getTotalMenuPrice = function(){
+      return JSON.parse(localStorage.getItem('totprice'));
+    }*/
+
 
 
     //Adds a dish to the menu
@@ -107,15 +120,19 @@ const DinnerModel = function () {
       let menu = JSON.parse(localStorage.getItem('Menu'));
 
       if(menu != null){
-        let inmenu = menu.some(e => e.id == currentDish.id);
+        let inmenu = menu.some(e => e.id === currentDish.id);
       if(!inmenu){
         menu.push(currentDish);
         let stuff = JSON.stringify(menu);
-        localStorage.setItem('Menu', stuff);}}
+        localStorage.setItem('Menu', stuff);
+        this.setTotalMenuPrice();
+      }
+    }
       else{
         let nymeny = []
         nymeny.push(currentDish);
         localStorage.setItem('Menu', JSON.stringify(nymeny));
+        this.setTotalMenuPrice();
       }
       //notifyObservers();
     }

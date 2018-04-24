@@ -31,8 +31,6 @@ class Sidebar extends Component {
     this.props.model.setNumberOfGuests(+e.target.value)
   }
 
-  /*<button id="plusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests+1)}></button>
-  <button id="minusguest" onClick={this.props.model.setNumberOfGuests(this.state.numberOfGuests-1)}></button>*/
   handleClick(dish){
     this.props.model.removeDishFromMenu(dish);
   }

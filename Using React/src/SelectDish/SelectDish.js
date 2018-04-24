@@ -48,7 +48,7 @@ class SelectDish extends Component {
 
     render() {
         if (this.state.status === 'INITIAL') {
-            return <div id="tocenter"><img className="loader" src={loader}/></div>
+            return <div id="tocenter"><img className="loader" src={loader} alt="Not available"/></div>
         }
         else if (this.state.status === 'LOADED') {
             return (

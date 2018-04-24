@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Details.css';
 import Sidebar from '../Sidebar/Sidebar';
-import Dishes from '../Dishes/Dishes';
 import {Link} from 'react-router-dom';
 import loader from '../Loader/loader.gif';
 import {modelInstance} from '../data/DinnerModel';
@@ -48,13 +47,12 @@ handleClick(dishes){
 
   render() {
     let dish = this.state.dish;
-    let dishpart = null;
 
     if(this.state.status === 'INITIAL'){
       return(
      <div className="currdishrow row" id="loaderdiv">
        <Sidebar model={this.props.model}/>
-       <img className="loader" src={loader}/>
+       <img className="loader" src={loader} alt="Not available"/>
      </div>
       );
     }
@@ -66,7 +64,7 @@ handleClick(dishes){
             <div className="row">
               <div className="col-sm-5">
                 <h3>{dish.title}</h3>
-                <img id="bilden" src={dish.image}/>
+                <img id="bilden" src={dish.image} alt="Not available"/>
                 <p>{dish.instructions}</p>
                 <Link to="/selectdish">
                   <button className="btn btn-warning">Back to search</button>

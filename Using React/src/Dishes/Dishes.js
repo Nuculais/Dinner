@@ -48,21 +48,21 @@ class Dishes extends Component {
   render() {
     let thedishes = null;
 
-    if(this.state.status == 'INITIAL') {
-        thedishes = <div id="tocenter"><img className="loader" src={loader}/></div>
+    if(this.state.status === 'INITIAL') {
+        thedishes = <div id="tocenter"><img className="loader" src={loader} alt="Not available"/></div>
     }
-     else if(this.state.status == 'LOADED'){
+     else if(this.state.status === 'LOADED'){
         thedishes = this.state.dishes.map((dish) =>
           <div key={dish.id} className="dishes col-sm-3">
           <Link to={"/dishdetails/" + dish.id}>
-              <img className="dishimg" src={"https://spoonacular.com/recipeImages/" + dish.image} />
+              <img className="dishimg" src={"https://spoonacular.com/recipeImages/" + dish.image} alt="Not available" />
               <p className="dishname"> {dish.title} </p>
           </Link>
           </div>
         )}
  
       else{
-        thedishes = <b>Could not load dishes, please try again.</b>
+        thedishes = <b id="erroring">Could not load dishes, please try again.</b>
     }
 
     return (

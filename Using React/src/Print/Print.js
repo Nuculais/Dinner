@@ -29,7 +29,7 @@ class Print extends Component {
   }
 
   render(){
-    if(this.state.status == 'INITIAL') {
+    if(this.state.status === 'INITIAL') {
       return (
         <div className="col">
           <div className="row" id="header">
@@ -46,7 +46,7 @@ class Print extends Component {
                         <div className="row">
                         <div className="col-sm-6" key={i}>
                         <h4>{dish.title}</h4>
-                          <img className="overviewimg" src={dish.image}/>                        
+                          <img className="overviewimg" src={dish.image} alt="Not available"/>                        
                         </div>
                         <div className="col-sm-6" key={i}>
                           <p>{dish.instructions}</p>
